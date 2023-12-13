@@ -5,49 +5,17 @@ import ProjectViewAnimation from "../shared/ProjectViewAnimation";
 import gsap from "gsap";
 
 const Project = () => {
-  const projectContainerRef = useRef<HTMLDivElement>(null);
-  const projectViewContainerRef = useRef<HTMLDivElement>(null);
-
   const [projectViewIndex, setProjectViewIndex] = useState<number | undefined>(
     undefined
   );
 
   const [isPreviewActive, setIsPreviewActive] = useState<boolean>(false);
 
-  useEffect(() => {
-    if (
-      projectContainerRef == null ||
-      projectContainerRef.current == null ||
-      projectViewContainerRef == null ||
-      projectViewContainerRef.current == null
-    )
-      return;
-
-    const xMoveContainerRef = gsap.quickTo(
-      projectViewContainerRef.current,
-      "x",
-      { duration: 0.8, ease: "power3" }
-    );
-
-    const yMoveontainerRef = gsap.quickTo(
-      projectViewContainerRef.current,
-      "top",
-      { duration: 0.5, ease: "power3" }
-    );
-
-    window.addEventListener("mousemove", (e) => {
-      const { pageX, pageY ,clientY} = e;
-      xMoveContainerRef(pageX);
-      yMoveontainerRef(pageY);
-    });
-  }, [projectContainerRef.current, projectViewContainerRef.current]);
-
   return (
     <div>
       <div className="py-5 px-20 ">
         <div
-          className=" flex flex-col"
-          ref={projectContainerRef}
+          className="relative  flex flex-col"
           onMouseEnter={() => setIsPreviewActive(true)}
           onMouseLeave={() => setIsPreviewActive(false)}
         >
@@ -63,6 +31,7 @@ const Project = () => {
               </div>
             );
           })}
+          
         </div>
 
         <div className="my-10 flex justify-center">
@@ -71,16 +40,11 @@ const Project = () => {
           </div>
         </div>
       </div>
-      {projectViewIndex != undefined && (
-        <div className="absolute pointer-events-none" ref={projectViewContainerRef} 
-        >
-          <ProjectViewAnimation
-            projects={projectDetails}
+        <ProjectViewAnimation
             currentIndex={projectViewIndex}
             isActive={isPreviewActive}
+            projects={projectDetails}
           />
-        </div>
-      )}
     </div>
   );
 };
