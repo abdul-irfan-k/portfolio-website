@@ -1,5 +1,6 @@
 import About from "@/components/About";
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import Loader from "@/components/Loader";
 import Project from "@/components/Project";
 import ProjectHorizontalScroll from "@/components/ProjectHorizontalScroll";
@@ -10,6 +11,7 @@ const HomePage = () => {
     <div>
       {/* <Loader /> */}
       {/* <div className="block h-screen"></div> */}
+      <Header />
       <About />
       <Project />
       <Footer />
