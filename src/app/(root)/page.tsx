@@ -8,15 +8,15 @@ import React, { useState } from "react";
 
 const HomePage = () => {
   return (
-    <div>
+    <div >
       {/* <Loader /> */}
       {/* <div className="block h-screen"></div> */}
-      <Header />
+      {/* <Header /> */}
       <About />
       <Project />
+      <ProjectHorizontalScroll />
       <Footer />
 
-      {/* <ProjectHorizontalScroll /> */}
     </div>
   );
 };

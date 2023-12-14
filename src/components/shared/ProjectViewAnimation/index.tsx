@@ -27,15 +27,12 @@ const ProjectViewAnimation: FC<ProjectViewAnimationProps> = ({
   const projectViewLableRef = useRef<HTMLDivElement>(null);
   const projectViewCursorRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    console.log("effect", projectContainerRef);
     if (
       !projectContainerRef.current ||
       !projectViewLableRef.current ||
       !projectViewCursorRef
     )
       return;
-
-    console.log("workign ");
 
     const xMove = gsap.quickTo(projectContainerRef.current, "x", {
       duration: 0.8,
@@ -86,9 +83,7 @@ const ProjectViewAnimation: FC<ProjectViewAnimationProps> = ({
     });
   }, [projectContainerRef.current]);
 
-  useEffect(() => {
-    console.log("is Active ", isActive);
-  }, [isActive]);
+
 
   return (
     <>

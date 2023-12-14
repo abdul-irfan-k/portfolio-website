@@ -12,27 +12,43 @@ const ProjectHorizontalScroll = () => {
     const scollContainerSelector = gsap.utils.selector(element);
     console.log("not null");
     gsap
-      .timeline({
+      .to(scollContainerSelector(".leftscrollcontainer"), {
         scrollTrigger: {
           trigger: element,
           start: "top bottom",
           end: "bottom top",
           markers: true,
+          scrub: 1,
+          toggleActions: "restart none none none",
         },
+        transform: "translateX(-10%)",
       })
-      .to(scollContainerSelector(".leftscrollcontainer "), {
-        transalteX: "50%",
-      });
+    gsap
+      .to(scollContainerSelector(".rightscrollcontainer"), {
+        scrollTrigger: {
+          trigger: element,
+          start: "top bottom",
+          end: "bottom top",
+          markers: true,
+          scrub: 1,
+          toggleActions: "restart none none none",
+        },
+        transform: "translateX(10%)",
+      })
+ 
+ 
   }, []);
   return (
-    <div ref={containerRef}>
-      <div className="my-[100vh]  gap-10 flex leftscrollcontainer ">
+    <div ref={containerRef} className="my-10">
+      <div className="  gap-10 flex leftscrollcontainer translate-x-[-40%] ">
+        <ProjectHorizontalScrollCard />
         <ProjectHorizontalScrollCard />
         <ProjectHorizontalScrollCard />
         <ProjectHorizontalScrollCard />
         <ProjectHorizontalScrollCard />
       </div>
-      <div className="mt-5 gap-10 flex rightscrollcontainer ">
+      <div className="relative  mt-5 left-[-40%] gap-10 flex rightscrollcontainer translate-x-[40%]">
+        <ProjectHorizontalScrollCard />
         <ProjectHorizontalScrollCard />
         <ProjectHorizontalScrollCard />
         <ProjectHorizontalScrollCard />
