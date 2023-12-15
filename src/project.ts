@@ -1,4 +1,4 @@
-interface projectDetailInterface {
+export interface projectDetailInterface {
   name: string;
   bannerUrl: string;
 }

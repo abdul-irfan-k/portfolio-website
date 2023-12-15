@@ -1,10 +1,11 @@
 import React from "react";
+import FooterScrollAnimation from "./FooterScrollAnimation";
 
 const Footer = () => {
   return (
-    <div>
-      <div className="py-10 bg-dark text-slate-50 ">
-        <div className="py-5 px-36 ">
+    <div className="mt-20">
+      <div className="relative  pt-10 pb-5 bg-dark text-slate-50 "  >
+        <div className="relative py-28 pb-5 px-36 " data-scroll data-scroll-speed="0.2" data-scroll-position="bottom">
           <div className="flex flex-col w-[50%]">
             <div className="relative  gap-5 flex items-center ">
               <div className="w-[20%] aspect-square block bg-neutral-950 rounded-full"></div>
@@ -52,6 +53,8 @@ const Footer = () => {
             </div>
           </div>
         </div>
+
+        <FooterScrollAnimation />
       </div>
     </div>
   );
