@@ -3,6 +3,7 @@ import { projectDetails } from "@/project";
 import React, { useEffect, useRef, useState } from "react";
 import ProjectViewAnimation from "../shared/ProjectViewAnimation";
 import gsap from "gsap";
+import ButtonHoverAnimation from "../shared/ButtonHoverAnimation";
 
 const Project = () => {
   const [projectViewIndex, setProjectViewIndex] = useState<number | undefined>(
@@ -31,20 +32,21 @@ const Project = () => {
               </div>
             );
           })}
-          
         </div>
 
         <div className="my-10 flex justify-center">
-          <div className="px-8 py-4 rounded-full border-[1px] border-dark text-lg">
-            More Work
-          </div>
+          <ButtonHoverAnimation>
+            <div className="px-8 py-4 rounded-full flex items-center justify-center border-[1px] border-dark text-lg">
+              <span className="z-[20]">More Work </span>
+            </div>
+          </ButtonHoverAnimation>
         </div>
       </div>
-        <ProjectViewAnimation
-            currentIndex={projectViewIndex}
-            isActive={isPreviewActive}
-            projects={projectDetails}
-          />
+      <ProjectViewAnimation
+        currentIndex={projectViewIndex}
+        isActive={isPreviewActive}
+        projects={projectDetails}
+      />
     </div>
   );
 };

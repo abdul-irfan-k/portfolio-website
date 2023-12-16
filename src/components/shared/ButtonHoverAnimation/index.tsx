@@ -1,6 +1,7 @@
 "use client";
 import React, { FC, useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import MagneticAnimation from "../MagneticAnimation";
 
 interface ButtonHoverAnimationProps {
   children: React.ReactNode;
@@ -19,7 +20,7 @@ const ButtonHoverAnimation: FC<ButtonHoverAnimationProps> = ({
       .to(
         circleRef.current,
         {
-          top: "0%",
+          top: "-10%",
           width: "150%",
           duration: "0.4",
           ease: "power3.in",
@@ -50,19 +51,21 @@ const ButtonHoverAnimation: FC<ButtonHoverAnimationProps> = ({
   };
 
   return (
-    <div
-      className="relative  flex justify-center overflow-hidden rounded-full "
-      style={style}
-      onMouseEnter={onMouseEnterHandler}
-      onMouseLeave={onMouseLeaveHandler}
-    >
-      {children}
+    <MagneticAnimation>
       <div
-        className="absolute w-[120%] h-[150%]  rounded-full top-[100%] bg-blue-500 block z-[10]"
-        ref={circleRef}
-        style={{ borderRadius: "50%" }}
-      ></div>
-    </div>
+        className="relative  flex justify-center overflow-hidden rounded-full "
+        style={style}
+        onMouseEnter={onMouseEnterHandler}
+        onMouseLeave={onMouseLeaveHandler}
+      >
+        {children}
+        <div
+          className="absolute w-[120%] h-[150%]  rounded-full top-[100%] bg-blue-500 block z-[10]"
+          ref={circleRef}
+          style={{ borderRadius: "50%" }}
+        ></div>
+      </div>
+     </MagneticAnimation>
   );
 };
 
