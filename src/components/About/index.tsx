@@ -1,4 +1,5 @@
 import React from "react";
+import ButtonHoverAnimation from "../shared/ButtonHoverAnimation";
 
 const About = () => {
   return (
@@ -15,9 +16,11 @@ const About = () => {
             projects from inception to completion
           </div>
 
-          <div className="mt-20 w-44 aspect-square rounded-full flex items-center justify-center text-slate-50 bg-dark">
-            About Me
-          </div>
+          <ButtonHoverAnimation style={{ marginTop: "5rem" }}>
+            <div className=" w-44 aspect-square rounded-full flex items-center justify-center text-slate-50 bg-dark">
+              <span className="z-20">About Me</span>
+            </div>
+          </ButtonHoverAnimation>
         </div>
       </div>
     </div>
