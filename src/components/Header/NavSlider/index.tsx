@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { Variants, motion } from "framer-motion";
 import { transform } from "next/dist/build/swc";
+import MagneticAnimation from "@/components/shared/MagneticAnimation";
 
 interface NavSliderProps {
   isActive: boolean;
@@ -50,7 +51,7 @@ const NavSlider: FC<NavSliderProps> = ({ isActive }) => {
     },
   };
   return (
-    <div className="relative h-0 z-[20]">
+    <div className="relative h-0 z-[50]">
       <motion.div
         className="top-0 fixed right-0 w-[35vw] h-full bg-dark text-slate-50"
         animate={isActive ? "active" : "notActive"}
@@ -70,68 +71,85 @@ const NavSlider: FC<NavSliderProps> = ({ isActive }) => {
           },
         }}
       >
-        <div className="px-20 py-20 flex flex-col h-full ">
-          <div className="py-7 text-slate-300 border-b-[1px] border-slate-300">
+        <div className=" w-full z-[100] px-20 py-14 flex flex-col  h-full  ">
+          <div className=" py-7 text-slate-300 border-b-[1px] border-slate-300 ">
             <span className="text-sm">NAVIGATION</span>
           </div>
-          <div className="gap-5 mt-10 flex flex-col">
-            <motion.h1
-              className="text-5xl font-medium"
-              initial="initial"
-              animate={isActive ? "active" : "notActive"}
-              variants={textSlideVariants}
-              custom={1}
-            >
-              Home
-            </motion.h1>
-            <motion.h1
-              className="text-5xl font-medium"
-              initial="initial"
-              animate={isActive ? "active" : "notActive"}
-              variants={textSlideVariants}
-              custom={2}
-            >
-              Work
-            </motion.h1>
-            <motion.h1
-              className="text-5xl font-medium"
-              initial="initial"
-              animate={isActive ? "active" : "notActive"}
-              variants={textSlideVariants}
-              custom={3}
-            >
-              About
-            </motion.h1>
-            <motion.h1
-              className="text-5xl font-medium"
-              initial="initial"
-              animate={isActive ? "active" : "notActive"}
-              variants={textSlideVariants}
-              custom={4}
-            >
-              Contact
-            </motion.h1>
+
+          <div className=" relative mt-10 flex flex-col">
+            <MagneticAnimation magneticStifness={0.5}>
+              <motion.h1
+                className="relative text-6xl py-3  "
+                initial="initial"
+                animate={isActive ? "active" : "notActive"}
+                variants={textSlideVariants}
+                custom={1}
+              >
+                Home
+              </motion.h1>
+            </MagneticAnimation>
+            <MagneticAnimation magneticStifness={0.5}>
+              <motion.h1
+                className="text-6xl py-3 "
+                initial="initial"
+                animate={isActive ? "active" : "notActive"}
+                variants={textSlideVariants}
+                custom={2}
+              >
+                Work
+              </motion.h1>
+            </MagneticAnimation>
+            <MagneticAnimation magneticStifness={0.5}>
+              <motion.h1
+                className="text-6xl py-3 "
+                initial="initial"
+                animate={isActive ? "active" : "notActive"}
+                variants={textSlideVariants}
+                custom={3}
+              >
+                About
+              </motion.h1>
+            </MagneticAnimation>
+            <MagneticAnimation magneticStifness={0.5}>
+              <motion.h1
+                className="text-6xl py-3 "
+                initial="initial"
+                animate={isActive ? "active" : "notActive"}
+                variants={textSlideVariants}
+                custom={4}
+              >
+                Contact
+              </motion.h1>
+            </MagneticAnimation>
           </div>
-          <div className="gap-1 mt-auto flex flex-col">
+          <div className=" gap-1 mt-auto flex flex-col">
             <span className="text-slate-300">SOCIALS</span>
             <div className="flex justify-between text-sm ">
-              <span>Awwards</span>
-              <span>Instagram</span>
-              <span>Twitter</span>
-              <span>Linkedin</span>
+              <MagneticAnimation magneticStifness={0.5}>
+                <span className="py-2">Facebook</span>
+              </MagneticAnimation>
+              <MagneticAnimation magneticStifness={0.5}>
+                <span className="py-2"> Instagram</span>
+              </MagneticAnimation>
+              <MagneticAnimation magneticStifness={0.5}>
+                <span className="py-2"> Twitter</span>
+              </MagneticAnimation>
+              <MagneticAnimation magneticStifness={0.5}>
+                <span className="py-2"> Linkedin</span>
+              </MagneticAnimation>
             </div>
           </div>
-          <div className="left-0 top-0 absolute h-full w-full ">
-            {/* <div> */}
-          </div>
-          <div className="absolute top-0 left-0 translate-x-[-100%]  h-full w-24  block fill-dark">
-            <svg xmlns="http://www.w3.org/2000/svg" height={"full"}>
-              <motion.path
-                variants={curve}
-                initial="initial"
-                animate={isActive ? "enter" : "exit"}
-              />
-            </svg>
+
+          <div className="absolute top-0 left-0 translate-x-[-100%]   h-full w-24  block fill-dark">
+            <div className=" z-[20]  h-full">
+              <svg xmlns="http://www.w3.org/2000/svg" height={"full"} className="z-[20]" width={"full"}>
+                <motion.path
+                  variants={curve}
+                  initial="initial"
+                  animate={isActive ? "enter" : "exit"}
+                />
+              </svg>
+            </div>
           </div>
         </div>
       </motion.div>

@@ -11,7 +11,7 @@ const HomePage = () => {
     <div >
       {/* <Loader /> */}
       {/* <div className="block h-screen"></div> */}
-      {/* <Header /> */}
+      <Header />
       <About />
       <Project />
       <ProjectHorizontalScroll />
