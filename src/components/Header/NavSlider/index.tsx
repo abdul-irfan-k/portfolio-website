@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import { Variants, motion } from "framer-motion";
 import { transform } from "next/dist/build/swc";
 import MagneticAnimation from "@/components/shared/MagneticAnimation";
+import Link from "next/link";
 
 interface NavSliderProps {
   isActive: boolean;
@@ -96,7 +97,7 @@ const NavSlider: FC<NavSliderProps> = ({ isActive }) => {
                 variants={textSlideVariants}
                 custom={2}
               >
-                Work
+                <Link href={"/work"}>Work</Link>
               </motion.h1>
             </MagneticAnimation>
             <MagneticAnimation magneticStifness={0.5}>
@@ -142,7 +143,12 @@ const NavSlider: FC<NavSliderProps> = ({ isActive }) => {
 
           <div className="absolute top-0 left-0 translate-x-[-100%]   h-full w-24  block fill-dark">
             <div className=" z-[20]  h-full">
-              <svg xmlns="http://www.w3.org/2000/svg" height={"full"} className="z-[20]" width={"full"}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height={"full"}
+                className="z-[20]"
+                width={"full"}
+              >
                 <motion.path
                   variants={curve}
                   initial="initial"

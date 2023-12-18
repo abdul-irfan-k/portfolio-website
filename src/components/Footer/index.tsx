@@ -2,6 +2,8 @@ import React from "react";
 import FooterScrollAnimation from "./FooterScrollAnimation";
 import ButtonHoverAnimation from "../shared/ButtonHoverAnimation";
 import MagneticAnimation from "../shared/MagneticAnimation";
+import Link from "next/link";
+import FooterInfoAndLinkBox from "./FooterInfoAndLinkBox";
 
 const Footer = () => {
   return (
@@ -33,7 +35,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="relative gap-5 mt-16 flex ">
+          <div className="relative gap-5 mt-16 flex  ">
             <ButtonHoverAnimation style={undefined} magneticStifness={0.8}>
               <div className="relative px-10 py-4 rounded-full flex items-center justify-center text-lg font-semibold border-[1px] border-slate-400">
                 <span className="z-[20]  ">irfan@gmail.com</span>
@@ -46,33 +48,8 @@ const Footer = () => {
             </ButtonHoverAnimation>
           </div>
         </div>
-
-        <div className="mt-20 px-16 flex ">
-          <div className="gap-2 flex flex-col">
-            <span className="text-xs text-slate-300">VERSION</span>
-            <span className="text-base">2023@edition</span>
-          </div>
-          <div className="ml-5 gap-2 flex flex-col">
-            <span className="text-xs text-slate-300">VERSION</span>
-            <span className="text-base">2023@edition</span>
-          </div>
-          <div className="gap-2 ml-auto flex flex-col">
-            <span className="text-xs text-slate-300">VERSION</span>
-            <div className="gap-5 flex ">
-              <MagneticAnimation>
-                <span className="py-1 text-base ">Github</span>
-              </MagneticAnimation>
-              <MagneticAnimation>
-                <span className="py-1 text-base ">Instagram</span>
-              </MagneticAnimation>
-              <MagneticAnimation>
-                <span className="py-1 text-base ">Twitter</span>
-              </MagneticAnimation>
-              <MagneticAnimation>
-                <span className="py-1 text-base ">Linedin </span>
-              </MagneticAnimation>
-            </div>
-          </div>
+        <div className="mt-20">
+          <FooterInfoAndLinkBox />
         </div>
 
         <FooterScrollAnimation />

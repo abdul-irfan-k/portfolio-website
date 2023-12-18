@@ -1,24 +1,31 @@
+"use client";
 import React from "react";
 import ContactForm from "../ContactForm";
 import ContactInformation from "../ContactInformation";
+import FooterInfoAndLinkBox from "@/components/Footer/FooterInfoAndLinkBox";
 
 const ContactPageContainer = () => {
   return (
-    <div className="py-10 px-48 text-slate-50">
-      <div className="gap-[10%] relative flex items-end ">
-        <span className="w-[60%] text-8xl ">
-          {"Let's start a project together"}
-        </span>
-        <div className="relative w-[10%] aspect-square rounded-full block bg-neutral-600"></div>
+    <div className=" text-slate-50">
+      <div className="px-20 gap-[10%] relative flex items-end md:py-10 md:px-48">
+        <div className="] flex flex-col text-5xl md:text-8xl md:w-[60% ">
+          <span className="ml-[17%] md:ml-0">{"Let's start a "}</span>
+          <span>project together</span>
+        </div>
+        <div className="absolute w-[8%] top-0 aspect-square rounded-full block bg-neutral-600 md:top-auto md:left-[64%]"></div>
       </div>
 
-      <div className="flex justify-between">
-        <div className="pt-28 w-[60%] ">
-            <ContactForm />
+      <div className="px-20  flex flex-col flex-col-reverse justify-between  md:flex-row md:py-10 md:px-48">
+        <div className="pt-10  w-full md:w-[60%] md:pt-28 ">
+          <ContactForm />
         </div>
-        <div className="pt-28 w-[30%]">
-            <ContactInformation />
+        <div className="pt-10  md:w-[30%] md:pt-28">
+          <ContactInformation />
         </div>
+      </div>
+
+      <div className="mt-20">
+        <FooterInfoAndLinkBox />
       </div>
     </div>
   );

@@ -37,6 +37,7 @@ const ProjectList = () => {
             currentIndex={projectViewIndex}
             isActive={isPreviewActive}
             projects={projectDetails}
+            isListView
           />
     </div>
   );

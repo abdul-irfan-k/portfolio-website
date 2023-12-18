@@ -35,7 +35,7 @@ const Project = () => {
         </div>
 
         <div className="my-10 flex justify-center">
-          <ButtonHoverAnimation>
+          <ButtonHoverAnimation style={undefined}>
             <div className="px-8 py-4 rounded-full flex items-center justify-center border-[1px] border-dark text-lg">
               <span className="z-[20]">More Work </span>
             </div>
@@ -46,6 +46,7 @@ const Project = () => {
         currentIndex={projectViewIndex}
         isActive={isPreviewActive}
         projects={projectDetails}
+        isListView={true}
       />
     </div>
   );

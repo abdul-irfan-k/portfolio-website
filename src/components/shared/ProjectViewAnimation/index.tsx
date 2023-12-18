@@ -11,6 +11,7 @@ interface ProjectViewAnimationProps {
   projects: projectDetailInterface[];
   currentIndex?: number;
   isActive: boolean;
+  isListView: boolean;
 }
 
 const scaleAnimation: Variants = {
@@ -22,6 +23,7 @@ const ProjectViewAnimation: FC<ProjectViewAnimationProps> = ({
   currentIndex,
   isActive,
   projects,
+  isListView,
 }) => {
   const projectContainerRef = useRef<HTMLDivElement>(null);
   const projectViewLableRef = useRef<HTMLDivElement>(null);
@@ -83,12 +85,13 @@ const ProjectViewAnimation: FC<ProjectViewAnimationProps> = ({
     });
   }, [projectContainerRef.current]);
 
-
-
   return (
     <>
       <div
-        className="absolute pointer-events-none w-[27vw] aspect-square overflow-hidden  "
+        className={
+          "absolute pointer-events-none  aspect-square overflow-hidden  " +
+          (isListView ? " w-[27vw]" : "w-0")
+        }
         ref={projectContainerRef}
       >
         <motion.div
@@ -119,8 +122,9 @@ const ProjectViewAnimation: FC<ProjectViewAnimationProps> = ({
           }}
         ></motion.div>
       </div>
-      <div ref={projectViewLableRef}
-      className="absolute pointer-events-none z-[70] w-16 aspect-square text-center  flex items-center " 
+      <div
+        ref={projectViewLableRef}
+        className="absolute pointer-events-none z-[70] w-16 aspect-square text-center  flex items-center "
       >
         <motion.div
           className="relative  pointer-events-none  text-lg  w-full overflow-hidden text-slate-50 "

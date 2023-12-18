@@ -1,16 +1,21 @@
 "use client";
-import React, { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
 const FooterScrollAnimation = () => {
   const divContainerRef = useRef<HTMLDivElement>(null);
+  const pathRef = useRef<SVGPathElement>(null);
+  const [width, setWidth] = useState<number>(0);
 
   useEffect(() => {
+    if (!divContainerRef.current || !divContainerRef.current || width == 0)
+      return;
     const element = divContainerRef.current;
 
-    if (!element) return;
+
+
     const scollContainerSelector = gsap.utils.selector(element);
+    console.log("width", width);
     gsap.to(scollContainerSelector(".svgpath"), {
       scrollTrigger: {
         trigger: element,
@@ -21,10 +26,42 @@ const FooterScrollAnimation = () => {
         toggleActions: "restart none none none",
       },
       attr: {
-        d: `M0 0 L0 0 Q ${window.innerWidth / 2} ${25} ${window.innerWidth} 0`,
+        d: `M0 0 L0 0 Q ${width / 2} ${10} ${width} 0`,
       },
     });
+  }, [divContainerRef, width]);
+
+  useEffect(() => {
+    if (!divContainerRef.current) return;
+    const handleResize = () => {
+      console.log("width is ", divContainerRef.current.offsetWidth);
+      if (!divContainerRef.current) return;
+
+      setWidth(divContainerRef.current.offsetWidth);
+    };
+
+    divContainerRef.current.addEventListener("resize", handleResize);
+
+    return () => {
+      if (!divContainerRef.current) return;
+      divContainerRef.current.removeEventListener("resize", handleResize);
+    };
   }, []);
+
+  useEffect(() => {
+    if (!divContainerRef.current) return;
+    setWidth(divContainerRef.current.offsetWidth);
+
+    if (!pathRef || !pathRef.current) return;
+    console.log("set attribute");
+    pathRef.current.setAttribute(
+      "d",
+      `M0 0 L0 0 Q ${divContainerRef.current.offsetWidth/ 2} ${300} ${divContainerRef.current.offsetWidth} 0`
+    );
+
+    // pathRef.current.dataset = `M0 0 L0 0 Q ${window.innerWidth / 2} ${300} ${window.innerWidth} 0`
+  }, [pathRef]);
+
   return (
     <>
       <div
@@ -38,11 +75,10 @@ const FooterScrollAnimation = () => {
               height={"full"}
               width={"full"}
             >
-              <motion.path
-                d={`M0 0 L0 0 Q ${window.innerWidth / 2} ${300} ${
-                  window.innerWidth
-                } 0`}
-                initial="initial"
+              <path
+                ref={pathRef}
+                d={`M0 0 L0 0 Q ${0} ${300} ${0} 0`}
+                // initial="initial"
                 className={"svgpath"}
               />
             </svg>
