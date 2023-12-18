@@ -21,7 +21,7 @@ const FooterScrollAnimation = () => {
         trigger: element,
         start: "top bottom",
         end: "bottom top",
-        markers: true,
+        // markers: true,
         scrub: 1,
         toggleActions: "restart none none none",
       },

@@ -84,7 +84,7 @@ const ContactForm = () => {
       </div>
 
       <div className="h-[1px] mb-24 bg-neutral-500 w-full flex items-center justify-end ">
-        <div className="absolute  w-[25%] aspect-square rounded-full  overflow-hidden  w-[12%]">
+        <div className="absolute  w-[25%] aspect-square rounded-full  overflow-hidden  md:w-[12%]">
           <ButtonHoverAnimation style={undefined}>
             <div className=" flex items-center justify-center w-[100%] aspect-square rounded-full bg-blue-600 ">
               <span className="z-[20] text-xl">send</span>
