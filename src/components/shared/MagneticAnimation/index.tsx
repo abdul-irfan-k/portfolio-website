@@ -55,6 +55,8 @@ const MagneticAnimation: FC<MagneticAnimationProps> = ({
     magneticRef.current.addEventListener("mouseleave", () => {
       xMove(0);
       yMove(0);
+      xTextMove(0)
+      yTextMove(0)
     });
   }, [magneticRef.current]);
   return React.cloneElement(children, { ref: magneticRef });
