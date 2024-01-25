@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import ProjectViewAnimation from "../shared/ProjectViewAnimation";
 import gsap from "gsap";
 import ButtonHoverAnimation from "../shared/ButtonHoverAnimation";
+import { useRouter } from "next/navigation";
 
 const Project = () => {
   const [projectViewIndex, setProjectViewIndex] = useState<number | undefined>(
@@ -11,6 +12,7 @@ const Project = () => {
   );
 
   const [isPreviewActive, setIsPreviewActive] = useState<boolean>(false);
+  const router = useRouter()
 
   return (
     <div>
@@ -26,6 +28,7 @@ const Project = () => {
                 className="px-20 py-14 flex justify-between items-center"
                 key={index}
                 onMouseEnter={() => setProjectViewIndex(index)}
+                onClick={() => router.push(`/work/${project.name.replace(/\s/g, '')}`)}
               >
                 <h1 className="text-7xl ">{project.name}</h1>
                 <span className="text-base">Design & Development</span>
@@ -37,7 +40,7 @@ const Project = () => {
         <div className="my-10 flex justify-center">
           <ButtonHoverAnimation style={undefined}>
             <div className="px-8 py-4 rounded-full flex items-center justify-center border-[1px] border-dark text-lg">
-              <span className="z-[20]">More Work </span>
+              <span className="text z-[20]">More Work </span>
             </div>
           </ButtonHoverAnimation>
         </div>

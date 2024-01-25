@@ -13,7 +13,10 @@ const ProjectCardList = () => {
       <div className="gap-x-3  flex w-full flex-wrap  justify-between">
         {projectDetails.map((project, index) => {
           return (
-            <div key={index} className="mt-20 flex-[0_0_100%] md:flex-[0_0_45%] " >
+            <div
+              key={index}
+              className="mt-20 flex-[0_0_100%] md:flex-[0_0_45%] "
+            >
               <ProjectCard
                 onMouseEnterHandler={() => setProjectViewIndex(index)}
                 project={project}
@@ -25,8 +28,8 @@ const ProjectCardList = () => {
       </div>
       <div className="my-20 flex items-center justify-center">
         <ButtonHoverAnimation>
-          <div className="px-10 py-5 bg-dark text-slate-50 text-lg">
-            Archive
+          <div className=" px-10 py-5 bg-dark text-slate-50 text-lg">
+            <span className="z-[20] text ">Archive</span>
           </div>
         </ButtonHoverAnimation>
       </div>

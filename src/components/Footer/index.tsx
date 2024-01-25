@@ -38,12 +38,12 @@ const Footer = () => {
           <div className="relative gap-5 mt-24 flex  flex-col md:flex-row md:mt-16">
             <ButtonHoverAnimation style={undefined} magneticStifness={0.8}>
               <div className=" relative px-10 py-4 ronded-full flex items-center justify-center text-lg font-semibold border-[1px] w-full border-slate-400 md:w-auto">
-                <span className="z-[20]  ">irfan@gmail.com</span>
+                <span className="text z-[20]  ">irfan@gmail.com</span>
               </div>
             </ButtonHoverAnimation>
             <ButtonHoverAnimation magneticStifness={0.8}>
               <div className="px-10 py-4 rounded-full text-lg flex items-center justify-center font-semibold border-[1px] w-full border-slate-400 md:w-auto">
-                <span className="z-[20]"> 6363520187</span>
+                <span className="text z-[20]"> 6363520187</span>
               </div>
             </ButtonHoverAnimation>
           </div>

@@ -119,7 +119,7 @@ const NavSlider: FC<NavSliderProps> = ({ isActive }) => {
                 variants={textSlideVariants}
                 custom={4}
               >
-                Contact
+                <Link href={"/contact"}>Contact</Link>
               </motion.h1>
             </MagneticAnimation>
           </div>

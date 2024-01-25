@@ -120,6 +120,7 @@ const ProjectViewAnimation: FC<ProjectViewAnimationProps> = ({
           style={{
             transition: "width  .4s cubic-bezier(0.36, 0, 0.66, 0)",
           }}
+         
         ></motion.div>
       </div>
       <div
