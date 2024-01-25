@@ -18,7 +18,7 @@ const About = () => {
 
           <ButtonHoverAnimation style={{ marginTop: "5rem" }}>
             <div className=" w-44 aspect-square rounded-full flex items-center justify-center text-slate-50 bg-dark">
-              <span className="z-20">About Me</span>
+              <span className="text z-20">About Me</span>
             </div>
           </ButtonHoverAnimation>
         </div>

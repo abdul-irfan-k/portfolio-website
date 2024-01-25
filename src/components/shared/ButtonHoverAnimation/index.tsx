@@ -44,7 +44,7 @@ const ButtonHoverAnimation: FC<ButtonHoverAnimationProps> = ({
   }, []);
 
   const onMouseEnterHandler = () => {
-  console.log('timeout id',timeout)
+  // console.log('timeout id',timeout)
     if (timeout) clearTimeout(timeout);
     if (!timeline.current) return;
     timeline.current.tweenFromTo("enter", "exit");

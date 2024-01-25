@@ -15,12 +15,23 @@ const MagneticAnimation: FC<MagneticAnimationProps> = ({
   useEffect(() => {
     if (!magneticRef.current) return;
 
+    const scollContainerSelector = gsap.utils.selector(magneticRef.current);
     const xMove = gsap.quickTo(magneticRef.current, "x", {
       duration: 1,
       ease: "elastic.out(1, 0.3)",
     });
     const yMove = gsap.quickTo(magneticRef.current, "y", {
       duration: 1,
+      ease: "elastic.out(1, 0.3)",
+    });
+
+    const xTextMove = gsap.quickTo(scollContainerSelector(".text"), "x", {
+      duration: 1.5,
+      ease: "elastic.out(1, 0.3)",
+    });
+
+    const yTextMove = gsap.quickTo(scollContainerSelector(".text"), "y", {
+      duration: 1.5,
       ease: "elastic.out(1, 0.3)",
     });
 
@@ -36,6 +47,9 @@ const MagneticAnimation: FC<MagneticAnimationProps> = ({
       const yMoveMent = (clientY - (top + height / 2)) * 0.5 * stiffness;
       xMove(xMoveMent);
       yMove(yMoveMent);
+
+      xTextMove(xMoveMent / 2);
+      yTextMove(yMoveMent / 2);
     });
 
     magneticRef.current.addEventListener("mouseleave", () => {
