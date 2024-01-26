@@ -37,7 +37,7 @@ const Footer = () => {
 
           <div className="relative gap-5 mt-24 flex  flex-col md:flex-row md:mt-16">
             <ButtonHoverAnimation style={undefined} magneticStifness={0.8}>
-              <div className=" relative px-10 py-4 ronded-full flex items-center justify-center text-lg font-semibold border-[1px] w-full border-slate-400 md:w-auto">
+              <div className=" relative px-10 py-4 rounded-full flex items-center justify-center text-lg font-semibold border-[1px] w-full border-slate-400 md:w-auto">
                 <span className="text z-[20]  ">irfan@gmail.com</span>
               </div>
             </ButtonHoverAnimation>

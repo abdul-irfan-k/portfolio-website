@@ -19,7 +19,9 @@ const FooterInfoAndLinkBox = () => {
         <span className="text-xs text-slate-300">VERSION</span>
         <div className="gap-5 flex text-base">
           <MagneticAnimation>
-            <span className="py-1  ">Github</span>
+            <Link href={"https://github.com/abdul-irfan-k/"}>
+              <span className="py-1  ">Github</span>
+            </Link>
           </MagneticAnimation>
           <MagneticAnimation>
             <span className="py-1  ">
@@ -29,11 +31,16 @@ const FooterInfoAndLinkBox = () => {
             </span>
           </MagneticAnimation>
           <MagneticAnimation>
-            <span className="py-1  ">Instagram</span>
+            <Link href={"https://www.instagram.com/irfan_76_k/"}>
+              <span className="py-1  ">Instagram</span>
+            </Link>
           </MagneticAnimation>
 
           <MagneticAnimation>
+            <Link href={"https://twitter.com/AbdulIrfanK"}>
+
             <span className="py-1  ">Twitter</span>
+            </Link>
           </MagneticAnimation>
         </div>
       </div>

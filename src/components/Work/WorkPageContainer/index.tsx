@@ -5,10 +5,15 @@ import ProjectCardList from "../ProjectCardList";
 import { useMediaQuery } from "react-responsive";
 import DesktopBreakPoint from "@/components/ResponsiveUtilities/DesktopBreakPoint";
 import MobileBreakPoint from "@/components/ResponsiveUtilities/MobileBreakPoint";
+import { useRouter } from "next/navigation";
 
 const WorkPageContainer = () => {
   const [isListView, setIsListView] = useState(true);
+  const router = useRouter();
 
+  if (router.isLoading) {
+    return <div>Loading...</div>;
+  }
   return (
     <div>
       <div className="mt-20 px-10 md:px-20 ">

@@ -1,20 +1,46 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { motion, useMotionValue, useTransform } from "framer-motion";
+import React, { FC, useEffect, useState } from "react";
+import {
+  AnimatePresence,
+  motion,
+  useMotionValue,
+  useTransform,
+} from "framer-motion";
+import LoaderBottomAnimation from "./LoaderBottomAnimation";
 
-const Loader = () => {
+interface LoaderProps {
+  children: React.ReactNode;
+}
+const Loader: FC<LoaderProps> = ({ children }) => {
   const offset = useMotionValue(0);
   // const dataOffset = useTransform(offset, ["300px", "opx"]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
     }, 2000);
   }, []);
   return (
-    <div>
-      {isLoading && (
-        <div className=" w-screen h-screen flex items-center justify-center items-center bg-black text-slate-50 ">
+    <div
+    // style={{
+    //   height: isLoading ? "100vh" : "auto",
+    //   width: "100vw",
+    //   overflow: "hidden",
+    // }}
+    >
+      <AnimatePresence>
+        {/* {isLoading && ( */}
+        <motion.div
+          className="relative w-screen h-screen flex flex-col items-center justify-center items-center bg-black text-slate-50 z-[10000] "
+          variants={{
+            exit: { y: "-100%" },
+          }}
+          exit="exit"
+          transition={{
+            duration: 0.7,
+          }}
+          animate={isLoading ? "live" : "exit"}
+        >
           <div className="flex gap-4 items-center h-16 overflow-hidden">
             <motion.span
               className="text-4xl font-bold w-[400px] text-right   "
@@ -74,8 +100,28 @@ const Loader = () => {
               Full Stack Developer
             </motion.span>
           </div>
-        </div>
-      )}
+          <div className="absolute bottom-0 w-full">
+            <LoaderBottomAnimation isExit={!isLoading} />
+          </div>
+        </motion.div>
+        {/* )} */}
+      </AnimatePresence>
+
+      {/* {!isLoading && ( */}
+      <motion.div
+        initial="initial"
+        variants={{
+          initial: { marginTop: "0" },
+          visible: { marginTop: "-100vh" },
+        }}
+        transition={{
+          duration: 0.7,
+        }}
+        animate={isLoading ? "initial" : "visible"}
+      >
+        {children}
+      </motion.div>
+      {/* )}   */}
     </div>
   );
 };

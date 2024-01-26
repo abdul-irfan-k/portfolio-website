@@ -5,7 +5,7 @@ import MagneticAnimation from "../MagneticAnimation";
 
 interface ButtonHoverAnimationProps {
   children: React.ReactNode;
-  style: React.CSSProperties | undefined;
+  style?: React.CSSProperties;
   magneticStifness?: number;
 }
 const ButtonHoverAnimation: FC<ButtonHoverAnimationProps> = ({
@@ -15,7 +15,7 @@ const ButtonHoverAnimation: FC<ButtonHoverAnimationProps> = ({
 }) => {
   const circleRef = useRef<HTMLDivElement>(null);
   const timeline = useRef<gsap.core.Timeline>(null);
-  let timeout: number = undefined;
+  let timeout: number | undefined = undefined;
 
   useEffect(() => {
     const timelineObj = gsap
@@ -44,7 +44,7 @@ const ButtonHoverAnimation: FC<ButtonHoverAnimationProps> = ({
   }, []);
 
   const onMouseEnterHandler = () => {
-  // console.log('timeout id',timeout)
+    // console.log('timeout id',timeout)
     if (timeout) clearTimeout(timeout);
     if (!timeline.current) return;
     timeline.current.tweenFromTo("enter", "exit");
@@ -61,7 +61,7 @@ const ButtonHoverAnimation: FC<ButtonHoverAnimationProps> = ({
     <MagneticAnimation magneticStifness={magneticStifness}>
       <div
         className="relative  flex justify-center overflow-hidden rounded-full "
-        style={style}
+        style={style == undefined ? {} : style}
         onMouseEnter={onMouseEnterHandler}
         onMouseLeave={onMouseLeaveHandler}
       >
