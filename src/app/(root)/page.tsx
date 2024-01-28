@@ -1,22 +1,20 @@
 import About from "@/components/About";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import Loader from "@/components/Loader";
+import HomePageLoader from "@/components/Loader/HomepageLoader";
 import Project from "@/components/Project";
 import ProjectHorizontalScroll from "@/components/ProjectHorizontalScroll";
-import React, { useState } from "react";
 
 const HomePage = () => {
   return (
     <div>
-      <Loader>
-        {/* <div className="block h-screen"></div> */}
+      <HomePageLoader>a
         <Header />
         <About />
         <Project />
         <ProjectHorizontalScroll />
         <Footer />
-      </Loader>
+      </HomePageLoader>
     </div>
   );
 };

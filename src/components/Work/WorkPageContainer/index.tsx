@@ -2,18 +2,12 @@
 import React, { useEffect, useState } from "react";
 import ProjectList from "../ProjectList";
 import ProjectCardList from "../ProjectCardList";
-import { useMediaQuery } from "react-responsive";
 import DesktopBreakPoint from "@/components/ResponsiveUtilities/DesktopBreakPoint";
 import MobileBreakPoint from "@/components/ResponsiveUtilities/MobileBreakPoint";
-import { useRouter } from "next/navigation";
-
 const WorkPageContainer = () => {
   const [isListView, setIsListView] = useState(true);
-  const router = useRouter();
 
-  if (router.isLoading) {
-    return <div>Loading...</div>;
-  }
+  
   return (
     <div>
       <div className="mt-20 px-10 md:px-20 ">
@@ -46,6 +40,7 @@ const WorkPageContainer = () => {
             </DesktopBreakPoint>
           </div>
         </div>
+      </div>
         <DesktopBreakPoint>
           {isListView && <ProjectList />}
           {!isListView && <ProjectCardList />}
@@ -53,7 +48,6 @@ const WorkPageContainer = () => {
         <MobileBreakPoint>
           <ProjectCardList />
         </MobileBreakPoint>
-      </div>
     </div>
   );
 };

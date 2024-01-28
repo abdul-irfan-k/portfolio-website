@@ -12,16 +12,14 @@ const FooterScrollAnimation = () => {
       return;
     const element = divContainerRef.current;
 
-
-
     const scollContainerSelector = gsap.utils.selector(element);
-    console.log("width", width);
+    // setTimeout(() => {
     gsap.to(scollContainerSelector(".svgpath"), {
       scrollTrigger: {
         trigger: element,
         start: "top bottom",
         end: "bottom top",
-        // markers: true,
+        markers: true,
         scrub: 1,
         toggleActions: "restart none none none",
       },
@@ -29,12 +27,13 @@ const FooterScrollAnimation = () => {
         d: `M0 0 L0 0 Q ${width / 2} ${10} ${width} 0`,
       },
     });
+    // }, 3000);
   }, [divContainerRef, width]);
 
   useEffect(() => {
     if (!divContainerRef.current) return;
     const handleResize = () => {
-      console.log("width is ", divContainerRef.current.offsetWidth);
+      if (!divContainerRef.current) return;
       if (!divContainerRef.current) return;
 
       setWidth(divContainerRef.current.offsetWidth);
@@ -53,13 +52,13 @@ const FooterScrollAnimation = () => {
     setWidth(divContainerRef.current.offsetWidth);
 
     if (!pathRef || !pathRef.current) return;
-    console.log("set attribute");
+    //@ts-ignore
     pathRef.current.setAttribute(
       "d",
-      `M0 0 L0 0 Q ${divContainerRef.current.offsetWidth/ 2} ${300} ${divContainerRef.current.offsetWidth} 0`
+      `M0 0 L0 0 Q ${divContainerRef.current.offsetWidth / 2} ${300} ${
+        divContainerRef.current.offsetWidth
+      } 0`
     );
-
-    // pathRef.current.dataset = `M0 0 L0 0 Q ${window.innerWidth / 2} ${300} ${window.innerWidth} 0`
   }, [pathRef]);
 
   return (

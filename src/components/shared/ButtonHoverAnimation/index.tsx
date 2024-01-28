@@ -15,7 +15,7 @@ const ButtonHoverAnimation: FC<ButtonHoverAnimationProps> = ({
 }) => {
   const circleRef = useRef<HTMLDivElement>(null);
   const timeline = useRef<gsap.core.Timeline>(null);
-  let timeout: number | undefined = undefined;
+  let timeout: undefined | ReturnType<typeof setTimeout> = undefined;
 
   useEffect(() => {
     const timelineObj = gsap
@@ -40,6 +40,7 @@ const ButtonHoverAnimation: FC<ButtonHoverAnimationProps> = ({
         },
         "exit"
       );
+    //@ts-ignore
     timeline.current = timelineObj;
   }, []);
 
@@ -53,6 +54,7 @@ const ButtonHoverAnimation: FC<ButtonHoverAnimationProps> = ({
   const onMouseLeaveHandler = () => {
     if (!timeline.current) return;
     timeout = setTimeout(() => {
+      if (!timeline.current) return;
       timeline.current.play();
     }, 50);
   };

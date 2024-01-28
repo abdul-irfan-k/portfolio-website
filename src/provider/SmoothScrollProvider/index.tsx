@@ -5,8 +5,9 @@ const SmothScrollScrollProvider = () => {
   useEffect(() => {
     (async () => {
       if (typeof window === "undefined") return;
+      //@ts-ignore
       const LocomotiveScroll = (await import("locomotive-scroll")).default;
-      const locomotiveScroll = new LocomotiveScroll();
+      new LocomotiveScroll();
     })();
   });
   return <div></div>;

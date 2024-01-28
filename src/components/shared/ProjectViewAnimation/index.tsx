@@ -1,3 +1,4 @@
+"use client";
 import React, { FC, useEffect, useRef } from "react";
 import gsap from "gsap";
 import ProjectViewModel from "./ProjectViewModel";
@@ -12,6 +13,7 @@ interface ProjectViewAnimationProps {
   currentIndex?: number;
   isActive: boolean;
   isListView: boolean;
+  animationContainerRef: React.RefObject<HTMLDivElement>;
 }
 
 const scaleAnimation: Variants = {
@@ -24,6 +26,7 @@ const ProjectViewAnimation: FC<ProjectViewAnimationProps> = ({
   isActive,
   projects,
   isListView,
+  animationContainerRef
 }) => {
   const projectContainerRef = useRef<HTMLDivElement>(null);
   const projectViewLableRef = useRef<HTMLDivElement>(null);
@@ -32,7 +35,8 @@ const ProjectViewAnimation: FC<ProjectViewAnimationProps> = ({
     if (
       !projectContainerRef.current ||
       !projectViewLableRef.current ||
-      !projectViewCursorRef
+      !projectViewCursorRef ||
+      !animationContainerRef.current
     )
       return;
 
@@ -63,10 +67,10 @@ const ProjectViewAnimation: FC<ProjectViewAnimationProps> = ({
       duration: 0.5,
       ease: "power3",
     });
-
-    window.addEventListener("mousemove", (e) => {
+    console.log("test ref");
+    // yMove(y)
+    animationContainerRef.current.addEventListener("mousemove", (e) => {
       const { pageX, pageY } = e;
-
       if (
         !projectContainerRef.current ||
         !projectViewLableRef.current ||
@@ -83,7 +87,7 @@ const ProjectViewAnimation: FC<ProjectViewAnimationProps> = ({
       xMoveOnCursor(pageX - projectViewCursorRef.current.clientWidth / 2);
       YMoveOnCursor(pageY - projectViewCursorRef.current.clientHeight / 2);
     });
-  }, [projectContainerRef.current]);
+  }, [projectContainerRef.current,animationContainerRef.current]);
 
   return (
     <>
@@ -120,7 +124,6 @@ const ProjectViewAnimation: FC<ProjectViewAnimationProps> = ({
           style={{
             transition: "width  .4s cubic-bezier(0.36, 0, 0.66, 0)",
           }}
-         
         ></motion.div>
       </div>
       <div

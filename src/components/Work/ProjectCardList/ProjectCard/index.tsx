@@ -1,5 +1,6 @@
 import { projectDetailInterface } from "@/project";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React, { FC } from "react";
 
 interface ProjectCardProps {
@@ -12,11 +13,13 @@ const ProjectCard: FC<ProjectCardProps> = ({
   project,
   onMouseLeaveHandler,
 }) => {
+  const router = useRouter();
   return (
     <div
       className="w-full flex flex-col"
       onMouseEnter={onMouseEnterHandler}
       onMouseLeave={onMouseLeaveHandler}
+      onClick={() => router.push(`/work/${project.name}`)}
     >
       <div className="relative w-full aspect-square ">
         <Image alt="image" src={project.bannerUrl} fill />

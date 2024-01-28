@@ -40,6 +40,7 @@ const MagneticAnimation: FC<MagneticAnimationProps> = ({
       const { width, height, left, top } =
         magneticRef.current.getBoundingClientRect();
 
+      //@ts-ignore
       const { clientX, clientY } = e;
       const stiffness = magneticStifness == undefined ? 1 : magneticStifness;
 
@@ -55,10 +56,11 @@ const MagneticAnimation: FC<MagneticAnimationProps> = ({
     magneticRef.current.addEventListener("mouseleave", () => {
       xMove(0);
       yMove(0);
-      xTextMove(0)
-      yTextMove(0)
+      xTextMove(0);
+      yTextMove(0);
     });
   }, [magneticRef.current]);
+  //@ts-ignore
   return React.cloneElement(children, { ref: magneticRef });
 };
 

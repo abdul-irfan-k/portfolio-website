@@ -1,6 +1,6 @@
+"use client"
 import React, { FC } from "react";
 import { Variants, motion } from "framer-motion";
-import { transform } from "next/dist/build/swc";
 import MagneticAnimation from "@/components/shared/MagneticAnimation";
 import Link from "next/link";
 
@@ -27,6 +27,7 @@ const textSlideVariants: Variants = {
 };
 
 const NavSlider: FC<NavSliderProps> = ({ isActive }) => {
+  if (typeof window == "undefined") return;
   const initialPath = `M100 0 L100 ${window.innerHeight} Q-100 ${
     window.innerHeight / 2
   } 100 0`;

@@ -8,7 +8,7 @@ interface projectDetailInterface {
 }
 interface ProjectViewModelProps {
   projects: projectDetailInterface[];
-  currentIndex: number;
+  currentIndex?: number;
   isActive: boolean;
 }
 
@@ -28,7 +28,9 @@ const ProjectViewModel: FC<ProjectViewModelProps> = ({
       <div
         className="w-full h-full "
         style={{
-          transform: `translateY(-${currentIndex * 100}%)`,
+          transform: `translateY(-${
+            currentIndex != undefined ? currentIndex * 100 : 0
+          }%)`,
           transition: "all 0.4s ease",
           pointerEvents: "none",
         }}

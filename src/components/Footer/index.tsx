@@ -1,8 +1,8 @@
 import React from "react";
 import FooterScrollAnimation from "./FooterScrollAnimation";
 import ButtonHoverAnimation from "../shared/ButtonHoverAnimation";
-import MagneticAnimation from "../shared/MagneticAnimation";
-import Link from "next/link";
+// import MagneticAnimation from "../shared/MagneticAnimation";
+// import Link from "next/link";
 import FooterInfoAndLinkBox from "./FooterInfoAndLinkBox";
 
 const Footer = () => {
@@ -18,7 +18,7 @@ const Footer = () => {
           <div className="flex flex-col  text-5xl md:text-7xl  md:w-[50%]">
             <div className="relative  gap-5 flex items-center ">
               <div className="w-[20%] aspect-square block bg-neutral-950 rounded-full"></div>
-              <span className=" font-[500]">Let's Work</span>
+              <span className=" font-[500]">Let{"'"}s Work</span>
             </div>
             <div>
               <span className=" font-[500]">together</span>
@@ -27,11 +27,11 @@ const Footer = () => {
 
           <div className="mt-28 h-[2px]  flex  bg-slate-300 ">
             <div className="ml-auto ">
-              {/* <ButtonHoverAnimation> */}
-              <div className="absolute w-[25%] aspect-square block bg-blue-700 rounded-full flex flex-col items-center justify-center translate-y-[-50%] translate-x-[-120%] md:w-[12%]">
+              <ButtonHoverAnimation>
+              <div className="absolute w-[25%] aspect-square  bg-blue-700 rounded-full flex flex-col items-center justify-center translate-y-[-50%] translate-x-[-120%] md:w-[12%]">
                 Gen in touch
               </div>
-              {/* </ButtonHoverAnimation> */}
+              </ButtonHoverAnimation>
             </div>
           </div>
 
