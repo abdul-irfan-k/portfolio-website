@@ -19,7 +19,7 @@ const FooterScrollAnimation = () => {
         trigger: element,
         start: "top bottom",
         end: "bottom top",
-        markers: true,
+        // markers: true,
         scrub: 1,
         toggleActions: "restart none none none",
       },
@@ -64,7 +64,7 @@ const FooterScrollAnimation = () => {
   return (
     <>
       <div
-        className="absolute top-0 w-full h-48  block fill-white "
+        className="absolute top-0 w-full h-48  block fill-white z-[10]"
         ref={divContainerRef}
       >
         <div className="relative w-full h-full">

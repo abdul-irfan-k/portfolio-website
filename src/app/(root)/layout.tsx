@@ -6,9 +6,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <GsapProvider>
-        <SmothScrollScrollProvider />
-        {children}
-        </GsapProvider>
+        <SmothScrollScrollProvider>{children}</SmothScrollScrollProvider>
+      </GsapProvider>
     </>
   );
 }

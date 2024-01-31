@@ -1,16 +1,55 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+// import { ReactLenis, useLenis } from "@studio-freight/react-lenis";
+import Lenis from "@studio-freight/lenis";
+// import Lenis from "@studio-freight/react-lenis/types";
+import { useFrame } from "@studio-freight/hamo";
 
-const SmothScrollScrollProvider = () => {
+const SmothScrollScrollProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
+  // useEffect(() => {
+  //   (async () => {
+  //     if (typeof window === "undefined") return;
+  //     //@ts-ignore
+  //     const LocomotiveScroll = (await import("locomotive-scroll")).default;
+  //     new LocomotiveScroll();
+  //   })();
+  // });
+
+  // useLenis(({velocity}) => {
+
+  // })
+  const [lenis, setLenis] = useState<Lenis | undefined>(undefined);
   useEffect(() => {
-    (async () => {
-      if (typeof window === "undefined") return;
-      //@ts-ignore
-      const LocomotiveScroll = (await import("locomotive-scroll")).default;
-      new LocomotiveScroll();
-    })();
+    const lenis = new Lenis({
+      smoothWheel: true,
+      syncTouch: true,
+      // duration: 5,
+      lerp:0.05
+    });
+    lenis.start();
+    setLenis(lenis);
+    window.lenis = lenis;
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+  useFrame((time) => {
+    if (lenis == undefined) return;
+    lenis.raf(time);
   });
-  return <div></div>;
+
+  return (
+    <>
+      {/* <ReactLenis root  > */}
+      {children}
+      {/* </ReactLenis> */}
+    </>
+  );
 };
 
 export default SmothScrollScrollProvider;

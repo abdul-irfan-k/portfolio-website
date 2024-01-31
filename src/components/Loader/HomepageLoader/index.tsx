@@ -35,9 +35,9 @@ const HomePageLoader: FC<HomePageLoaderProps> = ({ children }) => {
         }}
         animate={isLoading ? "live" : "exit"}
       >
-        <div className="flex gap-4 items-center h-16 overflow-hidden">
+        <div className="flex gap-4  items-center h-16 overflow-hidden">
           <motion.span
-            className="text-4xl font-bold w-[400px] text-right   "
+            className="text-4xl font-bold  text-right   "
             initial="initial"
             variants={{
               initial: { translateY: "-120%" },
@@ -82,7 +82,7 @@ const HomePageLoader: FC<HomePageLoaderProps> = ({ children }) => {
             </svg>
           </div>
           <motion.span
-            className="text-4xl font-bold w-[400px] "
+            className="text-4xl font-bold  "
             initial="initial"
             variants={{
               initial: { translateY: "120%" },
