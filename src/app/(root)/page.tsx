@@ -8,14 +8,13 @@ import ProjectHorizontalScroll from "@/components/ProjectHorizontalScroll";
 const HomePage = () => {
   return (
     <div>
-      <HomePageLoader>
-        <Header />
+      {/* <HomePageLoader> */}
         <div className="w-screen h-screen block b "></div>
         <About />
         <Project />
         <ProjectHorizontalScroll />
-        <Footer />
-      </HomePageLoader>
+        
+      {/* </HomePageLoader> */}
     </div>
   );
 };

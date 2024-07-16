@@ -2,6 +2,7 @@
 import React, { FC, useEffect, useState } from "react";
 import { AnimatePresence, motion, useMotionValue } from "framer-motion";
 import LoaderBottomAnimation from "../LoaderBottomAnimation";
+import PageLoader from "../PageLoader";
 
 interface HomePageLoaderProps {
   children: React.ReactNode;
@@ -112,6 +113,8 @@ const HomePageLoader: FC<HomePageLoaderProps> = ({ children }) => {
       >
         {children}
       </motion.div>
+
+      {!isLoading && <PageLoader />}
     </div>
   );
 };

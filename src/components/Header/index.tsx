@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import NavSlider from "./NavSlider";
 import ButtonHoverAnimation from "../shared/ButtonHoverAnimation";
 import gsap from "gsap";
-import MagneticAnimation from "../shared/MagneticAnimation";
 import Link from "next/link";
+import MagneticAnimation from "../shared/MagneticAnimation";
 
 const Header = () => {
   const [navbarButtonClicked, setNavbarButtonClicked] =
@@ -89,16 +89,28 @@ const Header = () => {
           </div>
         </div>
 
-        <div className="py-10 px-16 w-full flex text-xl">
-          <span>Abdul Irfan</span>
+        <div className="relative py-10 px-16 w-full flex text-xl z-[130]">
+        <MagneticAnimation>
+            <Link href={"/"} >
+              <span className="">Abdul Irfan</span>
+            </Link>
+          </MagneticAnimation>
           <div className="gap-5 ml-auto flex gap ">
           <MagneticAnimation>
-            <Link href={"/work/"}>
+            <Link href={"/work"} >
               <span className="">Work</span>
             </Link>
           </MagneticAnimation>
-            <div>About</div>
-            <div>Contact</div>
+          <MagneticAnimation>
+            <Link href={"/about"} >
+              <span className="">About</span>
+            </Link>
+          </MagneticAnimation>
+          <MagneticAnimation>
+            <Link href={"/contact"} >
+              <span className="">Contact</span>
+            </Link>
+          </MagneticAnimation>
           </div>
         </div>
       </div>

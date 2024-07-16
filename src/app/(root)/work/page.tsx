@@ -4,9 +4,7 @@ import WorkPageContainer from "@/components/Work/WorkPageContainer";
 const WorkPage = async () => {
   return (
     <div>
-      <Header />
       <WorkPageContainer />
-      <Footer />
     </div>
   );
 };

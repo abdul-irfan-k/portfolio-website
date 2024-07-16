@@ -2,6 +2,7 @@
 import React, { FC, useEffect, useRef } from "react";
 import gsap from "gsap";
 
+
 interface MagneticAnimationProps {
   children: React.ReactNode;
   magneticStifness?: number;
