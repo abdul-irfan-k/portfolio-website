@@ -10,7 +10,7 @@ const HomePage = () => {
     <div>
       <HomePageLoader>
         <Header />
-        <div className="w-screen h-screen block"></div>
+        <div className="w-screen h-screen block b "></div>
         <About />
         <Project />
         <ProjectHorizontalScroll />
@@ -21,3 +21,4 @@ const HomePage = () => {
 };
 
 export default HomePage;
+const sample = "asdf"

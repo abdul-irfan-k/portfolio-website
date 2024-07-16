@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import NavSlider from "./NavSlider";
 import ButtonHoverAnimation from "../shared/ButtonHoverAnimation";
 import gsap from "gsap";
+import MagneticAnimation from "../shared/MagneticAnimation";
+import Link from "next/link";
 
 const Header = () => {
   const [navbarButtonClicked, setNavbarButtonClicked] =
@@ -41,11 +43,11 @@ const Header = () => {
   }, [headerContainerRef.current]);
   return (
     <>
-      <div className="relative z-[110]" ref={headerContainerRef}>
+      <div className="relative z-[110] " ref={headerContainerRef}>
         <div className="fixed top-0 left-0 w-full flex items-center overflow-hidden">
           <div className="py-5 px-5 w-full flex  justify-end ">
             <div
-              className="w-[6%] scale-0 navBtn"
+              className="w-[6%] scale-0 navBtn "
               style={{
                 transition: "scale  0.4s cubic-bezier(0.36, 0, 0.66, 0)",
               }}
@@ -84,6 +86,19 @@ const Header = () => {
                 </div>
               </ButtonHoverAnimation>
             </div>
+          </div>
+        </div>
+
+        <div className="py-10 px-16 w-full flex text-xl">
+          <span>Abdul Irfan</span>
+          <div className="gap-5 ml-auto flex gap ">
+          <MagneticAnimation>
+            <Link href={"/work/"}>
+              <span className="">Work</span>
+            </Link>
+          </MagneticAnimation>
+            <div>About</div>
+            <div>Contact</div>
           </div>
         </div>
       </div>

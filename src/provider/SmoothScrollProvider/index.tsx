@@ -28,7 +28,7 @@ const SmothScrollScrollProvider = ({
       smoothWheel: true,
       syncTouch: true,
       // duration: 5,
-      lerp:0.05
+      lerp: 0.02,
     });
     lenis.start();
     setLenis(lenis);

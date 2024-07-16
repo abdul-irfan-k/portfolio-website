@@ -15,21 +15,21 @@ const WorkDetailPageContainer = () => {
           <div className="px-24">
             <div className="relative   mt-10 aspect-square">
               <Image
-                src={"/Asset/device.png"}
+                src={"/Asset/monitor4.png"}
                 alt="image"
                 fill
                 className="object-contain"
               />
-              <div className="absolute top-0 right-0 translate-x-[-40%] translate-y-[-40%] z-20 ">
+              {/* <div className="absolute top-0 right-0 translate-x-[-40%] translate-y-[-40%] z-20 ">
                 <ButtonHoverAnimation style={{ marginTop: "5rem" }}>
                   <div className=" w-44 aspect-square rounded-full flex items-center justify-center text-slate-50 bg-blue-600">
                     <span className="text flex justify-center z-20 ">Live Site</span>
                   </div>
                 </ButtonHoverAnimation>
-              </div>
-              <div className="absolute w-[98.8%] ml-[0.6%]  top-[8%]  bg-red-400 block">
+              </div> */}
+              <div className="absolute w-[83%] left-[8%] top-[20%]  ml-[0.6%]    bg-red-400 block">
                 {/* <Video videoSrc="/Asset/project-video-demo.mp4" /> */}
-                <Video videoSrc="/Asset/test1.webm" />
+                <Video videoSrc="/Asset/project.webm" />
                 {/* <Video videoSrc="/Asset/screen-capture.webm" /> */}
                 {/* <Video videoSrc="/Asset/test.webm"  /> */}
               </div>
