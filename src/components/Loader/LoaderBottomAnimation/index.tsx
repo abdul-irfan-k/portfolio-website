@@ -20,7 +20,12 @@ const LoaderBottomAnimation: FC<LoaderBottomAnimationProps> = ({ isExit }) => {
   return (
     <div className="relative w-full h-full translate-y-[100%]">
       <div className="relative h-24 w-full  fill-black  ">
-        <svg xmlns="http://www.w3.org/2000/svg" height={"full"} width={"full"}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height={"full"}
+          width={"full"}
+          className="w-full"
+        >
           <path
             d={`M0 0 L0 0 Q ${window.innerWidth / 2} 300 ${
               window.innerWidth

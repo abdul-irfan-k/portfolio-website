@@ -16,6 +16,8 @@ const PageLoader: FC<PageLoaderProps> = ({}) => {
   const [isLoading, setIsLoading] = useState<boolean | undefined>(undefined);
 
   const controls = useAnimationControls();
+  const pathControlls = useAnimationControls();
+  const topPathControlls = useAnimationControls();
   useEffect(() => {
     if (isLoading == undefined) return setIsLoading(false);
     (async () => {
@@ -24,34 +26,40 @@ const PageLoader: FC<PageLoaderProps> = ({}) => {
         opacity: 1,
         transition: { duration: 0 },
       });
+      await controls.start({
+        y: "-100%",
+        opacity: 1,
+        transition: { duration: 1 },
+      });
+      await topPathControlls.start({
+        d: `M0 0 L0 0 Q ${window.innerWidth / 2} 0 ${window.innerWidth} 0`,
+      });
 
-      setTimeout(() => {
-        await controls.start({
-          y: "-200%",
-          opacity: 1,
-          transition: { duration: 1 },
-        });
-        await controls.start({
-          opacity: 0,
-        });
-        await controls.start({
-          opacity: 0,
-          y: "0%",
-        });
-      }, 2000);
-      // await controls.start({
-      //   y: "20%",
-      //   opacity: 1,
-      //   transition: { duration: 0 },
-      // });
-      // setIsLoading(true);
-      // setTimeout(() => {
-      //   setIsLoading(false);
+      await controls.start({
+        y: "-200%",
+        opacity: 1,
+        transition: { duration: 1, delay: 3 },
+      });
+      await controls.start({
+        opacity: 0,
+      });
+      await controls.start({
+        opacity: 0,
+        y: "0%",
+      });
+      await topPathControlls.start({
+        d: `M0 0 L-250 0 Q ${window.innerWidth / 2} 300 ${
+          window.innerWidth
+        } 50`,
+      });
       // }, 2000);
     })();
   }, [pathname]);
 
-  const ref = useRef<HTMLDivElement>(null);
+  if (typeof window == "undefined") return;
+  useEffect(() => {}, [topPathControlls]);
+
+  const pathRef = useRef<SVGPathElement>(null);
 
   return (
     <div
@@ -105,9 +113,51 @@ const PageLoader: FC<PageLoaderProps> = ({}) => {
             page
           </motion.span>
         </div>
-        {/* <div className="absolute bottom-0 w-full">
-          <LoaderBottomAnimation isExit={!isLoading} />
-        </div> */}
+        <div className="absolute top-[-20%] w-full ">
+          <div className="relative w-full h-full translate-y-[100%] ">
+            <div className="relative h-24 w-full fill-black ">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height={"full"}
+                width={"full"}
+                className="w-full rotate-180"
+              >
+                <motion.path
+                  d={`M0 0 L-250 0 Q ${window.innerWidth / 2} 300 ${
+                    window.innerWidth
+                  } 50`}
+                  animate={topPathControlls}
+                  style={{ transition: "all 0.7s ease-out" }}
+                />
+              </svg>
+            </div>
+          </div>
+
+          {/* <div className="top-0 absolute w-full h-full z-20 overlary"></div> */}
+        </div>
+        <div className="absolute bottom-0 w-full">
+          <div className="relative w-full h-full translate-y-[100%]">
+            <div className="relative h-24 w-full  fill-black  ">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height={"full"}
+                width={"full"}
+                className="w-full"
+              >
+                <motion.path
+                  d={`M0 0 L0 0 Q ${window.innerWidth / 2} 300 ${
+                    window.innerWidth
+                  } 0`}
+                  animate={pathControlls}
+                  style={{ transition: "all 0.7s ease-out" }}
+                />
+              </svg>
+            </div>
+
+            {/* <div className="top-0 absolute w-full h-full z-20 overlary"></div> */}
+          </div>
+          {/* <LoaderBottomAnimation isExit={!isLoading} /> */}
+        </div>
       </motion.div>
       {/* </AnimatePresence> */}
     </div>
