@@ -13,6 +13,7 @@ const FooterScrollAnimation = () => {
     const element = divContainerRef.current;
 
     const scollContainerSelector = gsap.utils.selector(element);
+    console.log(scollContainerSelector(".svgpath"));
     // setTimeout(() => {
     gsap.to(scollContainerSelector(".svgpath"), {
       scrollTrigger: {
@@ -78,7 +79,7 @@ const FooterScrollAnimation = () => {
                 ref={pathRef}
                 d={`M0 0 L0 0 Q ${0} ${300} ${0} 0`}
                 // initial="initial"
-                className={"svgpath"}
+                className={"svgpath sample"}
               />
             </svg>
           </div>

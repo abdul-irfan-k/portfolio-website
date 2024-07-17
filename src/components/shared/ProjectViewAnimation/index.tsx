@@ -26,7 +26,7 @@ const ProjectViewAnimation: FC<ProjectViewAnimationProps> = ({
   isActive,
   projects,
   isListView,
-  animationContainerRef
+  animationContainerRef,
 }) => {
   const projectContainerRef = useRef<HTMLDivElement>(null);
   const projectViewLableRef = useRef<HTMLDivElement>(null);
@@ -87,7 +87,7 @@ const ProjectViewAnimation: FC<ProjectViewAnimationProps> = ({
       xMoveOnCursor(pageX - projectViewCursorRef.current.clientWidth / 2);
       YMoveOnCursor(pageY - projectViewCursorRef.current.clientHeight / 2);
     });
-  }, [projectContainerRef.current,animationContainerRef.current]);
+  }, [projectContainerRef.current, animationContainerRef.current]);
 
   return (
     <>

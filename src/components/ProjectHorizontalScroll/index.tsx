@@ -2,48 +2,63 @@
 import React, { useEffect, useRef } from "react";
 import ProjectHorizontalScrollCard from "./ProjectHorizontalScrollCard";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const ProjectHorizontalScroll = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const leftContainerRef = useRef<HTMLDivElement>(null);
+  const rightcontainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (containerRef == null) return;
-    const element = containerRef.current;
-    const scollContainerSelector = gsap.utils.selector(element);
-    console.log("not null");
-    gsap.to(scollContainerSelector(".leftscrollcontainer"), {
+    if (
+      leftContainerRef.current == null ||
+      leftContainerRef == null ||
+      rightcontainerRef.current == null ||
+      rightcontainerRef == null
+    )
+      return;
+    const element = leftContainerRef.current;
+    // const scollContainerSelector = gsap.utils.selector(element);
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.to(element, {
       scrollTrigger: {
         trigger: element,
-        start: "-700 bottom",
+        start: "-400 bottom",
         end: "bottom top",
         // markers: true,
         scrub: 1,
         toggleActions: "restart none none none",
       },
-      transform: "translateX(-10%)",
+      x: "-10%",
+      // transform: "translateX(-10%)",
     });
-    gsap.to(scollContainerSelector(".rightscrollcontainer"), {
+    gsap.to(rightcontainerRef.current, {
       scrollTrigger: {
-        trigger: element,
+        trigger: rightcontainerRef.current,
         start: "-700 bottom",
         end: "bottom top",
-        // markers: true,
+        markers: true,
         scrub: 1,
         toggleActions: "restart none none none",
       },
       transform: "translateX(10%)",
     });
-  }, []);
+  }, [leftContainerRef, rightcontainerRef]);
   return (
-    <div ref={containerRef} className="my-10">
-      <div className="  gap-10 flex leftscrollcontainer translate-x-[-40%] ">
+    <div className="my-10">
+      <div
+        ref={leftContainerRef}
+        className="leftscrollcontainer  gap-10 flex  translate-x-[-40%] "
+      >
         <ProjectHorizontalScrollCard />
         <ProjectHorizontalScrollCard />
         <ProjectHorizontalScrollCard />
         <ProjectHorizontalScrollCard />
         <ProjectHorizontalScrollCard />
       </div>
-      <div className="relative  mt-5 left-[-40%] gap-10 flex rightscrollcontainer translate-x-[40%]">
+      <div
+        ref={rightcontainerRef}
+        className="rightscrollcontainer relative  mt-5 left-[-40%] gap-10 flex rightscrollcontainer translate-x-[40%]"
+      >
         <ProjectHorizontalScrollCard />
         <ProjectHorizontalScrollCard />
         <ProjectHorizontalScrollCard />

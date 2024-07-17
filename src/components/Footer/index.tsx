@@ -19,18 +19,19 @@ const Footer = () => {
         start: "top +500",
         end: "top top",
         scrub: 1,
+        // markers: true,
       },
       marginLeft: "80%",
     });
-    gsap.to(element, {
-      scrollTrigger: {
-        trigger: element,
-        start: "top +500",
-        end: "top top",
-        scrub: 1,
-      },
-      translateY: "0%",
-    });
+    // gsap.to(element, {
+    //   scrollTrigger: {
+    //     trigger: element,
+    //     start: "top +500",
+    //     end: "top top",
+    //     scrub: 1,
+    //   },
+    //   translateY: "0%",
+    // });
   }, [footerContainerRef]);
   return (
     <div className="mt-20 overflow-hidden z-[50]">
@@ -50,11 +51,11 @@ const Footer = () => {
           </div>
 
           <div className="mt-28 h-[2px]  flex  bg-slate-300 ">
-            <div className="ml-[65%] getintouchbtn ">
+            <div className="getintouchbtn ml-[65%]">
               <div className="absolute w-[25%] aspect-square   translate-y-[-50%] translate-x-[-25%] md:w-[12%] ">
                 <ButtonHoverAnimation style={{ height: "100%", width: "100%" }}>
                   <div className="h-full w-full bg-blue-700 rounded-full flex flex-col items-center justify-center">
-                    <span className="text z-20">Gen in touch</span>
+                    <span className="text z-20">Get in touch</span>
                   </div>
                 </ButtonHoverAnimation>
               </div>
