@@ -18,28 +18,51 @@ const PageLoader: FC<PageLoaderProps> = ({}) => {
   const controls = useAnimationControls();
   const pathControlls = useAnimationControls();
   const topPathControlls = useAnimationControls();
+  const titleControlls = useAnimationControls();
+
   useEffect(() => {
     if (isLoading == undefined) return setIsLoading(false);
     (async () => {
+      console.log(pathname);
       await controls.start({
-        y: "0%",
+        y: "-20%",
         opacity: 1,
         transition: { duration: 0 },
       });
-      await controls.start({
-        y: "-100%",
-        opacity: 1,
-        transition: { duration: 1 },
-      });
-      await topPathControlls.start({
-        d: `M0 0 L0 0 Q ${window.innerWidth / 2} 0 ${window.innerWidth} 0`,
-      });
 
-      await controls.start({
-        y: "-200%",
-        opacity: 1,
-        transition: { duration: 1, delay: 3 },
-      });
+      await Promise.all([
+        topPathControlls.start(
+          {
+            d: `M0 0 L0 0 Q ${window.innerWidth / 2} 0 ${window.innerWidth} 0`,
+          },
+          { duration: 0.45 }
+        ),
+        controls.start({
+          y: "-120%",
+          opacity: 1,
+          transition: { duration: 0.45 },
+        }),
+      ]);
+      await titleControlls.start(
+        {
+          y: "0%",
+        },
+        { duration: 0.3 }
+      );
+
+      await Promise.all([
+        controls.start({
+          y: "-230%",
+          opacity: 1,
+          transition: { duration: 0.45, delay: 0.3 },
+        }),
+        pathControlls.start(
+          {
+            d: `M0 0 L0 0 Q ${window.innerWidth / 2} 0 ${window.innerWidth} 0`,
+          },
+          { delay: 0.3, duration: 0.45 }
+        ),
+      ]);
       await controls.start({
         opacity: 0,
       });
@@ -47,20 +70,25 @@ const PageLoader: FC<PageLoaderProps> = ({}) => {
         opacity: 0,
         y: "0%",
       });
-      await topPathControlls.start({
+      topPathControlls.start({
         d: `M0 0 L-250 0 Q ${window.innerWidth / 2} 300 ${
           window.innerWidth
         } 50`,
       });
+      pathControlls.start({
+        d: `M0 0 L0 0 Q ${window.innerWidth / 2} 300 ${window.innerWidth} 0`,
+      });
+      titleControlls.start(
+        {
+          y: "-130%",
+        },
+        { duration: 0 }
+      );
       // }, 2000);
     })();
   }, [pathname]);
 
   if (typeof window == "undefined") return;
-  useEffect(() => {}, [topPathControlls]);
-
-  const pathRef = useRef<SVGPathElement>(null);
-
   return (
     <div
       style={{
@@ -71,51 +99,31 @@ const PageLoader: FC<PageLoaderProps> = ({}) => {
     >
       {/* <AnimatePresence> */}
       <motion.div
-        className="fixed top-[100%] left-0 w-screen h-screen flex flex-col items-center justify-center items-center bg-black text-slate-50 z-[10000] "
-        // variants={{
-        //   live: {
-        //     y: "0%",
-        //   },
-        //   exit: {
-        //     y: "-120%",
-        //   },
-        //   initial: {
-        //     y: "120%",
-        //   },
-        // }}
-        // transition={{
-        //   duration: 0.7,
-        // }}
-        // initial="initial"
-        // onAnimationComplete={() => {
-        //   if (!isLoading && ref.current) {
-        //     console.log("true");
-        //     ref.current.style.opacity = 0;
-        //     ref.current.style.translateY = "120%";
-        //     ref.current.style.opacity = 1;
-        //   }
-        // }}
-        // animate={isLoading == undefined ? "" : isLoading ? "live" : "exit"}
+        className="fixed top-[120%] left-0 w-screen h-screen flex flex-col items-center justify-center items-center bg-black text-slate-50 z-[10000] "
         animate={controls}
         // ref={ref}
       >
         <div className="flex gap-4  items-center h-16 overflow-hidden">
           <motion.span
-            className="text-4xl font-bold  text-right   "
-            initial="initial"
-            variants={{
-              initial: { translateY: "-120%" },
-              visible: { translateY: "0%" },
-            }}
-            transition={{ duration: 0.72 }}
-            whileInView={"visible"}
+            className="text-6xl font-bold  text-right ] uppercase "
+            animate={titleControlls}
           >
-            page
+            {pathname == "/"
+              ? "Home"
+              : decodeURIComponent(
+                  pathname.split("/").filter(Boolean).pop() ?? ""
+                )
+                  .split("-")
+                  .map(
+                    (segment) =>
+                      segment.charAt(0).toUpperCase() + segment.slice(1)
+                  )
+                  .join(" ")}
           </motion.span>
         </div>
         <div className="absolute top-[-20%] w-full ">
           <div className="relative w-full h-full translate-y-[100%] ">
-            <div className="relative h-24 w-full fill-black ">
+            <div className="relative h-24 w-full fill-black  ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 height={"full"}
@@ -127,7 +135,7 @@ const PageLoader: FC<PageLoaderProps> = ({}) => {
                     window.innerWidth
                   } 50`}
                   animate={topPathControlls}
-                  style={{ transition: "all 0.7s ease-out" }}
+                  // style={{ transition: "all 0.7s ease-out" }}
                 />
               </svg>
             </div>

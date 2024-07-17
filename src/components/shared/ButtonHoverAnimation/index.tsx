@@ -7,6 +7,7 @@ interface ButtonHoverAnimationProps {
   children: React.ReactNode;
   style?: React.CSSProperties;
   magneticStifness?: number;
+  onClickHandler?: () => void;
 }
 const ButtonHoverAnimation: FC<ButtonHoverAnimationProps> = ({
   children,

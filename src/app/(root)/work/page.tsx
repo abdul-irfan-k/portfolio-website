@@ -5,6 +5,7 @@ const WorkPage = async () => {
   return (
     <div>
       <WorkPageContainer />
+      <Footer />
     </div>
   );
 };

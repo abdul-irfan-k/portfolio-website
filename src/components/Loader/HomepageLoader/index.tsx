@@ -10,7 +10,7 @@ interface HomePageLoaderProps {
 const HomePageLoader: FC<HomePageLoaderProps> = ({ children }) => {
   const offset = useMotionValue(0);
   // const dataOffset = useTransform(offset, ["300px", "opx"]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
@@ -33,6 +33,7 @@ const HomePageLoader: FC<HomePageLoaderProps> = ({ children }) => {
         exit="exit"
         transition={{
           duration: 0.7,
+          delay: 1,
         }}
         animate={isLoading ? "live" : "exit"}
       >

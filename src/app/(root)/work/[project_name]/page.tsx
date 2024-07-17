@@ -5,7 +5,6 @@ import WorkDetailPageContainer from "@/components/Work/WorkDetailPageContainer";
 const WorkProjectDetailPage = () => {
   return (
     <div>
-      <Header />
       <WorkDetailPageContainer />
       <Footer />
     </div>

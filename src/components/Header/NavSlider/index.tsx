@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { FC } from "react";
 import { Variants, motion } from "framer-motion";
 import MagneticAnimation from "@/components/shared/MagneticAnimation";
@@ -87,7 +87,7 @@ const NavSlider: FC<NavSliderProps> = ({ isActive }) => {
                 variants={textSlideVariants}
                 custom={1}
               >
-                Home
+                <Link href={"/"}>Home</Link>
               </motion.h1>
             </MagneticAnimation>
             <MagneticAnimation magneticStifness={0.5}>
@@ -109,7 +109,7 @@ const NavSlider: FC<NavSliderProps> = ({ isActive }) => {
                 variants={textSlideVariants}
                 custom={3}
               >
-                About
+                <Link href={"/about"}>About</Link>
               </motion.h1>
             </MagneticAnimation>
             <MagneticAnimation magneticStifness={0.5}>

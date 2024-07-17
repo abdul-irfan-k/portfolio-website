@@ -9,15 +9,15 @@ const HomePage = () => {
   return (
     <div>
       {/* <HomePageLoader> */}
-        <div className="w-screen h-screen block b "></div>
-        <About />
-        <Project />
-        <ProjectHorizontalScroll />
-        
+      <div className="w-screen h-screen block b "></div>
+      <About />
+      <Project />
+      <ProjectHorizontalScroll />
+      <Footer />
       {/* </HomePageLoader> */}
     </div>
   );
 };
 
 export default HomePage;
-const sample = "asdf"
+const sample = "asdf";

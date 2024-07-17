@@ -1,17 +1,25 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { use, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import NavSlider from "./NavSlider";
 import ButtonHoverAnimation from "../shared/ButtonHoverAnimation";
 import gsap from "gsap";
 import Link from "next/link";
 import MagneticAnimation from "../shared/MagneticAnimation";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
   const [navbarButtonClicked, setNavbarButtonClicked] =
     useState<boolean>(false);
 
   const headerContainerRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+  const [isFirstRender, setIsFirstRender] = useState(true);
+
+  useEffect(() => {
+    if (isFirstRender) return setIsFirstRender(false);
+    setNavbarButtonClicked(false);
+  }, [pathname]);
   useEffect(() => {
     const element = headerContainerRef.current;
     if (!element) return;
@@ -19,13 +27,14 @@ const Header = () => {
     gsap.to(headerContainerSelector(".navBtn"), {
       scrollTrigger: {
         trigger: element,
-        start: "-100 top",
-        end: "+300 top",
+        start: "-800 top",
+        end: "-500 top",
         scrub: 1,
         onEnter: () => enterHandler(),
         onLeave: () => leaveHandler(),
         onEnterBack: () => enterHandler(),
         onLeaveBack: () => leaveHandler(),
+        // markers: true,
       },
     });
 
@@ -36,9 +45,11 @@ const Header = () => {
     };
 
     const enterHandler = () => {
-      gsap.to(headerContainerSelector(".navBtn"), {
-        scale: "0",
-      });
+      if (!navbarButtonClicked) {
+        gsap.to(headerContainerSelector(".navBtn"), {
+          scale: "0",
+        });
+      }
     };
   }, [headerContainerRef.current]);
   return (
@@ -59,7 +70,7 @@ const Header = () => {
                   } `}
                   onClick={() => setNavbarButtonClicked(!navbarButtonClicked)}
                 >
-                  <div className="text relative h-5 flex  justify-center w-full z-20 ">
+                  <div className="text relative h-5 flex  justify-center w-full z-[60] ">
                     <motion.div
                       className="absolute w-[40%] h-1 bg-white block"
                       variants={{
@@ -90,27 +101,27 @@ const Header = () => {
         </div>
 
         <div className="relative py-10 px-16 w-full flex text-xl z-[130]">
-        <MagneticAnimation>
-            <Link href={"/"} >
+          <MagneticAnimation>
+            <Link href={"/"}>
               <span className="">Abdul Irfan</span>
             </Link>
           </MagneticAnimation>
           <div className="gap-5 ml-auto flex gap ">
-          <MagneticAnimation>
-            <Link href={"/work"} >
-              <span className="">Work</span>
-            </Link>
-          </MagneticAnimation>
-          <MagneticAnimation>
-            <Link href={"/about"} >
-              <span className="">About</span>
-            </Link>
-          </MagneticAnimation>
-          <MagneticAnimation>
-            <Link href={"/contact"} >
-              <span className="">Contact</span>
-            </Link>
-          </MagneticAnimation>
+            <MagneticAnimation>
+              <Link href={"/work"}>
+                <span className="">Work</span>
+              </Link>
+            </MagneticAnimation>
+            <MagneticAnimation>
+              <Link href={"/about"}>
+                <span className="">About</span>
+              </Link>
+            </MagneticAnimation>
+            <MagneticAnimation>
+              <Link href={"/contact"}>
+                <span className="">Contact</span>
+              </Link>
+            </MagneticAnimation>
           </div>
         </div>
       </div>
