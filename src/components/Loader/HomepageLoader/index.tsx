@@ -10,7 +10,7 @@ interface HomePageLoaderProps {
 const HomePageLoader: FC<HomePageLoaderProps> = ({ children }) => {
   const offset = useMotionValue(0);
   // const dataOffset = useTransform(offset, ["300px", "opx"]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);

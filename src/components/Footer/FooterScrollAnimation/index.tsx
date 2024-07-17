@@ -17,8 +17,8 @@ const FooterScrollAnimation = () => {
     gsap.to(scollContainerSelector(".svgpath"), {
       scrollTrigger: {
         trigger: element,
-        start: "top bottom",
-        end: "bottom top",
+        start: "-500 bottom",
+        end: "bottom 150",
         // markers: true,
         scrub: 1,
         toggleActions: "restart none none none",

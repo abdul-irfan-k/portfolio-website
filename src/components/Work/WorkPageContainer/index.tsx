@@ -6,6 +6,9 @@ import DesktopBreakPoint from "@/components/ResponsiveUtilities/DesktopBreakPoin
 import MobileBreakPoint from "@/components/ResponsiveUtilities/MobileBreakPoint";
 import ButtonHoverAnimation from "@/components/shared/ButtonHoverAnimation";
 import Link from "next/link";
+import { projectDetails } from "@/project";
+import MenuIcon from "@/components/Icons/menu";
+import GridIcon from "@/components/Icons/grid";
 const WorkPageContainer = () => {
   const [isListView, setIsListView] = useState(true);
   const [selectedProject, setSelectedProject] = useState<
@@ -21,25 +24,26 @@ const WorkPageContainer = () => {
           </h1>
 
           <div className="gap-4 mt-16 flex items-center ">
-            <ButtonHoverAnimation>
+            <ButtonHoverAnimation
+              onClickHandler={() => setSelectedProject("all")}
+            >
               <div
                 className={
-                  "px-12 py-6 rounded-full flex items-center justify-center  " +
+                  "px-10 py-6 rounded-full flex items-center justify-center  " +
                   (selectedProject == "all"
                     ? "bg-dark text-slate-50"
                     : "text-dark border-2 border-slate-400")
                 }
-                onClick={() => {
-                  setSelectedProject("all");
-                }}
               >
                 <span className="text z-20">All</span>
               </div>
             </ButtonHoverAnimation>
-            <ButtonHoverAnimation>
+            <ButtonHoverAnimation
+              onClickHandler={() => setSelectedProject("frontend")}
+            >
               <div
                 className={
-                  "ml-2 px-12 py-6 rounded-full flex items-center  " +
+                  "ml-2 px-10 py-6 rounded-full flex items-center  " +
                   (selectedProject == "frontend"
                     ? "bg-dark text-slate-50"
                     : "text-dark border-2 border-slate-400")
@@ -48,10 +52,12 @@ const WorkPageContainer = () => {
                 <span className="text z-20"> Fronted</span>
               </div>
             </ButtonHoverAnimation>
-            <ButtonHoverAnimation>
+            <ButtonHoverAnimation
+              onClickHandler={() => setSelectedProject("backend")}
+            >
               <div
                 className={
-                  "ml-2 px-12 py-6 rounded-full flex items-center  " +
+                  "ml-2 px-10 py-6 rounded-full flex items-center  " +
                   (selectedProject == "backend"
                     ? "bg-dark text-slate-50"
                     : "text-dark border-2 border-slate-400")
@@ -62,21 +68,55 @@ const WorkPageContainer = () => {
             </ButtonHoverAnimation>
 
             <DesktopBreakPoint>
-              <div
-                className="ml-auto w-16 aspect-square rounded-full block bg-dark text-slate-50"
-                onClick={() => setIsListView(true)}
-              ></div>
-
-              <div
-                className="ml-2 w-16 aspect-square rounded-full block bg-dark text-slate-50"
-                onClick={() => setIsListView(false)}
-              ></div>
+              <div className="gap-4 ml-auto flex  fill-slate-50 ">
+                <ButtonHoverAnimation
+                  onClickHandler={() => setIsListView(true)}
+                >
+                  <div
+                    className={
+                      "ml-auto w-16 aspect-square rounded-full block flex items-center justify-center " +
+                      (isListView
+                        ? "bg-dark  "
+                        : " fill-dark border-2 border-slate-400")
+                    }
+                  >
+                    <span className="text z-20 ">
+                      <MenuIcon className="w-7 aspect-square" />
+                    </span>
+                  </div>
+                </ButtonHoverAnimation>
+                <ButtonHoverAnimation
+                  onClickHandler={() => setIsListView(false)}
+                >
+                  <div
+                    className={
+                      " w-16 aspect-square rounded-full block flex items-center justify-center " +
+                      (!isListView
+                        ? "bg-dark  "
+                        : " fill-dark border-2 border-slate-400")
+                    }
+                  >
+                    <span className="text z-20 ">
+                      <GridIcon className="w-7 aspect-square" />
+                    </span>
+                  </div>
+                </ButtonHoverAnimation>
+              </div>
             </DesktopBreakPoint>
           </div>
         </div>
       </div>
       <DesktopBreakPoint>
-        {isListView && <ProjectList />}
+        {isListView && (
+          <ProjectList
+            //@ts-ignore
+            projectDetails={
+              selectedProject == "all"
+                ? projectDetails
+                : projectDetails.slice(0, 3)
+            }
+          />
+        )}
         {!isListView && <ProjectCardList />}
       </DesktopBreakPoint>
       <MobileBreakPoint>

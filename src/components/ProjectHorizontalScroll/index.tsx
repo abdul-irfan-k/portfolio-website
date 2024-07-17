@@ -11,32 +11,28 @@ const ProjectHorizontalScroll = () => {
     const element = containerRef.current;
     const scollContainerSelector = gsap.utils.selector(element);
     console.log("not null");
-    gsap
-      .to(scollContainerSelector(".leftscrollcontainer"), {
-        scrollTrigger: {
-          trigger: element,
-          start: "top bottom",
-          end: "bottom top",
-          // markers: true,
-          scrub: 1,
-          toggleActions: "restart none none none",
-        },
-        transform: "translateX(-10%)",
-      })
-    gsap
-      .to(scollContainerSelector(".rightscrollcontainer"), {
-        scrollTrigger: {
-          trigger: element,
-          start: "top bottom",
-          end: "bottom top",
-          // markers: true,
-          scrub: 1,
-          toggleActions: "restart none none none",
-        },
-        transform: "translateX(10%)",
-      })
- 
- 
+    gsap.to(scollContainerSelector(".leftscrollcontainer"), {
+      scrollTrigger: {
+        trigger: element,
+        start: "-700 bottom",
+        end: "bottom top",
+        // markers: true,
+        scrub: 1,
+        toggleActions: "restart none none none",
+      },
+      transform: "translateX(-10%)",
+    });
+    gsap.to(scollContainerSelector(".rightscrollcontainer"), {
+      scrollTrigger: {
+        trigger: element,
+        start: "-700 bottom",
+        end: "bottom top",
+        // markers: true,
+        scrub: 1,
+        toggleActions: "restart none none none",
+      },
+      transform: "translateX(10%)",
+    });
   }, []);
   return (
     <div ref={containerRef} className="my-10">

@@ -13,6 +13,7 @@ const ButtonHoverAnimation: FC<ButtonHoverAnimationProps> = ({
   children,
   style,
   magneticStifness,
+  onClickHandler,
 }) => {
   const circleRef = useRef<HTMLDivElement>(null);
   const timeline = useRef<gsap.core.Timeline>(null);
@@ -67,6 +68,7 @@ const ButtonHoverAnimation: FC<ButtonHoverAnimationProps> = ({
         style={style == undefined ? {} : style}
         onMouseEnter={onMouseEnterHandler}
         onMouseLeave={onMouseLeaveHandler}
+        onClick={onClickHandler}
       >
         {children}
         <div

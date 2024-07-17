@@ -1,11 +1,20 @@
 "use client";
-import { projectDetails } from "@/project";
-import React, { useRef, useState } from "react";
+import React, { FC, useRef, useState } from "react";
 import ProjectRow from "./ProjectRow";
 import ProjectViewAnimation from "@/components/shared/ProjectViewAnimation";
 // import ProjectViewAnimation from "@/components/shared/ProjectViewAnimation";
 
-const ProjectList = () => {
+interface ProjectListProps {
+  projectDetails: {
+    client: string;
+    location: string;
+    service: string;
+    year: string;
+    description: string;
+    images: string[];
+  }[];
+}
+const ProjectList: FC<ProjectListProps> = ({ projectDetails }) => {
   const animationContainerRef = useRef<HTMLDivElement>(null);
   const [projectViewIndex, setProjectViewIndex] = useState<number | undefined>(
     undefined
