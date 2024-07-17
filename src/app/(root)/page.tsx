@@ -4,8 +4,11 @@ import Header from "@/components/Header";
 import HomePageLoader from "@/components/Loader/HomepageLoader";
 import Project from "@/components/Project";
 import ProjectHorizontalScroll from "@/components/ProjectHorizontalScroll";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const HomePage = () => {
+  gsap.registerPlugin(ScrollTrigger);
   return (
     <div>
       {/* <HomePageLoader> */}
