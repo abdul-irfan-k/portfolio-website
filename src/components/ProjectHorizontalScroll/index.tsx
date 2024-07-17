@@ -1,24 +1,25 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useLayoutEffect, useRef } from "react";
 import ProjectHorizontalScrollCard from "./ProjectHorizontalScrollCard";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
 const ProjectHorizontalScroll = () => {
   const leftContainerRef = useRef<HTMLDivElement>(null);
   const rightcontainerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (
       leftContainerRef.current == null ||
       leftContainerRef == null ||
       rightcontainerRef.current == null ||
-      rightcontainerRef == null
+      rightcontainerRef == null ||
+      typeof window === "undefined"
     )
       return;
     const element = leftContainerRef.current;
-    // const scollContainerSelector = gsap.utils.selector(element);
-    gsap.registerPlugin(ScrollTrigger);
+    console.log("rendered");
     gsap.to(element, {
       scrollTrigger: {
         trigger: element,
