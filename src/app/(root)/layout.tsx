@@ -3,7 +3,6 @@ import Header from "@/components/Header";
 import HomePageLoader from "@/components/Loader/HomepageLoader";
 import GsapProvider from "@/provider/GsapProvider";
 import SmothScrollScrollProvider from "@/provider/SmoothScrollProvider";
-import TransitionProvider from "@/provider/TransitionProvider";
 import React from "react";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -11,7 +10,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <>
       <GsapProvider>
         <SmothScrollScrollProvider>
-          <HomePageLoader></HomePageLoader>
+          <HomePageLoader />
           <Header />
           {children}
           {/* <Footer /> */}

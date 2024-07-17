@@ -32,13 +32,14 @@ const SmothScrollScrollProvider = ({
     });
     lenis.start();
     setLenis(lenis);
+    //@ts-ignore
     window.lenis = lenis;
 
     return () => {
       lenis.destroy();
     };
   }, []);
-  useFrame((time) => {
+  useFrame((time: any) => {
     if (lenis == undefined) return;
     lenis.raf(time);
   });

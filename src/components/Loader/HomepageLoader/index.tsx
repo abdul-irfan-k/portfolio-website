@@ -4,10 +4,8 @@ import { AnimatePresence, motion, useMotionValue } from "framer-motion";
 import LoaderBottomAnimation from "../LoaderBottomAnimation";
 import PageLoader from "../PageLoader";
 
-interface HomePageLoaderProps {
-  children: React.ReactNode;
-}
-const HomePageLoader: FC<HomePageLoaderProps> = ({ children }) => {
+interface HomePageLoaderProps {}
+const HomePageLoader: FC<HomePageLoaderProps> = ({}) => {
   const offset = useMotionValue(0);
   // const dataOffset = useTransform(offset, ["300px", "opx"]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -111,9 +109,7 @@ const HomePageLoader: FC<HomePageLoaderProps> = ({ children }) => {
         }}
         animate={isLoading ? "initial" : "visible"}
         className="relative"
-      >
-        {children}
-      </motion.div>
+      ></motion.div>
 
       {!isLoading && <PageLoader />}
     </div>

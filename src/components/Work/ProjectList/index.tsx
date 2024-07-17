@@ -42,6 +42,7 @@ const ProjectList: FC<ProjectListProps> = ({ projectDetails }) => {
             <ProjectRow
               key={index}
               onMouseEnterHandler={() => setProjectViewIndex(index)}
+              //@ts-ignore
               project={project}
             />
           );
@@ -50,6 +51,7 @@ const ProjectList: FC<ProjectListProps> = ({ projectDetails }) => {
       <ProjectViewAnimation
         currentIndex={projectViewIndex}
         isActive={isPreviewActive}
+        //@ts-ignore
         projects={projectDetails}
         isListView
         animationContainerRef={animationContainerRef}
