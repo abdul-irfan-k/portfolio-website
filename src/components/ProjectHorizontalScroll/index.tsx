@@ -14,12 +14,10 @@ const ProjectHorizontalScroll = () => {
       leftContainerRef.current == null ||
       leftContainerRef == null ||
       rightcontainerRef.current == null ||
-      rightcontainerRef == null ||
-      typeof window === "undefined"
+      rightcontainerRef == null
     )
       return;
     const element = leftContainerRef.current;
-    console.log("rendered");
     gsap.to(element, {
       scrollTrigger: {
         trigger: element,
