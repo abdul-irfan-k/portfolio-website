@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useRef } from "react";
-import FooterScrollAnimation from "./FooterScrollAnimation";
 import ButtonHoverAnimation from "../shared/ButtonHoverAnimation";
 import FooterInfoAndLinkBox from "./FooterInfoAndLinkBox";
 import gsap from "gsap";
@@ -54,8 +53,9 @@ const Footer = () => {
           <div className="mt-28 h-[2px]  flex  bg-slate-300 ">
             <motion.div style={{ marginLeft: contactButtonMarginLeft }}>
               <div className="absolute w-[25%] aspect-square   translate-y-[-50%] translate-x-[-25%] md:w-[12%] ">
-                <ButtonHoverAnimation style={{ height: "100%", width: "100%" }}
-                onClickHandler={() => router.push("/contact")}>
+                <ButtonHoverAnimation
+                  style={{ height: "100%", width: "100%" }}
+                  onClickHandler={() => router.push("/contact")}
                 >
                   <div className="h-full w-full bg-blue-700 rounded-full flex flex-col items-center justify-center">
                     <span className="text z-20">Get in touch</span>
@@ -81,8 +81,6 @@ const Footer = () => {
         <div className="mt-20">
           <FooterInfoAndLinkBox />
         </div>
-
-        {/* <FooterScrollAnimation /> */}
       </div>
     </div>
   );

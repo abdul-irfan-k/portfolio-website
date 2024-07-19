@@ -43,6 +43,8 @@ const PageLoader: FC<PageLoaderProps> = ({}) => {
           transition: { duration: 0.45 },
         }),
       ]);
+
+      window.scrollTo(0, 0);
       await titleControlls.start(
         {
           y: "0%",
@@ -97,7 +99,7 @@ const PageLoader: FC<PageLoaderProps> = ({}) => {
     >
       {/* <AnimatePresence> */}
       <motion.div
-        className="fixed top-[120%] left-0 w-screen h-screen flex flex-col items-center justify-center items-center bg-black text-slate-50 z-[10000] "
+        className="fixed top-[120%] left-0 w-screen h-screen flex flex-col  justify-center items-center bg-black text-slate-50 z-[10000] "
         animate={controls}
         // ref={ref}
       >

@@ -6,12 +6,12 @@ import PageLoader from "../PageLoader";
 
 interface HomePageLoaderProps {}
 const HomePageLoader: FC<HomePageLoaderProps> = ({}) => {
-  const offset = useMotionValue(0);
   // const dataOffset = useTransform(offset, ["300px", "opx"]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
+      window.scrollTo(0, 0);
     }, 2000);
   }, []);
   return (
@@ -25,7 +25,7 @@ const HomePageLoader: FC<HomePageLoaderProps> = ({}) => {
       <AnimatePresence>
         {isLoading && (
           <motion.div
-            className="fixed top-0 left-0 w-screen h-screen flex flex-col items-center justify-center items-center bg-black text-slate-50 z-[10000] "
+            className="fixed top-0 left-0 w-screen h-screen flex flex-col items-center justify-center  bg-black text-slate-50 z-[10000] "
             variants={{
               exit: { translateY: "-100vh" },
             }}
