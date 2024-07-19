@@ -22,8 +22,8 @@ const PageLoader: FC<PageLoaderProps> = ({}) => {
 
   useEffect(() => {
     if (isLoading == undefined) return setIsLoading(false);
+
     (async () => {
-      console.log(pathname);
       await controls.start({
         y: "-20%",
         opacity: 1,
@@ -33,7 +33,7 @@ const PageLoader: FC<PageLoaderProps> = ({}) => {
       await Promise.all([
         topPathControlls.start(
           {
-            d: `M0 0 L0 0 Q ${window.innerWidth / 2} 0 ${window.innerWidth} 0`,
+            d: `M0 0 L0 0 Q ${1536 / 2} 0 ${1536} 0`,
           },
           { duration: 0.45 }
         ),
@@ -58,7 +58,7 @@ const PageLoader: FC<PageLoaderProps> = ({}) => {
         }),
         pathControlls.start(
           {
-            d: `M0 0 L0 0 Q ${window.innerWidth / 2} 0 ${window.innerWidth} 0`,
+            d: `M0 0 L0 0 Q ${1536 / 2} 0 ${1536} 0`,
           },
           { delay: 0.3, duration: 0.45 }
         ),
@@ -71,12 +71,10 @@ const PageLoader: FC<PageLoaderProps> = ({}) => {
         y: "0%",
       });
       topPathControlls.start({
-        d: `M0 0 L-250 0 Q ${window.innerWidth / 2} 300 ${
-          window.innerWidth
-        } 50`,
+        d: `M0 0 L0 0 Q ${1536 / 2} 300 ${1536} 0`,
       });
       pathControlls.start({
-        d: `M0 0 L0 0 Q ${window.innerWidth / 2} 300 ${window.innerWidth} 0`,
+        d: `M0 0 L0 0 Q ${1536 / 2} 300 ${1536} 0`,
       });
       titleControlls.start(
         {
@@ -103,6 +101,20 @@ const PageLoader: FC<PageLoaderProps> = ({}) => {
         animate={controls}
         // ref={ref}
       >
+        <div className="bottom-[100%] absolute w-full fill-black">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width={"full"}
+            className="w-full rotate-180"
+            viewBox="0 0 1536 300"
+          >
+            <motion.path
+              d={`M0 0 L0 0 Q ${1536 / 2} 300 ${1536} 0`}
+              animate={topPathControlls}
+              style={{ transition: "all 0.7s ease-out" }}
+            />
+          </svg>
+        </div>
         <div className="flex gap-4  items-center h-16 overflow-hidden">
           <motion.span
             className="text-6xl font-bold  text-right ] uppercase "
@@ -121,49 +133,20 @@ const PageLoader: FC<PageLoaderProps> = ({}) => {
                   .join(" ")}
           </motion.span>
         </div>
-        <div className="absolute top-[-20%] w-full ">
-          <div className="relative w-full h-full translate-y-[100%] ">
-            <div className="relative h-24 w-full fill-black  ">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height={"full"}
-                width={"full"}
-                className="w-full rotate-180"
-              >
-                <motion.path
-                  d={`M0 0 L-250 0 Q ${window.innerWidth / 2} 300 ${
-                    window.innerWidth
-                  } 50`}
-                  animate={topPathControlls}
-                  // style={{ transition: "all 0.7s ease-out" }}
-                />
-              </svg>
-            </div>
-          </div>
 
-          {/* <div className="top-0 absolute w-full h-full z-20 overlary"></div> */}
-        </div>
-        <div className="absolute bottom-0 w-full">
-          <div className="relative w-full h-full translate-y-[100%]">
-            <div className="relative h-24 w-full  fill-black  ">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height={"full"}
-                width={"full"}
-                className="w-full"
-              >
-                <motion.path
-                  d={`M0 0 L0 0 Q ${window.innerWidth / 2} 300 ${
-                    window.innerWidth
-                  } 0`}
-                  animate={pathControlls}
-                  style={{ transition: "all 0.7s ease-out" }}
-                />
-              </svg>
-            </div>
-
-            {/* <div className="top-0 absolute w-full h-full z-20 overlary"></div> */}
-          </div>
+        <div className="absolute top-[100%] w-full">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height={"full"}
+            width={"full"}
+            viewBox="0 0 1536 300"
+          >
+            <motion.path
+              d={`M0 0 L0 0 Q ${1536 / 2} 300 ${1536} 0`}
+              animate={pathControlls}
+              style={{ transition: "all 0.7s ease-out" }}
+            />
+          </svg>
           {/* <LoaderBottomAnimation isExit={!isLoading} /> */}
         </div>
       </motion.div>

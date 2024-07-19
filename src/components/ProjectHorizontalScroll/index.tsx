@@ -1,69 +1,41 @@
 "use client";
-import React, { useEffect, useLayoutEffect, useRef } from "react";
+import React, { useRef } from "react";
 import ProjectHorizontalScrollCard from "./ProjectHorizontalScrollCard";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 
-gsap.registerPlugin(ScrollTrigger);
 const ProjectHorizontalScroll = () => {
-  const leftContainerRef = useRef<HTMLDivElement>(null);
-  const rightcontainerRef = useRef<HTMLDivElement>(null);
+  const conatinerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: conatinerRef,
+    offset: ["start end", "end start"],
+  });
 
-  useLayoutEffect(() => {
-    if (
-      leftContainerRef.current == null ||
-      leftContainerRef == null ||
-      rightcontainerRef.current == null ||
-      rightcontainerRef == null
-    )
-      return;
-    const element = leftContainerRef.current;
-    gsap.to(element, {
-      scrollTrigger: {
-        trigger: element,
-        start: "-400 bottom",
-        end: "bottom top",
-        // markers: true,
-        scrub: 1,
-        toggleActions: "restart none none none",
-      },
-      x: "-10%",
-      // transform: "translateX(-10%)",
-    });
-    gsap.to(rightcontainerRef.current, {
-      scrollTrigger: {
-        trigger: rightcontainerRef.current,
-        start: "-700 bottom",
-        end: "bottom top",
-        markers: true,
-        scrub: 1,
-        toggleActions: "restart none none none",
-      },
-      transform: "translateX(10%)",
-    });
-  }, [leftContainerRef, rightcontainerRef]);
+  const x1 = useTransform(scrollYProgress, [0, 1], [0, 100]);
+  const x2 = useTransform(scrollYProgress, [0, 1], [0, -100]);
+
   return (
-    <div className="my-10">
-      <div
-        ref={leftContainerRef}
+    <div className="my-10" ref={conatinerRef}>
+      <motion.div
         className="leftscrollcontainer  gap-10 flex  translate-x-[-40%] "
+        style={{ x: x1 }}
       >
         <ProjectHorizontalScrollCard />
         <ProjectHorizontalScrollCard />
         <ProjectHorizontalScrollCard />
         <ProjectHorizontalScrollCard />
         <ProjectHorizontalScrollCard />
-      </div>
-      <div
-        ref={rightcontainerRef}
+      </motion.div>
+      <motion.div
         className="rightscrollcontainer relative  mt-5 left-[-40%] gap-10 flex rightscrollcontainer translate-x-[40%]"
+        style={{ x: x2 }}
       >
         <ProjectHorizontalScrollCard />
         <ProjectHorizontalScrollCard />
         <ProjectHorizontalScrollCard />
         <ProjectHorizontalScrollCard />
         <ProjectHorizontalScrollCard />
-      </div>
+      </motion.div>
     </div>
   );
 };

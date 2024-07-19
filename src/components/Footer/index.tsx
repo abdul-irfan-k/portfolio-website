@@ -4,38 +4,39 @@ import FooterScrollAnimation from "./FooterScrollAnimation";
 import ButtonHoverAnimation from "../shared/ButtonHoverAnimation";
 import FooterInfoAndLinkBox from "./FooterInfoAndLinkBox";
 import gsap from "gsap";
+import { useScroll, useTransform, motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 const Footer = () => {
+  const router = useRouter();
   const footerContainerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const element = footerContainerRef.current;
-    if (!element) return;
+  const { scrollYProgress } = useScroll({
+    target: footerContainerRef,
+    offset: ["start end", "end end"],
+  });
 
-    const footerContainerSelector = gsap.utils.selector(footerContainerRef);
-    gsap.to(footerContainerSelector(".getintouchbtn"), {
-      scrollTrigger: {
-        trigger: element,
-        start: "top +500",
-        end: "top top",
-        scrub: 1,
-        // markers: true,
-      },
-      marginLeft: "80%",
-    });
-    // gsap.to(element, {
-    //   scrollTrigger: {
-    //     trigger: element,
-    //     start: "top +500",
-    //     end: "top top",
-    //     scrub: 1,
-    //   },
-    //   translateY: "0%",
-    // });
-  }, [footerContainerRef]);
+  const height = useTransform(scrollYProgress, [0, 1], [50, 0]);
+  const contactButtonMarginLeft = useTransform(
+    scrollYProgress,
+    [0.5, 1],
+    ["70%", "80%"]
+  );
   return (
-    <div className="mt-20 overflow-hidden z-[50]">
-      <div className="relative  pt-10 pb-5 bg-dark text-slate-50 ">
+    <div className=" z-[50] overflow-visible">
+      <motion.div
+        className="relative  mt-20   w-full  block "
+        style={{ height }}
+      >
+        <div
+          className="absolute h-[1550%] w-[120%] left-[-10%] z-[1] bg-white    "
+          style={{
+            boxShadow: "0px 60px 60px rgba(0,0,0,0.72)",
+            borderRadius: "0 0 50% 50%",
+          }}
+        ></div>
+      </motion.div>
+      <div className="relative  pt-20 pb-5 bg-dark text-slate-50 ">
         <div
           className="relative pt-28 pb-5  px-10 md:px-36 translate-y-[-20%] "
           ref={footerContainerRef}
@@ -51,15 +52,17 @@ const Footer = () => {
           </div>
 
           <div className="mt-28 h-[2px]  flex  bg-slate-300 ">
-            <div className="getintouchbtn ml-[65%]">
+            <motion.div style={{ marginLeft: contactButtonMarginLeft }}>
               <div className="absolute w-[25%] aspect-square   translate-y-[-50%] translate-x-[-25%] md:w-[12%] ">
-                <ButtonHoverAnimation style={{ height: "100%", width: "100%" }}>
+                <ButtonHoverAnimation style={{ height: "100%", width: "100%" }}
+                onClickHandler={() => router.push("/contact")}>
+                >
                   <div className="h-full w-full bg-blue-700 rounded-full flex flex-col items-center justify-center">
                     <span className="text z-20">Get in touch</span>
                   </div>
                 </ButtonHoverAnimation>
               </div>
-            </div>
+            </motion.div>
           </div>
 
           <div className="relative gap-5 mt-24 flex  flex-col md:flex-row md:mt-16">
@@ -79,7 +82,7 @@ const Footer = () => {
           <FooterInfoAndLinkBox />
         </div>
 
-        <FooterScrollAnimation />
+        {/* <FooterScrollAnimation /> */}
       </div>
     </div>
   );
