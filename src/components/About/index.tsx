@@ -3,9 +3,9 @@ import ButtonHoverAnimation from "../shared/ButtonHoverAnimation";
 
 const About = () => {
   return (
-    <div className="px-40">
+    <div className="px-20 xl:px-40 ">
       <div className="gap-10  flex justify-between">
-        <div className="text-[35.3648px] ">
+        <div className=" md:text-3xl  xl:text-[35.3648px]  ">
           An accomplished full-stack MERN developer with 2+ years of experience
           crafting high-performance web applications, I bring a blend of
         </div>

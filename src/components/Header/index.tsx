@@ -58,7 +58,7 @@ const Header = () => {
         <div className="fixed top-0 left-0 w-full flex items-center overflow-hidden">
           <div className="py-5 px-5 w-full flex  justify-end ">
             <div
-              className="w-[6%] scale-0 navBtn "
+              className="w-[6%] min-w-[100px] scale-0 navBtn "
               style={{
                 transition: "scale  0.4s cubic-bezier(0.36, 0, 0.66, 0)",
               }}
@@ -70,9 +70,9 @@ const Header = () => {
                   } `}
                   onClick={() => setNavbarButtonClicked(!navbarButtonClicked)}
                 >
-                  <div className="text relative h-5 flex  justify-center w-full z-[60] ">
+                  <div className="text relative h-6 flex  justify-center w-full z-[60] ">
                     <motion.div
-                      className="absolute w-[40%] h-1 bg-white block"
+                      className="absolute w-[40%] h-[3px] bg-white block"
                       variants={{
                         active: { top: "5px", transform: "rotate(45deg)" },
                       }}
@@ -81,7 +81,7 @@ const Header = () => {
                       animate={navbarButtonClicked ? "active" : "notActive"}
                     ></motion.div>
                     <motion.div
-                      className="absolute w-[40%] h-1 bg-white block"
+                      className="absolute w-[40%] h-[3px] bg-white block"
                       variants={{
                         active: {
                           position: "absolute",
@@ -100,7 +100,7 @@ const Header = () => {
           </div>
         </div>
 
-        <div className="relative py-10 px-16 w-full flex text-xl z-[130]">
+        <div className="relative py-10  w-full flex text-xl z-[130] sm:px-5 md:px-10 xl:px-16">
           <MagneticAnimation>
             <Link href={"/"}>
               <span className="">Abdul Irfan</span>

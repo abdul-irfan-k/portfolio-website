@@ -45,7 +45,7 @@ const Project = () => {
 
   return (
     <div>
-      <div className="relative py-5 px-20 " ref={testRef}>
+      <div className="relative py-5 md:px-10 xl:px-20  " ref={testRef}>
         <div
           className="relative  flex flex-col  "
           onMouseEnter={() => setIsPreviewActive(true)}
@@ -54,14 +54,16 @@ const Project = () => {
           {projectDetails.map((project, index) => {
             return (
               <div
-                className="px-20 py-14 flex justify-between items-center"
+                className=" py-14 flex justify-between items-center md:px-10 md:py-12 xl:px-20 "
                 key={index}
                 onMouseEnter={() => setProjectViewIndex(index)}
                 onClick={() =>
                   router.push(`/work/${project.name.replace(/\s/g, "")}`)
                 }
               >
-                <h1 className="text-7xl ">{project.name}</h1>
+                <h1 className="text-7xl md:text-6xl  xl:text-7xl ">
+                  {project.name}
+                </h1>
                 <span className="text-base">Design & Development</span>
               </div>
             );

@@ -35,14 +35,14 @@ const Footer = () => {
           }}
         ></div>
       </motion.div>
-      <div className="relative  pt-20 pb-5 bg-dark text-slate-50 ">
+      <div className="relative  pt-20 pb-5  bg-dark text-slate-50 ">
         <div
-          className="relative pt-28 pb-5  px-10 md:px-36 translate-y-[-20%] "
+          className="relative pt-28 pb-5  px-5  md:px-20 xl:px-40 translate-y-[-20%] "
           ref={footerContainerRef}
         >
-          <div className=" flex flex-col  text-5xl md:text-7xl  md:w-[50%] header">
+          <div className=" flex flex-col  text-5xl md:text-7xl   header">
             <div className="relative  gap-5 flex items-center ">
-              <div className="w-[20%] aspect-square block bg-neutral-950 rounded-full"></div>
+              <div className="w-[25%] max-w-[100px] aspect-square block bg-neutral-950 rounded-full md:w-[15%]"></div>
               <span className=" font-[500]">Let{"'"}s Work</span>
             </div>
             <div>
@@ -52,7 +52,7 @@ const Footer = () => {
 
           <div className="mt-28 h-[2px]  flex  bg-slate-300 ">
             <motion.div style={{ marginLeft: contactButtonMarginLeft }}>
-              <div className="absolute w-[25%] aspect-square   translate-y-[-50%] translate-x-[-25%] md:w-[12%] ">
+              <div className="absolute w-[45%] aspect-square   translate-y-[-50%] translate-x-[-70%] md:translate-x-[-25%] md:w-[18%] xl:w-[15%] ">
                 <ButtonHoverAnimation
                   style={{ height: "100%", width: "100%" }}
                   onClickHandler={() => router.push("/contact")}
@@ -78,7 +78,7 @@ const Footer = () => {
             </ButtonHoverAnimation>
           </div>
         </div>
-        <div className="mt-20">
+        <div className="mt-0 md:mt-20">
           <FooterInfoAndLinkBox />
         </div>
       </div>
