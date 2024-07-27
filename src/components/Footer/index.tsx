@@ -2,7 +2,6 @@
 import React, { useEffect, useRef } from "react";
 import ButtonHoverAnimation from "../shared/ButtonHoverAnimation";
 import FooterInfoAndLinkBox from "./FooterInfoAndLinkBox";
-import gsap from "gsap";
 import { useScroll, useTransform, motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 

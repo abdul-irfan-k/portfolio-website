@@ -1,7 +1,6 @@
 "use client";
 import React, { FC, useEffect, useState } from "react";
-import { AnimatePresence, motion, useMotionValue } from "framer-motion";
-import LoaderBottomAnimation from "../LoaderBottomAnimation";
+import { AnimatePresence, motion } from "framer-motion";
 import PageLoader from "../PageLoader";
 
 interface HomePageLoaderProps {}

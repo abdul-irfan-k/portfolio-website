@@ -1,13 +1,6 @@
 "use client";
 import React, { FC, useEffect, useRef, useState } from "react";
-import {
-  AnimatePresence,
-  motion,
-  useAnimation,
-  useAnimationControls,
-  useMotionValue,
-} from "framer-motion";
-import LoaderBottomAnimation from "../LoaderBottomAnimation";
+import { motion, useAnimationControls } from "framer-motion";
 import { usePathname } from "next/navigation";
 
 interface PageLoaderProps {}
