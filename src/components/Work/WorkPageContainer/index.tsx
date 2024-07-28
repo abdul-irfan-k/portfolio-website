@@ -72,7 +72,7 @@ const WorkPageContainer = () => {
             <div className="gap-4 ml-auto flex  fill-slate-50 ">
               <ButtonHoverAnimation
                 onClickHandler={() => {
-                  lenis.scrollTo(0);
+                  if (lenis) lenis.scrollTo(0);
                   setIsListView(true);
                 }}
               >
@@ -91,7 +91,7 @@ const WorkPageContainer = () => {
               </ButtonHoverAnimation>
               <ButtonHoverAnimation
                 onClickHandler={() => {
-                  lenis?.scrollTo(0);
+                  if (lenis) lenis?.scrollTo(0);
                   setIsListView(false);
                 }}
               >
