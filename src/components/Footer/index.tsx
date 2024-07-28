@@ -22,7 +22,7 @@ const Footer = () => {
     ["70%", "80%"]
   );
   return (
-    <div className=" z-[50] overflow-visible">
+    <div className="w-screen overflow-x-hidden z-[50] overflow-visible">
       <motion.div className="relative    w-full  block " style={{ height }}>
         <div
           className="absolute h-[1550%] w-[120%] left-[-10%] z-[1] bg-white    "
@@ -32,7 +32,7 @@ const Footer = () => {
           }}
         ></div>
       </motion.div>
-      <div className="relative   pb-5  bg-dark text-slate-50 md:pt-20 ">
+      <div className="relative   pb-5  flex flex-col min-h-screen bg-dark text-slate-50 md:pt-20 ">
         <div
           className="relative pt-28 pb-5  px-5 translate-y-[-10%] sm:px-10  md:px-20 md:py-20 xl:px-40 md:translate-y-0   "
           ref={footerContainerRef}
@@ -47,7 +47,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="mt-10 h-[2px]  flex  border-[1px] border-neutral-600 md:mt-28  ">
+          <div className="mt-10 h-[2px]  flex   border-[1px] border-neutral-600 md:mt-28  ">
             <motion.div style={{ marginLeft: contactButtonMarginLeft }}>
               <div className="absolute w-[25%] min-w-[150px] aspect-square   translate-y-[-50%] translate-x-[-70%] md:translate-x-[-25%] md:w-[20%] xl:w-[15%] ">
                 <ButtonHoverAnimation
@@ -65,7 +65,7 @@ const Footer = () => {
             </motion.div>
           </div>
 
-          <div className="relative gap-5 mt-24 flex  flex-col md:flex-row md:mt-20">
+          <div className="relative gap-5 mt-28 flex  flex-col md:flex-row md:mt-20">
             <ButtonHoverAnimation style={undefined} magneticStifness={0.8}>
               <div className=" relative px-10 py-4 rounded-full flex items-center justify-center text-lg font-semibold border-[1px] w-full border-slate-400 md:w-auto">
                 <span className="text z-[20]  ">abdulirfank2@gmail.com</span>
@@ -78,7 +78,7 @@ const Footer = () => {
             </ButtonHoverAnimation>
           </div>
         </div>
-        <div className="mt-0 md:mt-20">
+        <div className="mt-auto md:mt-20">
           <FooterInfoAndLinkBox />
         </div>
       </div>

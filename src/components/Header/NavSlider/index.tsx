@@ -55,7 +55,7 @@ const NavSlider: FC<NavSliderProps> = ({ isActive }) => {
   return (
     <div className="relative h-0 z-[50]">
       <motion.div
-        className="top-0 fixed right-0 w-[35vw] h-full bg-dark text-slate-50"
+        className="top-0 fixed right-0 w-full h-full bg-dark text-slate-50 md:w-[35vw]"
         animate={isActive ? "active" : "notActive"}
         initial="initial"
         variants={{
@@ -160,6 +160,29 @@ const NavSlider: FC<NavSliderProps> = ({ isActive }) => {
           </div>
         </div>
       </motion.div>
+
+      <motion.div
+        className="hidden overlary-right   fixed w-screen h-screen  top-0 left-0 md:block md:w-[65vw]"
+        transition={{ delay: 1, duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
+        variants={{
+          initial: { transform: "translateX(calc(170% + 6rem))", opacity: 0 },
+          active: {
+            transform: "translateX(0%)",
+            transition: { duration: 1, ease: [0.76, 0, 0.24, 1] },
+            opacity: 0.1,
+          },
+          notActive: {
+            transform: "translateX(calc(170% + 6rem))",
+            opacity: 0,
+            transition: {
+              duration: 0.8,
+              ease: [0.76, 0, 0.24, 1],
+            },
+          },
+        }}
+        animate={isActive ? "active" : "notActive"}
+        initial="initial"
+      ></motion.div>
     </div>
   );
 };

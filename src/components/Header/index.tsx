@@ -7,6 +7,7 @@ import gsap from "gsap";
 import Link from "next/link";
 import MagneticAnimation from "../shared/MagneticAnimation";
 import { usePathname } from "next/navigation";
+import { useLenisContext } from "@/provider/SmoothScrollProvider";
 
 const Header = () => {
   const [navbarButtonClicked, setNavbarButtonClicked] =
@@ -16,8 +17,11 @@ const Header = () => {
   const pathname = usePathname();
   const [isFirstRender, setIsFirstRender] = useState(true);
 
+  const lenis = useLenisContext();
+
   useEffect(() => {
     if (isFirstRender) return setIsFirstRender(false);
+    if (lenis) lenis.start();
     setNavbarButtonClicked(false);
   }, [pathname]);
   useEffect(() => {
@@ -54,10 +58,13 @@ const Header = () => {
   }, [headerContainerRef.current]);
   return (
     <>
-      <div className="relative z-[110] " ref={headerContainerRef}>
+      <div
+        className="relative w-screen overflow-x-hidden z-[110] "
+        ref={headerContainerRef}
+      >
         <div className="fixed right-0 w-fit py-5 px-5  flex  justify-end ">
           <div
-            className="w-[6vw] min-w-[100px] scale-0 navBtn "
+            className="w-[6vw] min-w-[80px] scale-0 navBtn "
             style={{
               transition: "scale  0.4s cubic-bezier(0.36, 0, 0.66, 0)",
             }}
@@ -67,11 +74,15 @@ const Header = () => {
                 className={`ml-auto relative  w-full aspect-square rounded-full overflow-hidden flex items-center justify-center   ${
                   navbarButtonClicked ? "bg-blue-600" : "bg-dark"
                 } `}
-                onClick={() => setNavbarButtonClicked(!navbarButtonClicked)}
+                onClick={() => {
+                  if (!navbarButtonClicked && lenis) lenis.stop();
+                  if (navbarButtonClicked && lenis) lenis.start();
+                  setNavbarButtonClicked(!navbarButtonClicked);
+                }}
               >
                 <div className="text relative h-6 flex  justify-center w-full z-[60] ">
                   <motion.div
-                    className="absolute w-[40%] h-[3px] bg-white block"
+                    className="absolute w-[40%] h-[1.5px]  bg-white block md:h-[3px]"
                     variants={{
                       active: { top: "5px", transform: "rotate(45deg)" },
                     }}
@@ -80,7 +91,7 @@ const Header = () => {
                     animate={navbarButtonClicked ? "active" : "notActive"}
                   ></motion.div>
                   <motion.div
-                    className="absolute w-[40%] h-[3px] bg-white block"
+                    className="absolute w-[40%] h-[1.5px]  bg-white block md:h-[3px]"
                     variants={{
                       active: {
                         position: "absolute",
@@ -98,13 +109,13 @@ const Header = () => {
           </div>
         </div>
 
-        <div className="relative py-10  w-full flex text-xl z-[130] sm:px-5 md:px-10 xl:px-16">
+        <div className="relative px-5 py-10  w-full flex text-xl z-[130] sm:px-5 md:px-10 xl:px-16">
           <MagneticAnimation>
             <Link href={"/"}>
               <span className="">Abdul Irfan</span>
             </Link>
           </MagneticAnimation>
-          <div className="gap-5 ml-auto flex gap ">
+          <div className="hidden gap-5 ml-auto   sm:flex">
             <MagneticAnimation>
               <Link href={"/work"}>
                 <span className="">Work</span>
@@ -119,6 +130,16 @@ const Header = () => {
               <Link href={"/contact"}>
                 <span className="">Contact</span>
               </Link>
+            </MagneticAnimation>
+          </div>
+          <div className="relative ml-auto sm:hidden ">
+            <MagneticAnimation>
+              <span
+                className="font-light text-base"
+                onClick={() => setNavbarButtonClicked(!navbarButtonClicked)}
+              >
+                more
+              </span>
             </MagneticAnimation>
           </div>
         </div>
