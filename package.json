@@ -19,8 +19,7 @@
     "next": "14.0.3",
     "react": "^18",
     "react-dom": "^18",
-    "react-responsive": "^9.0.2",
-    "sharp": "^0.33.4"
+    "react-responsive": "^9.0.2"
   },
   "devDependencies": {
     "@types/node": "^20",
