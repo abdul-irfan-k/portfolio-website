@@ -55,48 +55,46 @@ const Header = () => {
   return (
     <>
       <div className="relative z-[110] " ref={headerContainerRef}>
-        <div className="fixed top-0 left-0 w-full flex items-center overflow-hidden">
-          <div className="py-5 px-5 w-full flex  justify-end ">
-            <div
-              className="w-[6%] min-w-[100px] scale-0 navBtn "
-              style={{
-                transition: "scale  0.4s cubic-bezier(0.36, 0, 0.66, 0)",
-              }}
-            >
-              <ButtonHoverAnimation>
-                <div
-                  className={`ml-auto relative  w-full aspect-square rounded-full overflow-hidden flex items-center justify-center   ${
-                    navbarButtonClicked ? "bg-blue-600" : "bg-dark"
-                  } `}
-                  onClick={() => setNavbarButtonClicked(!navbarButtonClicked)}
-                >
-                  <div className="text relative h-6 flex  justify-center w-full z-[60] ">
-                    <motion.div
-                      className="absolute w-[40%] h-[3px] bg-white block"
-                      variants={{
-                        active: { top: "5px", transform: "rotate(45deg)" },
-                      }}
-                      transition={{ duration: 0.3 }}
-                      style={{ top: "0px" }}
-                      animate={navbarButtonClicked ? "active" : "notActive"}
-                    ></motion.div>
-                    <motion.div
-                      className="absolute w-[40%] h-[3px] bg-white block"
-                      variants={{
-                        active: {
-                          position: "absolute",
-                          top: "5px",
-                          transform: "rotate(-45deg)",
-                        },
-                      }}
-                      transition={{ duration: 0.3 }}
-                      style={{ top: "15px" }}
-                      animate={navbarButtonClicked ? "active" : "notActive"}
-                    ></motion.div>
-                  </div>
+        <div className="fixed right-0 w-fit py-5 px-5  flex  justify-end ">
+          <div
+            className="w-[6vw] min-w-[100px] scale-0 navBtn "
+            style={{
+              transition: "scale  0.4s cubic-bezier(0.36, 0, 0.66, 0)",
+            }}
+          >
+            <ButtonHoverAnimation>
+              <div
+                className={`ml-auto relative  w-full aspect-square rounded-full overflow-hidden flex items-center justify-center   ${
+                  navbarButtonClicked ? "bg-blue-600" : "bg-dark"
+                } `}
+                onClick={() => setNavbarButtonClicked(!navbarButtonClicked)}
+              >
+                <div className="text relative h-6 flex  justify-center w-full z-[60] ">
+                  <motion.div
+                    className="absolute w-[40%] h-[3px] bg-white block"
+                    variants={{
+                      active: { top: "5px", transform: "rotate(45deg)" },
+                    }}
+                    transition={{ duration: 0.3 }}
+                    style={{ top: "0px" }}
+                    animate={navbarButtonClicked ? "active" : "notActive"}
+                  ></motion.div>
+                  <motion.div
+                    className="absolute w-[40%] h-[3px] bg-white block"
+                    variants={{
+                      active: {
+                        position: "absolute",
+                        top: "5px",
+                        transform: "rotate(-45deg)",
+                      },
+                    }}
+                    transition={{ duration: 0.3 }}
+                    style={{ top: "15px" }}
+                    animate={navbarButtonClicked ? "active" : "notActive"}
+                  ></motion.div>
                 </div>
-              </ButtonHoverAnimation>
-            </div>
+              </div>
+            </ButtonHoverAnimation>
           </div>
         </div>
 

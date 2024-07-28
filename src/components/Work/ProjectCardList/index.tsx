@@ -1,3 +1,4 @@
+"use client";
 import React, { useRef, useState } from "react";
 import { projectDetails } from "@/project";
 import ProjectCard from "./ProjectCard";
@@ -13,7 +14,7 @@ const ProjectCardList = () => {
   return (
     <div className=" mt-10  ">
       <div className="relative" ref={animationContainerRef}>
-        <div className=" gap-x-3  flex w-full flex-wrap  justify-between  md:px-48">
+        <div className=" gap-x-3  flex w-full flex-wrap  justify-between  px-10 md:px-20 lg:px-32 xl:px-60">
           {projectDetails.map((project, index) => {
             return (
               <div
@@ -30,13 +31,13 @@ const ProjectCardList = () => {
           })}
         </div>
       </div>
-        <ProjectViewAnimation
-          currentIndex={projectViewIndex}
-          isActive={projectViewIndex == undefined ? false : true}
-          projects={projectDetails}
-          isListView={false}
-          animationContainerRef={animationContainerRef}
-        />
+      <ProjectViewAnimation
+        currentIndex={projectViewIndex}
+        isActive={projectViewIndex == undefined ? false : true}
+        projects={projectDetails}
+        isListView={false}
+        animationContainerRef={animationContainerRef}
+      />
       <div className="my-20 flex items-center justify-center">
         <ButtonHoverAnimation>
           <div className=" px-10 py-5 bg-dark text-slate-50 text-lg">

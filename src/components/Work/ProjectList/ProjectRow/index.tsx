@@ -7,17 +7,18 @@ interface ProjectRowProps {
   project: projectDetailInterface;
 }
 const ProjectRow: FC<ProjectRowProps> = ({ onMouseEnterHandler, project }) => {
-  const router = useRouter()
+  const router = useRouter();
   return (
     <div
-      className="px-48 py-10 flex  items-center text-slate-800"
+      className=" py-10 flex  items-center text-slate-800  "
       onMouseEnter={onMouseEnterHandler}
       onClick={() => router.push(`/work/${project.name}`)}
     >
-      <h1 className="w-[40%] text-4xl ">{project.name}</h1>
-      <span className="w-[15%] text-lg">India</span>
+      <h1 className="w-[70%] text-4xl lg:text-5xl  xl:text-6xl ">
+        {project.name}
+      </h1>
       <span className="w-[30%] text-lg">Design & Development</span>
-      <span className="w-[15%] text-lg">2023</span>
+      <span className="ml-auto  text-lg">2023</span>
     </div>
   );
 };

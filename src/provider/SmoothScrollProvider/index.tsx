@@ -1,27 +1,16 @@
 "use client";
-import React, { useEffect, useState } from "react";
-// import { ReactLenis, useLenis } from "@studio-freight/react-lenis";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import Lenis from "@studio-freight/lenis";
-// import Lenis from "@studio-freight/react-lenis/types";
 import { useFrame } from "@studio-freight/hamo";
+
+export const lenisContext = createContext<Lenis | undefined>(undefined);
+export const useLenisContext = () => useContext(lenisContext);
 
 const SmothScrollScrollProvider = ({
   children,
 }: {
   children: React.ReactNode;
 }) => {
-  // useEffect(() => {
-  //   (async () => {
-  //     if (typeof window === "undefined") return;
-  //     //@ts-ignore
-  //     const LocomotiveScroll = (await import("locomotive-scroll")).default;
-  //     new LocomotiveScroll();
-  //   })();
-  // });
-
-  // useLenis(({velocity}) => {
-
-  // })
   const [lenis, setLenis] = useState<Lenis | undefined>(undefined);
   useEffect(() => {
     const lenis = new Lenis({
@@ -46,9 +35,10 @@ const SmothScrollScrollProvider = ({
 
   return (
     <>
-      {/* <ReactLenis root  > */}
-      {children}
-      {/* </ReactLenis> */}
+      <lenisContext.Provider value={lenis}>
+        {children}
+        {/* </ReactLenis> */}
+      </lenisContext.Provider>
     </>
   );
 };

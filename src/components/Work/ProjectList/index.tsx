@@ -22,31 +22,32 @@ const ProjectList: FC<ProjectListProps> = ({ projectDetails }) => {
   const [isPreviewActive, setIsPreviewActive] = useState<boolean>(false);
 
   return (
-    <div className=" mt-10">
-      <div className="px-[17rem] w-full">
+    <div className=" mt-20">
+      <div className=" w-full md:px-20 lg:px-32 xl:px-60">
         <div className="flex items-center text-slate-900 border-slate-300 border-b-[2px]">
-          <span className="w-[40%]">CLIENT</span>
-          <span className="w-[15%]">LOCATION</span>
+          <span className="w-[70%]">CLIENT</span>
           <span className="w-[30%]">SERVICE</span>
-          <span className="w-[15%]">YEAR</span>
+          <span className="ml-auto">YEAR</span>
         </div>
       </div>
-      <div
-        className="relative flex flex-col px-20"
-        ref={animationContainerRef}
-        onMouseEnter={() => setIsPreviewActive(true)}
-        onMouseLeave={() => setIsPreviewActive(false)}
-      >
-        {projectDetails.map((project, index) => {
-          return (
-            <ProjectRow
-              key={index}
-              onMouseEnterHandler={() => setProjectViewIndex(index)}
-              //@ts-ignore
-              project={project}
-            />
-          );
-        })}
+      <div className="px-10 md:px-20 lg:px-32 xl:px-60  ">
+        <div
+          className="relative flex flex-col   "
+          ref={animationContainerRef}
+          onMouseEnter={() => setIsPreviewActive(true)}
+          onMouseLeave={() => setIsPreviewActive(false)}
+        >
+          {projectDetails.map((project, index) => {
+            return (
+              <ProjectRow
+                key={index}
+                // onMouseEnterHandler={() => setProjectViewIndex(index)}
+                //@ts-ignore
+                project={project}
+              />
+            );
+          })}
+        </div>
       </div>
       <ProjectViewAnimation
         currentIndex={projectViewIndex}

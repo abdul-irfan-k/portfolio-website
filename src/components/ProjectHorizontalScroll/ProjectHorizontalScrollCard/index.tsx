@@ -3,10 +3,7 @@ import React from "react";
 
 const ProjectHorizontalScrollCard = () => {
   return (
-    <div
-      className="relative  px-6 py-6 bg-[#d6d7db] rounded-md block aspect-video"
-      style={{ flex: "0 0 26%" }}
-    >
+    <div className="relative  px-7 py-7 flex-shrink-0 flex-grow-0  bg-[#d6d7db] rounded-md block aspect-video md:basis-[35%] xl:basis-[26%]">
       <div className="relative h-full rounded-md overflow-hidden">
         <Image src={"/Asset/banner.jpg"} fill alt="image" />
       </div>

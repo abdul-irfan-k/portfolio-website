@@ -67,7 +67,6 @@ const ProjectViewAnimation: FC<ProjectViewAnimationProps> = ({
       duration: 0.5,
       ease: "power3",
     });
-    console.log("test ref");
     // yMove(y)
     animationContainerRef.current.addEventListener("mousemove", (e) => {
       const { pageX, pageY } = e;
@@ -93,8 +92,8 @@ const ProjectViewAnimation: FC<ProjectViewAnimationProps> = ({
     <>
       <div
         className={
-          "absolute pointer-events-none  aspect-square overflow-hidden  " +
-          (isListView ? " w-[27vw]" : "w-0")
+          "absolute pointer-events-none aspect-square overflow-hidden  " +
+          (isListView ? "w-[40vw] max-w-[400px]" : "w-0")
         }
         ref={projectContainerRef}
       >

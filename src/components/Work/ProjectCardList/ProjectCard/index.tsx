@@ -1,3 +1,4 @@
+"use client";
 import { projectDetailInterface } from "@/project";
 import Image from "next/image";
 import { useRouter } from "next/navigation";

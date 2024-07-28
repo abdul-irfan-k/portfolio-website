@@ -27,7 +27,7 @@ const WorkDetailPageContainer = () => {
                   </div>
                 </ButtonHoverAnimation>
               </div> */}
-              <div className="absolute w-[83%] left-[8%] top-[20%]  ml-[0.6%]    bg-red-400 block">
+              <div className="absolute w-[83%] left-[8%] top-[20%]  ml-[0.6%]     block">
                 {/* <Video videoSrc="/Asset/project-video-demo.mp4" /> */}
                 <Video videoSrc="/Asset/project.webm" />
                 {/* <Video videoSrc="/Asset/screen-capture.webm" /> */}

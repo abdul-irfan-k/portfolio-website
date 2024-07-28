@@ -24,7 +24,7 @@ const ProjectViewModel: FC<ProjectViewModelProps> = ({
   isActive,
 }) => {
   return (
-    <motion.div className="relative   w-full gap-2 aspect-square   overflow-hidden pointer-events-none">
+    <motion.div className="relative   w-full gap-2 aspect-square   overflow-hidden pointer-events-none ">
       <div
         className="w-full h-full "
         style={{
@@ -38,7 +38,7 @@ const ProjectViewModel: FC<ProjectViewModelProps> = ({
         {projects.map((project, index) => {
           return (
             <div
-              className=" relative  px-8 py-16 bg-dark w-full  aspect-square block overflow-hidden"
+              className=" relative  px-8 py-16 bg-dark w-full  aspect-square block overflow-hidden z-[60]"
               key={index}
             >
               <div className="relative w-full h-full">
