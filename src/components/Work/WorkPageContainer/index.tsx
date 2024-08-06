@@ -80,8 +80,8 @@ const WorkPageContainer = () => {
                   className={
                     "ml-auto w-16 aspect-square rounded-full block flex items-center justify-center " +
                     (isListView
-                      ? "bg-dark  "
-                      : " fill-dark border-2 border-slate-400")
+                      ? "bg-blackprimary  "
+                      : " fill-blackprimary border-2 border-slate-400")
                   }
                 >
                   <span className="text z-20 ">
@@ -99,7 +99,7 @@ const WorkPageContainer = () => {
                   className={
                     " w-16 aspect-square rounded-full block flex items-center justify-center " +
                     (!isListView
-                      ? "bg-dark  "
+                      ? "bg-blackprimary  "
                       : " fill-dark border-2 border-slate-400")
                   }
                 >

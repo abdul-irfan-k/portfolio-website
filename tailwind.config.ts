@@ -15,6 +15,11 @@ const config: Config = {
       },
       colors: {
         dark: "rgb(28, 29, 32)",
+        white: "#fff",
+        blackprimary: "#1C1D20",
+        blacksecondary: "#141516",
+        blueprimary: "#334BD3",
+        bluesecondary: "#455CE9",
       },
     },
   },

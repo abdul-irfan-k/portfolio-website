@@ -3,6 +3,7 @@ import React from "react";
 import ContactForm from "../ContactForm";
 import ContactInformation from "../ContactInformation";
 import FooterInfoAndLinkBox from "@/components/Footer/FooterInfoAndLinkBox";
+import Image from "next/image";
 
 const ContactPageContainer = () => {
   return (
@@ -12,7 +13,9 @@ const ContactPageContainer = () => {
           <span className="ml-[17%] md:ml-0">{"Let's start a "}</span>
           <span>project together</span>
         </div>
-        <div className="absolute w-[8%] top-0 aspect-square rounded-full block bg-neutral-600 md:top-auto md:left-[64%]"></div>
+        <div className="absolute w-[8%] top-0 aspect-square rounded-full block  md:top-auto md:left-[64%]">
+          <Image src={"/Asset/person1.svg"} fill alt="peson-image" />
+        </div>
       </div>
 
       <div className="px-20  flex flex-col flex-col-reverse justify-between  md:flex-row md:py-10 md:px-48">

@@ -5,6 +5,7 @@ import FooterInfoAndLinkBox from "./FooterInfoAndLinkBox";
 import { useScroll, useTransform, motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 
 const Footer = () => {
   const router = useRouter();
@@ -32,14 +33,16 @@ const Footer = () => {
           }}
         ></div>
       </motion.div>
-      <div className="relative   pb-5  flex flex-col min-h-screen bg-dark text-slate-50 md:pt-20 ">
+      <div className="relative   pb-5  flex flex-col min-h-screen bg-blacksecondary text-slate-50 md:pt-20 ">
         <div
           className="relative pt-28 pb-5  px-5 translate-y-[-10%] sm:px-10  md:px-20 md:py-20 xl:px-40 md:translate-y-0   "
           ref={footerContainerRef}
         >
           <div className=" flex flex-col  text-5xl   md:text-7xl   ">
             <div className="relative  gap-5 flex items-center ">
-              <div className="w-[25%] max-w-[100px] aspect-square block bg-neutral-950 rounded-full md:w-[15%]"></div>
+              <div className="relative w-[25%] max-w-[100px] aspect-square block  rounded-full md:w-[15%]">
+                <Image src={"/Asset/person1.svg"} fill alt="peson-image" />
+              </div>
               <span className=" ">Let{"'"}s Work</span>
             </div>
             <div>
@@ -53,10 +56,11 @@ const Footer = () => {
                 <ButtonHoverAnimation
                   style={{ height: "100%", width: "100%" }}
                   // onClickHandler={() => router.push("/contact")}
+                  backgroundEffectColor="blueprimary"
                 >
                   <Link
                     href={"/contact"}
-                    className="h-full w-full bg-blue-600 rounded-full flex flex-col items-center justify-center"
+                    className="h-full w-full bg-bluesecondary rounded-full flex flex-col items-center justify-center"
                   >
                     <span className="text z-20">Get in touch</span>
                   </Link>

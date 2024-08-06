@@ -72,7 +72,7 @@ const Header = () => {
             <ButtonHoverAnimation>
               <div
                 className={`ml-auto relative  w-full aspect-square rounded-full overflow-hidden flex items-center justify-center   ${
-                  navbarButtonClicked ? "bg-blue-600" : "bg-dark"
+                  navbarButtonClicked ? "bg-blue-600" : "bg-blackprimary"
                 } `}
                 onClick={() => {
                   if (!navbarButtonClicked && lenis) lenis.stop();

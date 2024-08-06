@@ -1,12 +1,12 @@
-import ContactPageContainer from '@/components/Contact/ContactPageContainer'
-import React from 'react'
+import ContactPageContainer from "@/components/Contact/ContactPageContainer";
+import React from "react";
 
 const ContactPage = () => {
   return (
-    <div className='bg-dark '>
-        <ContactPageContainer />
+    <div className="bg-blacksecondary ">
+      <ContactPageContainer />
     </div>
-  )
-}
+  );
+};
 
-export default ContactPage
+export default ContactPage;

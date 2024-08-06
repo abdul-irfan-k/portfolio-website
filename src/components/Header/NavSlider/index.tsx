@@ -142,7 +142,7 @@ const NavSlider: FC<NavSliderProps> = ({ isActive }) => {
             </div>
           </div>
 
-          <div className="absolute top-0 left-0 translate-x-[-100%]   h-full w-24  block fill-dark">
+          <div className="absolute top-0 left-0 translate-x-[-100%]   h-full w-24  block fill-blacksecondary">
             <div className=" z-[20]  h-full">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

@@ -31,7 +31,7 @@ const PageLoader: FC<PageLoaderProps> = ({}) => {
           { duration: 0.45 }
         ),
         controls.start({
-          y: "-120%",
+          y: "-140%",
           opacity: 1,
           transition: { duration: 0.45 },
         }),
@@ -47,7 +47,7 @@ const PageLoader: FC<PageLoaderProps> = ({}) => {
 
       await Promise.all([
         controls.start({
-          y: "-230%",
+          y: "-260%",
           opacity: 1,
           transition: { duration: 0.45, delay: 0.3 },
         }),
@@ -73,7 +73,7 @@ const PageLoader: FC<PageLoaderProps> = ({}) => {
       });
       titleControlls.start(
         {
-          y: "-130%",
+          y: "-140%",
         },
         { duration: 0 }
       );
@@ -92,11 +92,11 @@ const PageLoader: FC<PageLoaderProps> = ({}) => {
     >
       {/* <AnimatePresence> */}
       <motion.div
-        className="fixed top-[120%] left-0 w-screen h-screen flex flex-col  justify-center items-center bg-black text-slate-50 z-[10000] "
+        className="fixed top-[140%] left-0 w-screen h-screen flex flex-col  justify-center items-center bg-blacksecondary text-slate-50 z-[10000] "
         animate={controls}
         // ref={ref}
       >
-        <div className="bottom-[100%] absolute w-full fill-black">
+        <div className="bottom-[100%] absolute w-full fill-blacksecondary">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width={"full"}
@@ -129,7 +129,7 @@ const PageLoader: FC<PageLoaderProps> = ({}) => {
           </motion.span>
         </div>
 
-        <div className="absolute top-[100%] w-full">
+        <div className="absolute top-[100%] w-full fill-blacksecondary">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height={"full"}

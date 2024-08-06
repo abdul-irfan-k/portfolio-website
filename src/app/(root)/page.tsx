@@ -1,5 +1,6 @@
-import About from "@/components/About";
+import About from "@/components/Description";
 import Footer from "@/components/Footer";
+import Hero from "@/components/Hero/Hero";
 import Project from "@/components/Project";
 import ProjectHorizontalScroll from "@/components/ProjectHorizontalScroll";
 import DesktopBreakPoint from "@/components/ResponsiveUtilities/DesktopBreakPoint";
@@ -12,7 +13,7 @@ import Link from "next/link";
 const HomePage = () => {
   return (
     <div>
-      <div className="w-screen h-screen block b "></div>
+      <Hero />
       <About />
       <DesktopBreakPoint>
         <Project />

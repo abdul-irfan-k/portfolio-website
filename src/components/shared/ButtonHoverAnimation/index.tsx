@@ -8,12 +8,14 @@ interface ButtonHoverAnimationProps {
   style?: React.CSSProperties;
   magneticStifness?: number;
   onClickHandler?: () => void;
+  backgroundEffectColor?: string;
 }
 const ButtonHoverAnimation: FC<ButtonHoverAnimationProps> = ({
   children,
   style,
   magneticStifness,
   onClickHandler,
+  backgroundEffectColor = "bluesecondary",
 }) => {
   const circleRef = useRef<HTMLDivElement>(null);
   const timeline = useRef<gsap.core.Timeline>(null);
@@ -47,7 +49,6 @@ const ButtonHoverAnimation: FC<ButtonHoverAnimationProps> = ({
   }, []);
 
   const onMouseEnterHandler = () => {
-    // console.log('timeout id',timeout)
     if (timeout) clearTimeout(timeout);
     if (!timeline.current) return;
     timeline.current.tweenFromTo("enter", "exit");
@@ -72,7 +73,10 @@ const ButtonHoverAnimation: FC<ButtonHoverAnimationProps> = ({
       >
         {children}
         <div
-          className="absolute w-[120%] h-[150%]  rounded-full top-[100%] bg-blue-500 block z-[10]"
+          className={
+            "absolute w-[120%] h-[150%]  rounded-full top-[100%]  block z-[10] " +
+            ("bg-" + backgroundEffectColor)
+          }
           ref={circleRef}
           style={{ borderRadius: "50%" }}
         ></div>
