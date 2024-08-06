@@ -22,7 +22,10 @@ const About = () => {
       >
         {aboutDescription.split(" ").map((word, index) => {
           return (
-            <span className="relative mr-2  overflow-hidden inline-flex">
+            <span
+              className="relative mr-2  overflow-hidden inline-flex"
+              key={index}
+            >
               <motion.span
                 variants={slideUp}
                 custom={index}
