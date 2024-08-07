@@ -20,21 +20,24 @@ const ProjectHorizontalScroll = () => {
         className="leftscrollcontainer  gap-10 flex  "
         style={{ x: x1 }}
       >
-        <ProjectHorizontalScrollCard />
-        <ProjectHorizontalScrollCard />
-        <ProjectHorizontalScrollCard />
-        <ProjectHorizontalScrollCard />
-        <ProjectHorizontalScrollCard />
+        <ProjectHorizontalScrollCard type="image" src={"/Asset/banner2.png"} />
+        <ProjectHorizontalScrollCard type="image" src={"/Asset/banner3.png"} />
+        <ProjectHorizontalScrollCard type="image" src={"/Asset/banner2.png"} />
+        <ProjectHorizontalScrollCard
+          type="video"
+          src={"/Asset/Untitled design.mp4"}
+        />
+        <ProjectHorizontalScrollCard type="image" src={"/Asset/banner2.png"} />
       </motion.div>
       <motion.div
         className="rightscrollcontainer relative  mt-5  gap-10 flex rightscrollcontainer translate-x-[40%]"
         style={{ x: x2 }}
       >
-        <ProjectHorizontalScrollCard />
-        <ProjectHorizontalScrollCard />
-        <ProjectHorizontalScrollCard />
-        <ProjectHorizontalScrollCard />
-        <ProjectHorizontalScrollCard />
+        <ProjectHorizontalScrollCard type="image" src={"/Asset/banner2.png"} />
+        <ProjectHorizontalScrollCard type="image" src={"/Asset/banner3.png"} />
+        <ProjectHorizontalScrollCard type="image" src={"/Asset/banner3.png"} />
+        <ProjectHorizontalScrollCard type="image" src={"/Asset/banner2.png"} />
+        <ProjectHorizontalScrollCard type="image" src={"/Asset/banner2.png"} />
       </motion.div>
     </div>
   );
