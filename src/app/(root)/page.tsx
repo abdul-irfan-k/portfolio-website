@@ -7,31 +7,37 @@ import DesktopBreakPoint from "@/components/ResponsiveUtilities/DesktopBreakPoin
 import MobileBreakPoint from "@/components/ResponsiveUtilities/MobileBreakPoint";
 import ProjectCardList from "@/components/Work/ProjectCardList";
 import { projectDetails } from "@/project";
+import { fetchProjects } from "@/utils/fetchProjects";
 import Image from "next/image";
 import Link from "next/link";
 
-const HomePage = () => {
+const HomePage = async () => {
+  const projects = await fetchProjects();
   return (
     <div>
       <Hero />
       <About />
       <DesktopBreakPoint>
-        <Project />
+        <Project projects={projects.slice(0, 6)} />
       </DesktopBreakPoint>
       <MobileBreakPoint>
         <div className=" mt-10  px-5 sm:px-10">
           <div className=" gap-x-3  flex w-full flex-wrap  justify-between  ">
-            {projectDetails.map((project, index) => {
+            {projects.slice(0, 5).map((project, index) => {
               return (
                 <Link
                   key={index}
                   className="mt-20 flex-[0_0_100%]    sm:flex-[0_0_45%] "
-                  href={`/work/${project.name}`}
+                  href={`/work/${project.project_name}`}
                 >
                   <div className="relative w-full aspect-square ">
-                    <Image alt="image" src={project.bannerUrl} fill />
+                    <Image
+                      alt="image"
+                      src={project.banner_url ?? "/Asset/banner.jpg"}
+                      fill
+                    />
                   </div>
-                  <span className="mt-2 text-4xl ">{project.name}</span>
+                  <span className="mt-2 text-4xl ">{project.project_name}</span>
                   <div className="mt-2 flex justify-between ">
                     <span className="text-base">Design & Development</span>
                     <span className="text-base">2023</span>
@@ -51,4 +57,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-const sample = "asdf";

@@ -1,12 +1,16 @@
 "use client";
 // import { projectDetails } from "@/project";
-import React, { useRef, useState } from "react";
+import React, { FC, useRef, useState } from "react";
 import ProjectViewAnimation from "../shared/ProjectViewAnimation";
 import ButtonHoverAnimation from "../shared/ButtonHoverAnimation";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { Project as IProject } from "@/generated/prisma";
 
-const Project = () => {
+interface ProjectProps {
+  projects: IProject[];
+}
+const Project: FC<ProjectProps> = ({ projects }) => {
   const [projectViewIndex, setProjectViewIndex] = useState<number | undefined>(
     undefined
   );
@@ -51,18 +55,20 @@ const Project = () => {
           onMouseEnter={() => setIsPreviewActive(true)}
           onMouseLeave={() => setIsPreviewActive(false)}
         >
-          {projectDetails.map((project, index) => {
+          {projects.map((project, index) => {
             return (
               <div
                 className=" py-14 flex justify-between items-center md:px-10 md:py-12 xl:px-20 "
                 key={index}
                 onMouseEnter={() => setProjectViewIndex(index)}
                 onClick={() =>
-                  router.push(`/work/${project.name.replace(/\s/g, "")}`)
+                  router.push(
+                    `/work/${project.project_name.replace(/\s/g, "")}`
+                  )
                 }
               >
-                <h1 className="text-7xl md:text-6xl  xl:text-7xl ">
-                  {project.name}
+                <h1 className="text-7xl md:text-6xl  xl:text-7xl uppercase">
+                  {project.project_name}
                 </h1>
                 <span className="text-base">Design & Development</span>
               </div>
