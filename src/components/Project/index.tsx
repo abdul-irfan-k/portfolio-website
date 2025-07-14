@@ -61,11 +61,7 @@ const Project: FC<ProjectProps> = ({ projects }) => {
                 className=" py-14 flex justify-between items-center md:px-10 md:py-12 xl:px-20 "
                 key={index}
                 onMouseEnter={() => setProjectViewIndex(index)}
-                onClick={() =>
-                  router.push(
-                    `/work/${project.project_name.replace(/\s/g, "")}`
-                  )
-                }
+                onClick={() => router.push(`/work/${project.project_name}`)}
               >
                 <h1 className="text-7xl md:text-6xl  xl:text-7xl uppercase">
                   {project.project_name}

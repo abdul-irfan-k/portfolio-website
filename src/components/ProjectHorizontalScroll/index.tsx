@@ -21,8 +21,14 @@ const ProjectHorizontalScroll = () => {
         style={{ x: x1 }}
       >
         <ProjectHorizontalScrollCard type="image" src={"/Asset/banner2.png"} />
-        <ProjectHorizontalScrollCard type="image" src={"/Asset/banner3.png"} />
-        <ProjectHorizontalScrollCard type="image" src={"/Asset/banner2.png"} />
+        <ProjectHorizontalScrollCard
+          type="image"
+          src={"/Asset/images/makepill.png"}
+        />
+        <ProjectHorizontalScrollCard
+          type="image"
+          src={"/Asset/images/makepill.png"}
+        />
         <ProjectHorizontalScrollCard
           type="video"
           src={"/Asset/Untitled design.mp4"}

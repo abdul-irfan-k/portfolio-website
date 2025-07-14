@@ -22,7 +22,7 @@ const AboutPage = () => {
           </span>
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

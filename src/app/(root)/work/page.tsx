@@ -1,11 +1,12 @@
 import Footer from "@/components/Footer";
-import Header from "@/components/Header";
 import WorkPageContainer from "@/components/Work/WorkPageContainer";
+import { fetchProjects } from "@/utils/fetchProjects";
 const WorkPage = async () => {
+  const projects = await fetchProjects();
   return (
     <div>
       <WorkPageContainer />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

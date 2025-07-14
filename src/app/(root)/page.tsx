@@ -28,7 +28,7 @@ const HomePage = async () => {
                 <Link
                   key={index}
                   className="mt-20 flex-[0_0_100%]    sm:flex-[0_0_45%] "
-                  href={`/work/${project.project_name}`}
+                  href={`/work/${project.id}`}
                 >
                   <div className="relative w-full aspect-square ">
                     <Image
@@ -51,7 +51,6 @@ const HomePage = async () => {
       <DesktopBreakPoint>
         <ProjectHorizontalScroll />
       </DesktopBreakPoint>
-      <Footer />
     </div>
   );
 };

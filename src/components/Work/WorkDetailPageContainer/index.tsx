@@ -1,11 +1,17 @@
 import NorthArrow from "@/components/Icons/north-arrow";
 import ButtonHoverAnimation from "@/components/shared/ButtonHoverAnimation";
 import Video from "@/components/shared/Video";
+import { Project } from "@/types/Project";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { FC } from "react";
 
-const WorkDetailPageContainer = () => {
+interface WorkDetailPageContainerProps {
+  project: Project;
+}
+const WorkDetailPageContainer: FC<WorkDetailPageContainerProps> = ({
+  project,
+}) => {
   return (
     <div>
       <div className="mt-10  px-5 sm:px-10 md:px-20 lg:px-32 xl:px-60  ">
@@ -15,13 +21,13 @@ const WorkDetailPageContainer = () => {
               className="w-[80%]  text-6xl md:text-7xl lg:text-8xl xl:text-9xl "
               data-speed="10"
             >
-              Ticket Booking Appliction
+              {project.project_name}
             </h1>
 
             <div className="absolute  top-full right-0  translate-y-[-40%] z-20 md:top-[80%] ">
               <ButtonHoverAnimation style={{ marginTop: "5rem" }}>
                 <Link
-                  href={"#"}
+                  href={project.website_url ? project.website_url : "#"}
                   className=" w-[35vw] max-w-44 aspect-square rounded-full flex items-center justify-center fill-slate-50 text-slate-50 bg-blue-600"
                 >
                   <span className="gap-1 text w-auto  flex  items-center z-20 ">
@@ -44,7 +50,13 @@ const WorkDetailPageContainer = () => {
 
               <div className="absolute w-[83%] left-[8%] top-[20%]  ml-[0.6%]     block">
                 {/* <Video videoSrc="/Asset/project-video-demo.mp4" /> */}
-                <Video videoSrc="/Asset/project.webm" />
+                <Video
+                  videoSrc={
+                    project.video_url
+                      ? project.video_url
+                      : "/Asset/project.webm"
+                  }
+                />
                 {/* <Video videoSrc="/Asset/screen-capture.webm" /> */}
                 {/* <Video videoSrc="/Asset/test.webm"  /> */}
               </div>

@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import HomePageLoader from "@/components/Loader/HomepageLoader";
 import GsapProvider from "@/provider/GsapProvider";
@@ -12,6 +13,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <HomePageLoader />
           <Header />
           {children}
+          <Footer />
         </SmothScrollScrollProvider>
       </GsapProvider>
     </>
