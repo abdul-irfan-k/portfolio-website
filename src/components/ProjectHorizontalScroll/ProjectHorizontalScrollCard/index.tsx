@@ -1,6 +1,7 @@
-import Video from "@/components/shared/Video";
 import Image from "next/image";
 import React, { FC } from "react";
+
+import Video from "@/components/shared/Video";
 
 interface ProjectHorizontalScrollCardProps {
   type: "video" | "image";

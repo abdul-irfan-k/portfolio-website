@@ -1,10 +1,11 @@
+import Image from "next/image";
+import Link from "next/link";
+import React, { FC } from "react";
+
 import NorthArrow from "@/components/Icons/north-arrow";
 import ButtonHoverAnimation from "@/components/shared/ButtonHoverAnimation";
 import Video from "@/components/shared/Video";
 import { Project } from "@/types/Project";
-import Image from "next/image";
-import Link from "next/link";
-import React, { FC } from "react";
 
 interface WorkDetailPageContainerProps {
   project: Project;

@@ -1,5 +1,6 @@
-import ContactPageContainer from "@/components/Contact/ContactPageContainer";
 import React from "react";
+
+import ContactPageContainer from "@/components/Contact/ContactPageContainer";
 
 const ContactPage = () => {
   return (

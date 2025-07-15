@@ -1,13 +1,15 @@
 "use client";
-import React, { use, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import NavSlider from "./NavSlider";
-import ButtonHoverAnimation from "../shared/ButtonHoverAnimation";
 import gsap from "gsap";
 import Link from "next/link";
-import MagneticAnimation from "../shared/MagneticAnimation";
 import { usePathname } from "next/navigation";
+import React, { use, useEffect, useRef, useState } from "react";
+
 import { useLenisContext } from "@/provider/SmoothScrollProvider";
+
+import ButtonHoverAnimation from "../shared/ButtonHoverAnimation";
+import MagneticAnimation from "../shared/MagneticAnimation";
+import NavSlider from "./NavSlider";
 
 const Header = () => {
   const [navbarButtonClicked, setNavbarButtonClicked] =

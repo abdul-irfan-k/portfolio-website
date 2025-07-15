@@ -1,6 +1,6 @@
 "use client";
-import React, { FC, useEffect, useRef } from "react";
 import gsap from "gsap";
+import React, { FC, useEffect, useRef } from "react";
 
 
 interface MagneticAnimationProps {

@@ -1,10 +1,10 @@
 "use client";
-import React, { FC, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import React, { FC, useEffect, useState } from "react";
+
 import PageLoader from "../PageLoader";
 
-interface HomePageLoaderProps {}
-const HomePageLoader: FC<HomePageLoaderProps> = ({}) => {
+const HomePageLoader = () => {
   // const dataOffset = useTransform(offset, ["300px", "opx"]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   useEffect(() => {

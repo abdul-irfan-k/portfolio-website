@@ -1,6 +1,7 @@
 "use client";
-import React, { FC, useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import React, { FC, useEffect, useRef, useState } from "react";
+
 import MagneticAnimation from "../MagneticAnimation";
 
 interface ButtonHoverAnimationProps {

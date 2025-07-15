@@ -1,8 +1,10 @@
 "use client";
-import React, { FC, useEffect, useRef } from "react";
+import type { Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import gsap from "gsap";
+import React, { FC, useEffect, useRef } from "react";
+
 import ProjectViewModel from "./ProjectViewModel";
-import { Variants, motion } from "framer-motion";
 
 interface projectDetailInterface {
   name: string;

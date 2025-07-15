@@ -1,7 +1,7 @@
 "use client";
 import React, { createContext, useContext, useEffect, useState } from "react";
-import Lenis from "@studio-freight/lenis";
 import { useFrame } from "@studio-freight/hamo";
+import Lenis from "@studio-freight/lenis";
 
 export const lenisContext = createContext<Lenis | undefined>(undefined);
 export const useLenisContext = () => useContext(lenisContext);

@@ -1,6 +1,7 @@
-import MagneticAnimation from "@/components/shared/MagneticAnimation";
 import Link from "next/link";
 import React from "react";
+
+import MagneticAnimation from "@/components/shared/MagneticAnimation";
 
 const FooterInfoAndLinkBox = () => {
   return (

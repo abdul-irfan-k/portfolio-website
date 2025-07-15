@@ -1,6 +1,7 @@
-import { projectDetailInterface } from "@/project";
 import { useRouter } from "next/navigation";
 import React, { FC } from "react";
+
+import { projectDetailInterface } from "@/project";
 
 interface ProjectRowProps {
   onMouseEnterHandler(): void;

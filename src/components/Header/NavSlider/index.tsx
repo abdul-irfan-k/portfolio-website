@@ -1,8 +1,10 @@
 "use client";
-import React, { FC } from "react";
-import { Variants, motion } from "framer-motion";
-import MagneticAnimation from "@/components/shared/MagneticAnimation";
+import type { Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
+import React, { FC } from "react";
+
+import MagneticAnimation from "@/components/shared/MagneticAnimation";
 
 interface NavSliderProps {
   isActive: boolean;

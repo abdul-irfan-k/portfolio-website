@@ -1,9 +1,11 @@
 "use client";
-import React, { FC, useRef } from "react";
-import ProjectHorizontalScrollCard from "./ProjectHorizontalScrollCard";
 import { useScroll, useTransform } from "framer-motion";
 import { motion } from "framer-motion";
+import React, { FC, useRef } from "react";
+
 import { Project } from "@/types/Project";
+
+import ProjectHorizontalScrollCard from "./ProjectHorizontalScrollCard";
 
 interface ProjectHorizontalScrollProps {
   projects: Project[];

@@ -1,8 +1,9 @@
 "use client";
-import { projectDetailInterface } from "@/project";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { FC } from "react";
+
+import { projectDetailInterface } from "@/project";
 
 interface ProjectCardProps {
   onMouseEnterHandler(): void;

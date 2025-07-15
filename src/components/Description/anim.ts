@@ -1,4 +1,4 @@
-import { delay, Variants } from "framer-motion";
+import type { Variants } from "framer-motion";
 
 export const slideUp: Variants = {
   initial: {

@@ -1,9 +1,11 @@
 "use client";
 import React, { useRef, useState } from "react";
-import { projectDetails } from "@/project";
-import ProjectCard from "./ProjectCard";
+
 import ButtonHoverAnimation from "@/components/shared/ButtonHoverAnimation";
 import ProjectViewAnimation from "@/components/shared/ProjectViewAnimation";
+import { projectDetails } from "@/project";
+
+import ProjectCard from "./ProjectCard";
 // import ProjectViewAnimation from "@/components/shared/ProjectViewAnimation";
 
 const ProjectCardList = () => {
@@ -34,6 +36,7 @@ const ProjectCardList = () => {
       <ProjectViewAnimation
         currentIndex={projectViewIndex}
         isActive={projectViewIndex == undefined ? false : true}
+        //@ts-ignore
         projects={projectDetails}
         isListView={false}
         animationContainerRef={animationContainerRef}

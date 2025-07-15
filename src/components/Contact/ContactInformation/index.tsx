@@ -1,5 +1,6 @@
-import MagneticAnimation from "@/components/shared/MagneticAnimation";
 import React from "react";
+
+import MagneticAnimation from "@/components/shared/MagneticAnimation";
 
 const ContactInformation = () => {
   return (

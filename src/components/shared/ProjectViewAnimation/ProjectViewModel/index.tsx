@@ -1,6 +1,7 @@
+import type { Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import React, { FC } from "react";
-import { motion, Variants } from "framer-motion";
 
 interface projectDetailInterface {
   name: string;

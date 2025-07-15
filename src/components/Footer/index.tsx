@@ -1,11 +1,12 @@
 "use client";
+import { motion,useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useEffect, useRef } from "react";
+
 import ButtonHoverAnimation from "../shared/ButtonHoverAnimation";
 import FooterInfoAndLinkBox from "./FooterInfoAndLinkBox";
-import { useScroll, useTransform, motion } from "framer-motion";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
-import Image from "next/image";
 
 const Footer = () => {
   const router = useRouter();

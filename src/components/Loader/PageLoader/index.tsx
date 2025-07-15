@@ -1,10 +1,9 @@
 "use client";
-import React, { FC, useEffect, useRef, useState } from "react";
 import { motion, useAnimationControls } from "framer-motion";
 import { usePathname } from "next/navigation";
+import React, { FC, useEffect, useRef, useState } from "react";
 
-interface PageLoaderProps {}
-const PageLoader: FC<PageLoaderProps> = ({}) => {
+const PageLoader = () => {
   const pathname = usePathname();
   const [isLoading, setIsLoading] = useState<boolean | undefined>(undefined);
 

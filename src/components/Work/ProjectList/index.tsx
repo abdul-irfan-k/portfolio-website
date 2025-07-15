@@ -1,7 +1,9 @@
 "use client";
 import React, { FC, useRef, useState } from "react";
-import ProjectRow from "./ProjectRow";
+
 import ProjectViewAnimation from "@/components/shared/ProjectViewAnimation";
+
+import ProjectRow from "./ProjectRow";
 // import ProjectViewAnimation from "@/components/shared/ProjectViewAnimation";
 
 interface ProjectListProps {

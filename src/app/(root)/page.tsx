@@ -1,3 +1,6 @@
+import Image from "next/image";
+import Link from "next/link";
+
 import About from "@/components/Description";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero/Hero";
@@ -8,8 +11,6 @@ import MobileBreakPoint from "@/components/ResponsiveUtilities/MobileBreakPoint"
 import ProjectCardList from "@/components/Work/ProjectCardList";
 import { projectDetails } from "@/project";
 import { fetchProjects } from "@/utils/fetchProjects";
-import Image from "next/image";
-import Link from "next/link";
 
 const HomePage = async () => {
   const projects = await fetchProjects();

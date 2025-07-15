@@ -1,4 +1,4 @@
-import { Project } from "../generated/prisma";
+import { Project } from "@/generated/prisma";
 
 export async function fetchProjects(): Promise<Project[]> {
   const apiUrl = process.env.API_URL || "http://localhost:3000/api";

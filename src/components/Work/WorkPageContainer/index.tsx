@@ -1,15 +1,18 @@
 "use client";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import ProjectList from "../ProjectList";
-import ProjectCardList from "../ProjectCardList";
+
+import GridIcon from "@/components/Icons/grid";
+import MenuIcon from "@/components/Icons/menu";
 import DesktopBreakPoint from "@/components/ResponsiveUtilities/DesktopBreakPoint";
 import MobileBreakPoint from "@/components/ResponsiveUtilities/MobileBreakPoint";
 import ButtonHoverAnimation from "@/components/shared/ButtonHoverAnimation";
-import Link from "next/link";
 import { projectDetails } from "@/project";
-import MenuIcon from "@/components/Icons/menu";
-import GridIcon from "@/components/Icons/grid";
 import { useLenisContext } from "@/provider/SmoothScrollProvider";
+
+import ProjectCardList from "../ProjectCardList";
+import ProjectList from "../ProjectList";
+
 const WorkPageContainer = () => {
   const [isListView, setIsListView] = useState(true);
   const [selectedProject, setSelectedProject] = useState<

@@ -1,9 +1,11 @@
 "use client";
+import Image from "next/image";
 import React from "react";
+
+import FooterInfoAndLinkBox from "@/components/Footer/FooterInfoAndLinkBox";
+
 import ContactForm from "../ContactForm";
 import ContactInformation from "../ContactInformation";
-import FooterInfoAndLinkBox from "@/components/Footer/FooterInfoAndLinkBox";
-import Image from "next/image";
 
 const ContactPageContainer = () => {
   return (

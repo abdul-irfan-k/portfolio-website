@@ -1,11 +1,13 @@
 "use client";
 // import { projectDetails } from "@/project";
-import React, { FC, useRef, useState } from "react";
-import ProjectViewAnimation from "../shared/ProjectViewAnimation";
-import ButtonHoverAnimation from "../shared/ButtonHoverAnimation";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import React, { FC, useRef, useState } from "react";
+
 import { Project as IProject } from "@/generated/prisma";
+
+import ButtonHoverAnimation from "../shared/ButtonHoverAnimation";
+import ProjectViewAnimation from "../shared/ProjectViewAnimation";
 
 interface ProjectProps {
   projects: IProject[];
@@ -62,6 +64,7 @@ const Project: FC<ProjectProps> = ({ projects }) => {
       <ProjectViewAnimation
         currentIndex={projectViewIndex}
         isActive={isPreviewActive}
+        //@ts-ignore
         projects={projects}
         isListView={true}
         animationContainerRef={testRef}

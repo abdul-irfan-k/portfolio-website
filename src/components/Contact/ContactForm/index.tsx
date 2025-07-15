@@ -1,6 +1,7 @@
 "use client";
-import ButtonHoverAnimation from "@/components/shared/ButtonHoverAnimation";
 import React, { useState } from "react";
+
+import ButtonHoverAnimation from "@/components/shared/ButtonHoverAnimation";
 
 const ContactForm = () => {
   const [formDetails, setFormDetails] = useState({
