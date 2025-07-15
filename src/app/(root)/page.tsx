@@ -8,8 +8,6 @@ import Project from "@/components/Project";
 import ProjectHorizontalScroll from "@/components/ProjectHorizontalScroll";
 import DesktopBreakPoint from "@/components/ResponsiveUtilities/DesktopBreakPoint";
 import MobileBreakPoint from "@/components/ResponsiveUtilities/MobileBreakPoint";
-import ProjectCardList from "@/components/Work/ProjectCardList";
-import { projectDetails } from "@/project";
 import { fetchProjects } from "@/utils/fetchProjects";
 
 const HomePage = async () => {
@@ -36,7 +34,10 @@ const HomePage = async () => {
                   <div className="relative w-full aspect-square ">
                     <Image
                       alt="image"
-                      src={project.banner_url ?? "/Asset/banner.jpg"}
+                      src={
+                        project.banner_url ??
+                        (process.env.NEXT_PUBLIC_DEFAULT_IMAGE || "")
+                      }
                       fill
                     />
                   </div>

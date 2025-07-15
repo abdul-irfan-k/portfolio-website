@@ -4,14 +4,12 @@ import { motion } from "framer-motion";
 import gsap from "gsap";
 import React, { FC, useEffect, useRef } from "react";
 
+import { Project } from "@/types/Project";
+
 import ProjectViewModel from "./ProjectViewModel";
 
-interface projectDetailInterface {
-  name: string;
-  banner_url: string;
-}
 interface ProjectViewAnimationProps {
-  projects: projectDetailInterface[];
+  projects: Project[];
   currentIndex?: number;
   isActive: boolean;
   isListView: boolean;
@@ -23,6 +21,7 @@ const scaleAnimation: Variants = {
   enter: { width: "100%" },
   exit: { width: "0px" },
 };
+
 const ProjectViewAnimation: FC<ProjectViewAnimationProps> = ({
   currentIndex,
   isActive,

@@ -3,21 +3,13 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import React, { FC } from "react";
 
-interface projectDetailInterface {
-  name: string;
-  banner_url: string;
-}
+import { Project } from "@/types/Project";
+
 interface ProjectViewModelProps {
-  projects: projectDetailInterface[];
+  projects: Project[];
   currentIndex?: number;
   isActive: boolean;
 }
-
-const scaleAnimation: Variants = {
-  initial: { scale: 0 },
-  enter: { scale: 1 },
-  exit: { scale: 0 },
-};
 
 const ProjectViewModel: FC<ProjectViewModelProps> = ({
   projects,
@@ -43,7 +35,15 @@ const ProjectViewModel: FC<ProjectViewModelProps> = ({
               key={index}
             >
               <div className="relative w-full h-full">
-                <Image src={project.banner_url} alt="image" fill />
+                <Image
+                  src={
+                    project.banner_url ||
+                    process.env.NEXT_PUBLIC_DEFAULT_IMAGE ||
+                    ""
+                  }
+                  alt="image"
+                  fill
+                />
               </div>
             </div>
           );

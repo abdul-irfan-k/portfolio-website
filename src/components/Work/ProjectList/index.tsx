@@ -2,21 +2,15 @@
 import React, { FC, useRef, useState } from "react";
 
 import ProjectViewAnimation from "@/components/shared/ProjectViewAnimation";
+import { Project } from "@/types/Project";
 
 import ProjectRow from "./ProjectRow";
 // import ProjectViewAnimation from "@/components/shared/ProjectViewAnimation";
 
 interface ProjectListProps {
-  projectDetails: {
-    client: string;
-    location: string;
-    service: string;
-    year: string;
-    description: string;
-    images: string[];
-  }[];
+  projects: Project[];
 }
-const ProjectList: FC<ProjectListProps> = ({ projectDetails }) => {
+const ProjectList: FC<ProjectListProps> = ({ projects }) => {
   const animationContainerRef = useRef<HTMLDivElement>(null);
   const [projectViewIndex, setProjectViewIndex] = useState<number | undefined>(
     undefined
@@ -39,13 +33,12 @@ const ProjectList: FC<ProjectListProps> = ({ projectDetails }) => {
           onMouseEnter={() => setIsPreviewActive(true)}
           onMouseLeave={() => setIsPreviewActive(false)}
         >
-          {projectDetails.map((project, index) => {
+          {projects.map((project, index) => {
             return (
               <ProjectRow
                 key={index}
-                // onMouseEnterHandler={() => setProjectViewIndex(index)}
-                //@ts-ignore
                 project={project}
+                onMouseEnterHandler={() => setProjectViewIndex(index)}
               />
             );
           })}
@@ -55,7 +48,7 @@ const ProjectList: FC<ProjectListProps> = ({ projectDetails }) => {
         currentIndex={projectViewIndex}
         isActive={isPreviewActive}
         //@ts-ignore
-        projects={projectDetails}
+        projects={projects}
         isListView
         animationContainerRef={animationContainerRef}
       />

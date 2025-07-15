@@ -19,11 +19,6 @@ const eslintConfig = [
         },
         languageOptions: {
             parser: compat.config.parser,
-            // parserOptions: {
-            //     project: './tsconfig.json',
-            //     tsconfigRootDir: __dirname,
-            //     sourceType: 'module',
-            // },
         },
         rules: {
             "simple-import-sort/imports": "error",

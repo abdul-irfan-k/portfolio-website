@@ -1,19 +1,24 @@
 "use client";
+
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { FC, useState } from "react";
 
 import GridIcon from "@/components/Icons/grid";
 import MenuIcon from "@/components/Icons/menu";
 import DesktopBreakPoint from "@/components/ResponsiveUtilities/DesktopBreakPoint";
 import MobileBreakPoint from "@/components/ResponsiveUtilities/MobileBreakPoint";
 import ButtonHoverAnimation from "@/components/shared/ButtonHoverAnimation";
-import { projectDetails } from "@/project";
 import { useLenisContext } from "@/provider/SmoothScrollProvider";
+import { Project } from "@/types/Project";
 
 import ProjectCardList from "../ProjectCardList";
 import ProjectList from "../ProjectList";
 
-const WorkPageContainer = () => {
+interface WorkPageContainerProps {
+  projects: Project[];
+}
+
+const WorkPageContainer: FC<WorkPageContainerProps> = ({ projects }) => {
   const [isListView, setIsListView] = useState(true);
   const [selectedProject, setSelectedProject] = useState<
     "all" | "frontend" | "backend"
@@ -116,20 +121,11 @@ const WorkPageContainer = () => {
         </div>
       </div>
       <DesktopBreakPoint>
-        {isListView && (
-          <ProjectList
-            //@ts-ignore
-            projectDetails={
-              selectedProject == "all"
-                ? projectDetails
-                : projectDetails.slice(0, 3)
-            }
-          />
-        )}
-        {!isListView && <ProjectCardList />}
+        {isListView && <ProjectList projects={projects} />}
+        {!isListView && <ProjectCardList projects={projects} />}
       </DesktopBreakPoint>
       <MobileBreakPoint>
-        <ProjectCardList />
+        <ProjectCardList projects={projects} />
       </MobileBreakPoint>
     </div>
   );

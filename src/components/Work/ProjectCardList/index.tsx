@@ -1,14 +1,17 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { FC, useRef, useState } from "react";
 
 import ButtonHoverAnimation from "@/components/shared/ButtonHoverAnimation";
 import ProjectViewAnimation from "@/components/shared/ProjectViewAnimation";
-import { projectDetails } from "@/project";
+import { Project } from "@/types/Project";
 
 import ProjectCard from "./ProjectCard";
 // import ProjectViewAnimation from "@/components/shared/ProjectViewAnimation";
 
-const ProjectCardList = () => {
+interface ProjectCardListProps {
+  projects: Project[];
+}
+const ProjectCardList: FC<ProjectCardListProps> = ({ projects }) => {
   const [projectViewIndex, setProjectViewIndex] = useState<number | undefined>(
     undefined
   );
@@ -17,7 +20,7 @@ const ProjectCardList = () => {
     <div className=" mt-10  ">
       <div className="relative" ref={animationContainerRef}>
         <div className=" gap-x-3  flex w-full flex-wrap  justify-between  px-10 md:px-20 lg:px-32 xl:px-60">
-          {projectDetails.map((project, index) => {
+          {projects.map((project, index) => {
             return (
               <div
                 key={index}
@@ -37,7 +40,7 @@ const ProjectCardList = () => {
         currentIndex={projectViewIndex}
         isActive={projectViewIndex == undefined ? false : true}
         //@ts-ignore
-        projects={projectDetails}
+        projects={projects}
         isListView={false}
         animationContainerRef={animationContainerRef}
       />

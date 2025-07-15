@@ -1,5 +1,4 @@
 "use client";
-// import { projectDetails } from "@/project";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { FC, useRef, useState } from "react";
