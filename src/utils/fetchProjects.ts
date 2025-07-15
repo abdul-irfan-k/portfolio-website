@@ -1,15 +1,12 @@
-import { Project } from "@/generated/prisma";
+import { unstable_cache } from "next/cache";
 
-export async function fetchProjects(): Promise<Project[]> {
-  const apiUrl = process.env.API_URL || "http://localhost:3000/api";
-  const res = await fetch(`${apiUrl}/projects`, {
-    cache: "force-cache",
-    next: { tags: ["projects"] },
-  });
+import prisma from "@/lib/prisma";
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch projects");
-  }
-
-  return res.json();
-}
+export const fetchProjects = unstable_cache(
+  async () => {
+    console.log("Fetching projects from database");
+    return await prisma.project.findMany({ orderBy: { order: "asc" } });
+  },
+  ["projects"],
+  { revalidate: 60 }
+);

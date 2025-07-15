@@ -2,16 +2,16 @@ import Image from "next/image";
 import Link from "next/link";
 
 import About from "@/components/Description";
-import Footer from "@/components/Footer";
 import Hero from "@/components/Hero/Hero";
 import Project from "@/components/Project";
 import ProjectHorizontalScroll from "@/components/ProjectHorizontalScroll";
 import DesktopBreakPoint from "@/components/ResponsiveUtilities/DesktopBreakPoint";
 import MobileBreakPoint from "@/components/ResponsiveUtilities/MobileBreakPoint";
+import { Project as IProject } from "@/types/Project";
 import { fetchProjects } from "@/utils/fetchProjects";
 
 const HomePage = async () => {
-  const projects = await fetchProjects();
+  const projects = (await fetchProjects()) as IProject[];
 
   const projectWithBanner = projects.filter((project) => project.banner_url);
   return (
