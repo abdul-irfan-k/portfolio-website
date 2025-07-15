@@ -17,6 +17,14 @@ const eslintConfig = [
         plugins: {
             "simple-import-sort": simpleImportSort,
         },
+        languageOptions: {
+            parser: compat.config.parser,
+            // parserOptions: {
+            //     project: './tsconfig.json',
+            //     tsconfigRootDir: __dirname,
+            //     sourceType: 'module',
+            // },
+        },
         rules: {
             "simple-import-sort/imports": "error",
             "simple-import-sort/exports": "error",
