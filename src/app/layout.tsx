@@ -3,6 +3,10 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
+import HomePageLoader from "@/components/Loader/HomepageLoader";
+import GsapProvider from "@/provider/GsapProvider";
+import SmothScrollScrollProvider from "@/provider/SmoothScrollProvider";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -21,7 +25,14 @@ export default function RootLayout({
         className={`${inter.className} no-scrollbar `}
         style={{ fontFamily: `"Dennis Sans", sans-serif` }}
       >
-        <div className="w-[100vw] overflow-x-hidden ">{children}</div>
+        <div className="w-[100vw] overflow-x-hidden ">
+          <GsapProvider>
+            <SmothScrollScrollProvider>
+              <HomePageLoader />
+              {children}
+            </SmothScrollScrollProvider>
+          </GsapProvider>
+        </div>
       </body>
     </html>
   );
