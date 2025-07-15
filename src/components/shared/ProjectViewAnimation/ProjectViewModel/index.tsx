@@ -4,7 +4,7 @@ import { motion, Variants } from "framer-motion";
 
 interface projectDetailInterface {
   name: string;
-  bannerUrl: string;
+  banner_url: string;
 }
 interface ProjectViewModelProps {
   projects: projectDetailInterface[];
@@ -42,7 +42,7 @@ const ProjectViewModel: FC<ProjectViewModelProps> = ({
               key={index}
             >
               <div className="relative w-full h-full">
-                <Image src={project.bannerUrl} alt="image" fill />
+                <Image src={project.banner_url} alt="image" fill />
               </div>
             </div>
           );

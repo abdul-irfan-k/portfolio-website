@@ -51,11 +51,12 @@ const WorkDetailPageContainer: FC<WorkDetailPageContainerProps> = ({
               <div className="absolute w-[83%] left-[8%] top-[20%]  ml-[0.6%]     block">
                 {/* <Video videoSrc="/Asset/project-video-demo.mp4" /> */}
                 <Video
-                  videoSrc={
-                    project.video_url
-                      ? project.video_url
-                      : "/Asset/project.webm"
-                  }
+                  // videoSrc={
+                  //   project.video_url
+                  //     ? project.video_url
+                  //     : "/Asset/project.webm"
+                  // }
+                  videoSrc="/Asset/project-video1.mp4"
                 />
                 {/* <Video videoSrc="/Asset/screen-capture.webm" /> */}
                 {/* <Video videoSrc="/Asset/test.webm"  /> */}

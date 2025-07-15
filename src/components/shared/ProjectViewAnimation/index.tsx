@@ -6,7 +6,7 @@ import { Variants, motion } from "framer-motion";
 
 interface projectDetailInterface {
   name: string;
-  bannerUrl: string;
+  banner_url: string;
 }
 interface ProjectViewAnimationProps {
   projects: projectDetailInterface[];

@@ -13,12 +13,14 @@ import Link from "next/link";
 
 const HomePage = async () => {
   const projects = await fetchProjects();
+
+  const projectWithBanner = projects.filter((project) => project.banner_url);
   return (
     <div>
       <Hero />
       <About />
       <DesktopBreakPoint>
-        <Project projects={projects.slice(0, 6)} />
+        <Project projects={projectWithBanner.slice(0, 6)} />
       </DesktopBreakPoint>
       <MobileBreakPoint>
         <div className=" mt-10  px-5 sm:px-10">
@@ -49,7 +51,7 @@ const HomePage = async () => {
         </div>
       </MobileBreakPoint>
       <DesktopBreakPoint>
-        <ProjectHorizontalScroll />
+        <ProjectHorizontalScroll projects={projects} />
       </DesktopBreakPoint>
     </div>
   );

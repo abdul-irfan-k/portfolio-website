@@ -16,7 +16,8 @@ datasource db {
 
 model Project {
   id           Int      @id @default(autoincrement())
-  project_name String   @unique
+  project_id   String   @unique
+  project_name String
   banner_url   String?
   image_url    String[] @default([])
   video_url    String?
