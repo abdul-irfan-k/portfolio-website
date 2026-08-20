@@ -43,6 +43,7 @@ const ProjectViewModel: FC<ProjectViewModelProps> = ({
                   }
                   alt="image"
                   fill
+                  sizes="(min-width: 640px) 45vw, 100vw"
                 />
               </div>
             </div>

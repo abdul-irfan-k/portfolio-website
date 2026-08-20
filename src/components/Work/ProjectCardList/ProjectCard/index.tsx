@@ -30,6 +30,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
             project.banner_url || process.env.NEXT_PUBLIC_DEFAULT_IMAGE || ""
           }
           fill
+          sizes="(min-width: 640px) 45vw, 100vw"
         />
       </div>
       <span className="mt-2 text-4xl ">{project.project_name}</span>

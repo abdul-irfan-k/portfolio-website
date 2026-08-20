@@ -13,7 +13,7 @@ interface ProjectViewAnimationProps {
   currentIndex?: number;
   isActive: boolean;
   isListView: boolean;
-  animationContainerRef: React.RefObject<HTMLDivElement>;
+  animationContainerRef: React.RefObject<HTMLDivElement | null>;
 }
 
 const scaleAnimation: Variants = {

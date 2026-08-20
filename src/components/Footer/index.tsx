@@ -13,7 +13,7 @@ const Footer = () => {
   const footerContainerRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
-    target: footerContainerRef,
+    target: footerContainerRef as React.RefObject<HTMLElement>,
     offset: ["start end", "end end"],
   });
 
@@ -42,7 +42,12 @@ const Footer = () => {
           <div className=" flex flex-col  text-5xl   md:text-7xl   ">
             <div className="relative  gap-5 flex items-center ">
               <div className="relative w-[25%] max-w-[100px] aspect-square block  rounded-full md:w-[15%]">
-                <Image src={"/Asset/person1.svg"} fill alt="peson-image" />
+                <Image
+                  src={"/Asset/person1.svg"}
+                  fill
+                  alt="peson-image"
+                  sizes="100px"
+                />
               </div>
               <span className=" ">Let{"'"}s Work</span>
             </div>

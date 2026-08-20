@@ -47,6 +47,7 @@ const WorkDetailPageContainer: FC<WorkDetailPageContainerProps> = ({
                 alt="image"
                 fill
                 className="object-contain"
+                sizes="(min-width: 1280px) 50vw, (min-width: 768px) 70vw, 100vw"
               />
 
               <div className="absolute w-[83%] left-[8%] top-[20%]  ml-[0.6%]     block">

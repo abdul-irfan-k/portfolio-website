@@ -2,10 +2,19 @@ import WorkDetailPageContainer from "@/components/Work/WorkDetailPageContainer";
 import { Project } from "@/types/Project";
 import { fetchProjects } from "@/utils/fetchProjects";
 
-//@ts-ignore
-const WorkProjectDetailPage = async ({ params }) => {
+export async function generateStaticParams() {
+  const projects = await fetchProjects();
+  return projects.map((project) => ({
+    project_name: project.project_name,
+  }));
+}
+
+const WorkProjectDetailPage = async ({
+  params,
+}: {
+  params: Promise<{ project_name: string }>;
+}) => {
   const { project_name } = await params;
-  const par = await params;
   const projects = (await fetchProjects()) as Project[];
 
   const project = projects.find(
@@ -17,7 +26,6 @@ const WorkProjectDetailPage = async ({ params }) => {
         //@ts-ignore
         project={project ?? {}}
       />
-      {/* <Footer /> */}
     </div>
   );
 };

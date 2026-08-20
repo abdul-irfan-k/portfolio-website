@@ -26,6 +26,7 @@ const ProjectHorizontalScrollCard: FC<ProjectHorizontalScrollCardProps> = ({
             fill
             alt="project"
             className="object-contain p-2 md:p-4"
+            sizes="(min-width: 1280px) 26vw, (min-width: 768px) 35vw, 100vw"
           />
         )}
         {type === "video" && <Video videoSrc={src} />}

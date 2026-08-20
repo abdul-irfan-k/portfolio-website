@@ -15,7 +15,7 @@ const ProjectHorizontalScroll: FC<ProjectHorizontalScrollProps> = ({
 }) => {
   const conatinerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
-    target: conatinerRef,
+    target: conatinerRef as React.RefObject<HTMLElement>,
     offset: ["start end", "end start"],
   });
 
