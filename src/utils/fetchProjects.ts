@@ -1,12 +1,22 @@
-import { unstable_cache } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 
 import prisma from "@/lib/prisma";
 
-export const fetchProjects = unstable_cache(
-  async () => {
-    console.log("Fetching projects from database");
-    return await prisma.project.findMany({ orderBy: { order: "asc" } });
-  },
-  ["projects"],
-  { revalidate: 60 }
-);
+async function getProjectsFromDb() {
+  console.log("Fetching projects from database");
+  return prisma.project.findMany({ orderBy: { order: "asc" } });
+}
+
+async function getCachedProjects() {
+  "use cache";
+  cacheLife("projects");
+  cacheTag("projects");
+  return getProjectsFromDb();
+}
+
+export async function fetchProjects() {
+  if (process.env.NODE_ENV === "development") {
+    return getProjectsFromDb();
+  }
+  return getCachedProjects();
+}

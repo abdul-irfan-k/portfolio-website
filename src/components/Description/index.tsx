@@ -7,8 +7,8 @@ import ButtonHoverAnimation from "../shared/ButtonHoverAnimation";
 import { opacity, slideUp } from "./anim";
 
 const About = () => {
-  const description = useRef(null);
-  const isInView = useInView(description);
+  const description = useRef<HTMLDivElement>(null);
+  const isInView = useInView(description as React.RefObject<Element>);
   const aboutDescription =
     "An accomplished full-stack MERN developer with 2+ years of experience crafting high-performance web applications, I bring a blend of";
 

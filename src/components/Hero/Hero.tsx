@@ -11,10 +11,22 @@ const Hero = () => {
         I design and code beautifully simple things, and I love what I do.
       </span>
       <div className="mt-5 relative w-[40%] max-w-[200px] aspect-square rounded-full overflow-hidden">
-        <Image src={"/Asset/person1.svg"} fill alt="peson-image" />
+        <Image
+          src={"/Asset/person1.svg"}
+          fill
+          alt="peson-image"
+          sizes="200px"
+          priority
+        />
       </div>
       <div className="relative w-[90%]  aspect-video md:w-[65%] xl:w-[50%]">
-        <Image src={"/Asset/device.svg"} fill alt="device-image" />
+        <Image
+          src={"/Asset/device.svg"}
+          fill
+          alt="device-image"
+          sizes="(min-width: 1280px) 50vw, (min-width: 768px) 65vw, 90vw"
+          priority
+        />
       </div>
     </div>
   );

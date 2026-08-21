@@ -16,7 +16,12 @@ const ContactPageContainer = () => {
           <span>project together</span>
         </div>
         <div className="absolute w-[8%] top-0 aspect-square rounded-full block  md:top-auto md:left-[64%]">
-          <Image src={"/Asset/person1.svg"} fill alt="peson-image" />
+          <Image
+            src={"/Asset/person1.svg"}
+            fill
+            alt="peson-image"
+            sizes="8vw"
+          />
         </div>
       </div>
 

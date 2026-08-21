@@ -1,14 +1,17 @@
 import Image from "next/image";
 import React from "react";
 
-import Footer from "@/components/Footer";
-
 const AboutPage = () => {
   return (
     <div>
       <div className="gap-10 flex flex-col justify-center items-center  px-5 sm:px-10 md:px-20 xl:px-40 md:flex-row md:items-center  ">
         <div className=" relative w-[50%] max-w-[200px] aspect-square rounded-full overflow-hidden">
-          <Image src={"/Asset/person1.svg"} fill alt="peson-image" />
+          <Image
+            src={"/Asset/person1.svg"}
+            fill
+            alt="peson-image"
+            sizes="200px"
+          />
         </div>
         <div className="gap-5  w-[80%] flex  flex-col text-xl md:w-[50%]  ">
           <span>
@@ -23,7 +26,6 @@ const AboutPage = () => {
           </span>
         </div>
       </div>
-      {/* <Footer /> */}
     </div>
   );
 };
