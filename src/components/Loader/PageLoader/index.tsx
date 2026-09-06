@@ -1,19 +1,32 @@
 "use client";
 import { motion, useAnimationControls } from "framer-motion";
 import { usePathname } from "next/navigation";
-import React, { FC, useEffect, useRef, useState } from "react";
+import React, { useLayoutEffect } from "react";
+
+let hasCompletedInitialPathnameEffect = false;
+let lastSeenPathname: string | null = null;
 
 const PageLoader = () => {
+  "use no memo";
   const pathname = usePathname();
-  const [isLoading, setIsLoading] = useState<boolean | undefined>(undefined);
 
   const controls = useAnimationControls();
   const pathControlls = useAnimationControls();
   const topPathControlls = useAnimationControls();
   const titleControlls = useAnimationControls();
 
-  useEffect(() => {
-    if (isLoading == undefined) return setIsLoading(false);
+  useLayoutEffect(() => {
+    if (!hasCompletedInitialPathnameEffect) {
+      hasCompletedInitialPathnameEffect = true;
+      lastSeenPathname = pathname;
+      return;
+    }
+    if (lastSeenPathname === pathname) {
+      return;
+    }
+    lastSeenPathname = pathname;
+
+    let cancelled = false;
 
     (async () => {
       await controls.start({
@@ -21,6 +34,7 @@ const PageLoader = () => {
         opacity: 1,
         transition: { duration: 0 },
       });
+      if (cancelled) return;
 
       await Promise.all([
         topPathControlls.start(
@@ -35,6 +49,7 @@ const PageLoader = () => {
           transition: { duration: 0.45 },
         }),
       ]);
+      if (cancelled) return;
 
       window.scrollTo(0, 0);
       await titleControlls.start(
@@ -43,6 +58,7 @@ const PageLoader = () => {
         },
         { duration: 0.3 }
       );
+      if (cancelled) return;
 
       await Promise.all([
         controls.start({
@@ -57,13 +73,19 @@ const PageLoader = () => {
           { delay: 0.3, duration: 0.45 }
         ),
       ]);
+      if (cancelled) return;
+
       await controls.start({
         opacity: 0,
       });
+      if (cancelled) return;
+
       await controls.start({
         opacity: 0,
         y: "0%",
       });
+      if (cancelled) return;
+
       topPathControlls.start({
         d: `M0 0 L0 0 Q ${1536 / 2} 300 ${1536} 0`,
       });
@@ -78,13 +100,20 @@ const PageLoader = () => {
       );
       // }, 2000);
     })();
+
+    return () => {
+      cancelled = true;
+      controls.stop();
+      pathControlls.stop();
+      topPathControlls.stop();
+      titleControlls.stop();
+    };
   }, [pathname]);
 
-  if (typeof window == "undefined") return;
   return (
     <div
       style={{
-        height: isLoading ? "100vh" : "auto",
+        height: "auto",
         overflowY: "hidden",
         overflowX: "hidden",
       }}

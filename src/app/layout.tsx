@@ -2,6 +2,7 @@ import "./globals.css";
 
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Suspense } from "react";
 
 import HomePageLoader from "@/components/Loader/HomepageLoader";
 import GsapProvider from "@/provider/GsapProvider";
@@ -28,7 +29,9 @@ export default function RootLayout({
         <div className="w-[100vw] overflow-x-hidden ">
           <GsapProvider>
             <SmothScrollScrollProvider>
-              <HomePageLoader />
+              <Suspense fallback={null}>
+                <HomePageLoader />
+              </Suspense>
               {children}
             </SmothScrollScrollProvider>
           </GsapProvider>

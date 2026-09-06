@@ -134,7 +134,7 @@ const HomePageLoader = () => {
         )}
       </AnimatePresence>
 
-      {!isLoading && <PageLoader />}
+      <PageLoader />
     </div>
   );
 };
