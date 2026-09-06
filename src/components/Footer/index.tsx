@@ -45,7 +45,7 @@ const Footer = () => {
                 <Image
                   src={"/Asset/person1.svg"}
                   fill
-                  alt="peson-image"
+                  alt="Person portrait"
                   sizes="100px"
                 />
               </div>

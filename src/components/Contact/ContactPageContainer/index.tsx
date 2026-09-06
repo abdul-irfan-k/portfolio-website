@@ -11,7 +11,7 @@ const ContactPageContainer = () => {
   return (
     <div className=" text-slate-50">
       <div className="px-20 gap-[10%] relative flex items-end md:py-10 md:px-48">
-        <div className="] flex flex-col text-5xl md:text-8xl md:w-[60% ">
+        <div className="flex flex-col text-5xl md:text-8xl md:w-[60%]">
           <span className="ml-[17%] md:ml-0">{"Let's start a "}</span>
           <span>project together</span>
         </div>
@@ -19,7 +19,7 @@ const ContactPageContainer = () => {
           <Image
             src={"/Asset/person1.svg"}
             fill
-            alt="peson-image"
+            alt="Person portrait"
             sizes="8vw"
           />
         </div>

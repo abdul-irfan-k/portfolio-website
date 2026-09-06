@@ -139,7 +139,7 @@ const NavSlider: FC<NavSliderProps> = ({ isActive }) => {
                 <span className="py-2"> Twitter</span>
               </MagneticAnimation>
               <MagneticAnimation magneticStifness={0.5}>
-                <span className="py-2"> Linkedin</span>
+                <span className="py-2"> LinkedIn</span>
               </MagneticAnimation>
             </div>
           </div>

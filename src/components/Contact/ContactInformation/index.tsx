@@ -23,7 +23,7 @@ const ContactInformation = () => {
           <span className="py-1">Twitter</span>
         </MagneticAnimation>
         <MagneticAnimation magneticStifness={0.3}>
-          <span className="py-1">Linkedin</span>
+          <span className="py-1">LinkedIn</span>
         </MagneticAnimation>
         <MagneticAnimation magneticStifness={0.3}>
           <span className="py-1">Facebook</span>

@@ -29,7 +29,7 @@ const WorkPageContainer: FC<WorkPageContainerProps> = ({ projects }) => {
     <div className="">
       <div className="mt-20 px-10 md:px-20 lg:px-32 xl:px-60 ">
         <h1 className=" text-6xl md:text-6xl lg:text-7xl xl:text-8xl ">
-          Creating Next Level Digital Product
+          Creating Next Level Digital Products
         </h1>
 
         <div className="gap-4 mt-16 flex items-center ">
@@ -58,7 +58,7 @@ const WorkPageContainer: FC<WorkPageContainerProps> = ({ projects }) => {
                   : "text-dark border-2 border-slate-400")
               }
             >
-              <span className="text z-20"> Fronted</span>
+              <span className="text z-20"> Frontend</span>
             </div>
           </ButtonHoverAnimation>
           <ButtonHoverAnimation
