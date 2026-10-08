@@ -11,8 +11,8 @@ const ContactPageContainer = () => {
   return (
     <div className=" text-slate-50">
       <div className="px-20 gap-[10%] relative flex items-end md:py-10 md:px-48">
-        <div className="flex flex-col text-5xl md:text-8xl md:w-[60%]">
-          <span className="ml-[17%] md:ml-0">{"Let's start a "}</span>
+        <div className="flex flex-col font-display text-5xl md:text-8xl md:w-[60%]">
+          <span className="ml-[17%] md:ml-0">{"Let’s start a "}</span>
           <span>project together</span>
         </div>
         <div className="absolute w-[8%] top-0 aspect-square rounded-full block  md:top-auto md:left-[64%]">

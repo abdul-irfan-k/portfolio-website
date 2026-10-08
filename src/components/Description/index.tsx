@@ -18,13 +18,13 @@ const About = () => {
       ref={description}
     >
       <p
-        className=" gap-2   text-xl md:text-3xl  xl:text-3xl  "
+        className="gap-2 font-display text-xl md:text-3xl xl:text-3xl"
         style={{ lineHeight: 1.3 }}
       >
         {aboutDescription.split(" ").map((word, index) => {
           return (
             <span
-              className="relative mr-2  overflow-hidden inline-flex"
+              className="relative mr-[0.25em] overflow-hidden inline-flex"
               key={index}
             >
               <motion.span
@@ -42,7 +42,7 @@ const About = () => {
 
       <div className="flex  flex-col items-end md:items-start">
         <motion.span
-          className="w-[50%] text-base mr-auto text-lg font-normal md:mb-10 md:w-full md:mr-0"
+          className="w-[50%] mr-auto text-lg font-normal text-pretty md:mb-10 md:w-full md:mr-0"
           variants={opacity}
           animate={isInView ? "open" : "closed"}
         >

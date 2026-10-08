@@ -34,7 +34,7 @@ const ExperienceEntry: FC<ExperienceEntryProps> = ({ experience }) => {
   return (
     <article className="gap-12 flex flex-col lg:flex-row lg:gap-16">
       <div className="lg:w-[35%]" ref={headerRef}>
-        <h2 className="overflow-hidden text-5xl uppercase md:text-6xl xl:text-7xl">
+        <h2 className="overflow-hidden font-display text-5xl uppercase tracking-normal md:text-6xl xl:text-7xl">
           <motion.span
             className="block"
             variants={slideUp}
@@ -52,7 +52,7 @@ const ExperienceEntry: FC<ExperienceEntryProps> = ({ experience }) => {
           initial="closed"
           animate={animationState}
         >
-          <span className="text-xl">{experience.role}</span>
+          <span className="text-xl font-medium">{experience.role}</span>
           <div className="gap-3 flex flex-wrap items-center text-base text-slate-500">
             <span>{experience.period}</span>
             {experience.isCurrent && <CurrentRoleBadge />}

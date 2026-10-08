@@ -20,7 +20,7 @@ const ProjectList: FC<ProjectListProps> = ({ projects }) => {
   return (
     <div className=" mt-20">
       <div className=" w-full md:px-20 lg:px-32 xl:px-60">
-        <div className="flex items-center text-slate-900 border-slate-300 border-b-[2px]">
+        <div className="flex items-center tracking-wider text-slate-900 border-slate-300 border-b-[2px]">
           <span className="w-[70%]">CLIENT</span>
           <span className="w-[30%]">SERVICE</span>
           <span className="ml-auto">YEAR</span>

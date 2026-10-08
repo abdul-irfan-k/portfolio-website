@@ -39,7 +39,7 @@ const Footer = () => {
           className="relative pt-28 pb-5  px-5 translate-y-[-10%] sm:px-10  md:px-20 md:py-20 xl:px-40 md:translate-y-0   "
           ref={footerContainerRef}
         >
-          <div className=" flex flex-col  text-5xl   md:text-7xl   ">
+          <div className="flex flex-col font-display text-5xl md:text-7xl">
             <div className="relative  gap-5 flex items-center ">
               <div className="relative w-[25%] max-w-[100px] aspect-square block  rounded-full md:w-[15%]">
                 <Image
@@ -49,7 +49,7 @@ const Footer = () => {
                   sizes="100px"
                 />
               </div>
-              <span className=" ">Let{"'"}s Work</span>
+              <span className=" ">Let’s Work</span>
             </div>
             <div>
               <span className=" ">together</span>
@@ -77,12 +77,12 @@ const Footer = () => {
 
           <div className="relative gap-5 mt-28 flex  flex-col md:flex-row md:mt-20">
             <ButtonHoverAnimation style={undefined} magneticStifness={0.8}>
-              <div className=" relative px-10 py-4 rounded-full flex items-center justify-center text-lg font-semibold border-[1px] w-full border-slate-400 md:w-auto">
+              <div className=" relative px-10 py-4 rounded-full flex items-center justify-center text-lg font-normal border-[1px] w-full border-slate-400 md:w-auto">
                 <span className="text z-[20]  ">abdulirfank2@gmail.com</span>
               </div>
             </ButtonHoverAnimation>
             <ButtonHoverAnimation magneticStifness={0.8}>
-              <div className="px-10 py-4 rounded-full text-lg flex items-center justify-center font-semibold border-[1px] w-full border-slate-400 md:w-auto">
+              <div className="px-10 py-4 rounded-full text-lg flex items-center justify-center font-normal border-[1px] w-full border-slate-400 md:w-auto">
                 <span className="text z-[20]"> 6363520187</span>
               </div>
             </ButtonHoverAnimation>

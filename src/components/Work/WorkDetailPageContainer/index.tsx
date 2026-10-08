@@ -19,7 +19,7 @@ const WorkDetailPageContainer: FC<WorkDetailPageContainerProps> = ({
         <div className="relative  ">
           <div className="relative ">
             <h1
-              className="w-[80%]  text-6xl md:text-7xl lg:text-8xl xl:text-9xl "
+              className="w-[80%] font-display text-6xl md:text-7xl lg:text-8xl xl:text-9xl"
               data-speed="10"
             >
               {project.project_name}

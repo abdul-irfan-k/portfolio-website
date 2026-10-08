@@ -28,7 +28,7 @@ const WorkPageContainer: FC<WorkPageContainerProps> = ({ projects }) => {
   return (
     <div className="">
       <div className="mt-20 px-10 md:px-20 lg:px-32 xl:px-60 ">
-        <h1 className=" text-6xl md:text-6xl lg:text-7xl xl:text-8xl ">
+        <h1 className="font-display text-6xl md:text-6xl lg:text-7xl xl:text-8xl">
           Creating Next Level Digital Products
         </h1>
 

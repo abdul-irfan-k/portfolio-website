@@ -45,7 +45,7 @@ const ContactForm = () => {
   };
 
   const sendLabel =
-    status === "sent" ? "sent" : status === "submitting" ? "..." : "send";
+    status === "sent" ? "sent" : status === "submitting" ? "…" : "send";
 
   return (
     <form
@@ -55,7 +55,7 @@ const ContactForm = () => {
       <div className="gap-10 py-8 flex text-slate-300 border-t-[1px] border-neutral-500">
         <span className="text-slate-300 text-base">01</span>
         <div className="gap-1 flex flex-col flex-1 ">
-          <span className="text-slate-50 ">{"What's your name?"}</span>
+          <span className="text-slate-50 ">{"What’s your name?"}</span>
           <div className="flex-1">
             <input
               type="text"
@@ -73,7 +73,7 @@ const ContactForm = () => {
       <div className="gap-10 py-8 flex text-slate-300 border-t-[1px] border-neutral-500">
         <span className="text-slate-300 text-base">02</span>
         <div className="gap-1 flex flex-col flex-1 ">
-          <span className="text-slate-50 ">{"What's your email?"}</span>
+          <span className="text-slate-50 ">{"What’s your email?"}</span>
           <div className="flex-1">
             <input
               type="email"

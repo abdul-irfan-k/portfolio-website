@@ -142,7 +142,7 @@ const Header = () => {
           <div className="relative ml-auto sm:hidden ">
             <MagneticAnimation>
               <span
-                className="font-light text-base"
+                className="font-normal text-base"
                 onClick={() => setNavbarButtonClicked(!navbarButtonClicked)}
               >
                 more

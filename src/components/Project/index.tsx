@@ -41,7 +41,7 @@ const Project: FC<ProjectProps> = ({ projects }) => {
                 onMouseEnter={() => setProjectViewIndex(index)}
                 onClick={() => router.push(`/projects/${project.project_name}`)}
               >
-                <h1 className="text-7xl md:text-6xl  xl:text-7xl uppercase">
+                <h1 className="font-display text-7xl uppercase tracking-normal md:text-6xl xl:text-7xl">
                   {project.project_name}
                 </h1>
                 <span className="text-base">Design & Development</span>

@@ -14,15 +14,15 @@ const AboutPage = () => {
           />
         </div>
         <div className="gap-5  w-[80%] flex  flex-col text-xl md:w-[50%]  ">
-          <span>
+          <span className="text-pretty">
             {`I am Abdul Irfan, a self-taught developer passionate about
             digitally solving problems with cutting-edge technologies.
-            Specializing in web technologies, I'm eager to learn and adapt to
+            Specializing in web technologies, I’m eager to learn and adapt to
             the latest trends. My coding journey began in 11th standard, and I
             bring 2+ years of expertise in the MERN stack. I built video
             conferencing, e-commerce, and other impactful projects. I also
             actively contribute to top open-source initiatives. Feel free to
-            connect with me and let's have a talk.`}
+            connect with me and let’s have a talk.`}
           </span>
         </div>
       </div>

@@ -40,7 +40,7 @@ const TimelineItem: FC<TimelineItemProps> = ({ text, isLast }) => {
         />
       </span>
       {!isLast && <TimelineConnector />}
-      <p className="leading-[1.4]">{text}</p>
+      <p className="leading-[1.4] text-pretty">{text}</p>
     </motion.li>
   );
 };

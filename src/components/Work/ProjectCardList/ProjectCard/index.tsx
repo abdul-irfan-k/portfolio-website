@@ -33,7 +33,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
           sizes="(min-width: 640px) 45vw, 100vw"
         />
       </div>
-      <span className="mt-2 text-4xl ">{project.project_name}</span>
+      <span className="mt-2 font-display text-4xl">{project.project_name}</span>
       <div className="mt-2 flex justify-between ">
         <span className="text-base">Design & Development</span>
         <span className="text-base">2023</span>

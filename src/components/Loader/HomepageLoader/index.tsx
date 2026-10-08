@@ -38,7 +38,7 @@ const HomePageLoader = () => {
             <div className="relative flex gap-0 w-fit  items-center h-16 md:gap-2 xl:gap-4">
               <div className="absolute right-[100%] w-max overflow-hidden ">
                 <motion.div
-                  className="   w-max text-xl font-medium  text-right md:text-3xl xl:text-4xl  "
+                  className="w-max font-display text-xl font-normal text-right md:text-3xl xl:text-4xl"
                   initial="initial"
                   variants={{
                     initial: { translateY: "-100%" },
@@ -85,7 +85,7 @@ const HomePageLoader = () => {
               </div>
               <div className="absolute left-[100%] w-max overflow-hidden ">
                 <motion.div
-                  className=" text-xl font-medium  md:text-3xl xl:text-4xl "
+                  className="font-display text-xl font-normal md:text-3xl xl:text-4xl"
                   initial="initial"
                   variants={{
                     initial: { translateY: "100%" },
