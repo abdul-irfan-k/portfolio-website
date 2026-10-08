@@ -3,6 +3,8 @@ import { useInView } from "framer-motion";
 import { motion } from "framer-motion";
 import React, { useRef } from "react";
 
+import ArrowRight from "@/components/Icons/arrow-right";
+
 import ButtonHoverAnimation from "../shared/ButtonHoverAnimation";
 import { opacity, slideUp } from "./anim";
 
@@ -52,7 +54,10 @@ const About = () => {
 
         <ButtonHoverAnimation>
           <div className=" w-40 aspect-square rounded-full flex items-center justify-center text-white bg-blackprimary">
-            <span className="text z-20">About Me</span>
+            <span className="gap-1 text z-20 flex items-center">
+              About Me
+              <ArrowRight className="w-5 h-5" />
+            </span>
           </div>
         </ButtonHoverAnimation>
       </div>

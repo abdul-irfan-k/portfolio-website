@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 
+import ArrowRight from "@/components/Icons/arrow-right";
 import ButtonHoverAnimation from "@/components/shared/ButtonHoverAnimation";
 
 const GOOGLE_FORM_ACTION_URL =
@@ -117,7 +118,10 @@ const ContactForm = () => {
               className=" flex items-center justify-center w-[100%] aspect-square rounded-full bg-blue-600 border-none cursor-pointer disabled:cursor-default"
               disabled={status !== "idle"}
             >
-              <span className="z-[20] text-xl text-slate-50">{sendLabel}</span>
+              <span className="gap-1 z-[20] text-xl text-slate-50 flex items-center">
+                {sendLabel}
+                {status === "idle" ? <ArrowRight className="w-5 h-5" /> : null}
+              </span>
             </button>
           </ButtonHoverAnimation>
         </div>

@@ -5,6 +5,10 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useRef } from "react";
 
+import ArrowRight from "@/components/Icons/arrow-right";
+import Mail from "@/components/Icons/mail";
+import Phone from "@/components/Icons/phone";
+
 import ButtonHoverAnimation from "../shared/ButtonHoverAnimation";
 import FooterInfoAndLinkBox from "./FooterInfoAndLinkBox";
 
@@ -68,7 +72,10 @@ const Footer = () => {
                     href={"/contact"}
                     className="h-full w-full bg-bluesecondary rounded-full flex flex-col items-center justify-center"
                   >
-                    <span className="text z-20">Get in touch</span>
+                    <span className="gap-1.5 text z-20 flex items-center whitespace-nowrap">
+                      Get in touch
+                      <ArrowRight className="w-4 h-4 shrink-0" />
+                    </span>
                   </Link>
                 </ButtonHoverAnimation>
               </div>
@@ -78,12 +85,18 @@ const Footer = () => {
           <div className="relative gap-5 mt-28 flex  flex-col md:flex-row md:mt-20">
             <ButtonHoverAnimation style={undefined} magneticStifness={0.8}>
               <div className=" relative px-10 py-4 rounded-full flex items-center justify-center text-lg font-normal border-[1px] w-full border-slate-400 md:w-auto">
-                <span className="text z-[20]  ">abdulirfank2@gmail.com</span>
+                <span className="gap-2 text z-[20] flex items-center">
+                  <Mail className="w-4 h-4 shrink-0" />
+                  abdulirfank2@gmail.com
+                </span>
               </div>
             </ButtonHoverAnimation>
             <ButtonHoverAnimation magneticStifness={0.8}>
               <div className="px-10 py-4 rounded-full text-lg flex items-center justify-center font-normal border-[1px] w-full border-slate-400 md:w-auto">
-                <span className="text z-[20]"> 6363520187</span>
+                <span className="gap-2 text z-[20] flex items-center">
+                  <Phone className="w-4 h-4 shrink-0" />
+                  6363520187
+                </span>
               </div>
             </ButtonHoverAnimation>
           </div>

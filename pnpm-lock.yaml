@@ -25,7 +25,7 @@ importers:
         specifier: ^0.0.43
         version: 0.0.43(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       framer-motion:
-        specifier: '12'
+        specifier: ^12.43.0
         version: 12.43.0(@emotion/is-prop-valid@0.8.8)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       gsap:
         specifier: ^3.12.3

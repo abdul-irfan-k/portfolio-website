@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import gsap from "gsap";
 import React, { FC, useEffect, useRef } from "react";
 
+import ArrowRight from "@/components/Icons/arrow-right";
 import { Project } from "@/types/Project";
 
 import ProjectViewModel from "./ProjectViewModel";
@@ -128,17 +129,20 @@ const ProjectViewAnimation: FC<ProjectViewAnimationProps> = ({
       </div>
       <div
         ref={projectViewLableRef}
-        className="absolute pointer-events-none z-[70] w-16 aspect-square text-center  flex items-center "
+        className="absolute pointer-events-none z-[70] w-24 aspect-square flex items-center justify-center"
       >
         <motion.div
-          className="relative  pointer-events-none  text-lg  w-full overflow-hidden text-slate-50 "
+          className="relative pointer-events-none text-lg w-full overflow-hidden text-slate-50 flex items-center justify-center"
           variants={scaleAnimation}
           animate={isActive ? "enter" : "exit"}
           style={{
             transition: "width  .4s cubic-bezier(0.36, 0, 0.66, 0)",
           }}
         >
-          View
+          <span className="gap-1 flex items-center whitespace-nowrap">
+            View
+            <ArrowRight className="w-4 h-4 shrink-0" />
+          </span>
         </motion.div>
       </div>
     </>

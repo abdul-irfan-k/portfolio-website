@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { FC, useRef, useState } from "react";
 
+import ArrowRight from "@/components/Icons/arrow-right";
 import { Project as IProject } from "@/generated/prisma";
 
 import ButtonHoverAnimation from "../shared/ButtonHoverAnimation";
@@ -54,7 +55,10 @@ const Project: FC<ProjectProps> = ({ projects }) => {
           <ButtonHoverAnimation style={undefined}>
             <div className="px-8 py-4 rounded-full flex items-center justify-center border-[1px] border-dark text-lg">
               <span className="text z-[20]">
-                <Link href={"/projects"}>More Projects</Link>
+                <Link href={"/projects"} className="gap-2 flex items-center">
+                  More Projects
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
               </span>
             </div>
           </ButtonHoverAnimation>
