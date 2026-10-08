@@ -9,7 +9,7 @@ export async function generateStaticParams() {
   }));
 }
 
-const WorkProjectDetailPage = async ({
+const ProjectDetailPage = async ({
   params,
 }: {
   params: Promise<{ project_name: string }>;
@@ -30,4 +30,4 @@ const WorkProjectDetailPage = async ({
   );
 };
 
-export default WorkProjectDetailPage;
+export default ProjectDetailPage;

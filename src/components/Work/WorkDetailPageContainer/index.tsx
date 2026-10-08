@@ -51,13 +51,22 @@ const WorkDetailPageContainer: FC<WorkDetailPageContainerProps> = ({
               />
 
               <div className="absolute w-[83%] left-[8%] top-[20%]  ml-[0.6%]     block">
-                <Video
-                  videoSrc={
-                    project.video_url
-                      ? project.video_url
-                      : process.env.NEXT_PUBLIC_DEFAULT_VIDEO || ""
-                  }
-                />
+                {project.video_url ? (
+                  <Video videoSrc={project.video_url} />
+                ) : project.banner_url ? (
+                  <Image
+                    src={project.banner_url}
+                    alt={project.project_name}
+                    width={3840}
+                    height={2160}
+                    className="w-full h-auto"
+                    sizes="(min-width: 1280px) 50vw, (min-width: 768px) 70vw, 100vw"
+                  />
+                ) : (
+                  <Video
+                    videoSrc={process.env.NEXT_PUBLIC_DEFAULT_VIDEO || ""}
+                  />
+                )}
               </div>
             </div>
           </div>

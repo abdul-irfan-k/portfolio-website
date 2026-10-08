@@ -111,7 +111,7 @@ const NavSlider: FC<NavSliderProps> = ({ isActive }) => {
                 variants={textSlideVariants}
                 custom={3}
               >
-                <Link href={"/about"}>About</Link>
+                <Link href={"/projects"}>Projects</Link>
               </motion.h1>
             </MagneticAnimation>
             <MagneticAnimation magneticStifness={0.5}>
@@ -121,6 +121,17 @@ const NavSlider: FC<NavSliderProps> = ({ isActive }) => {
                 animate={isActive ? "active" : "notActive"}
                 variants={textSlideVariants}
                 custom={4}
+              >
+                <Link href={"/about"}>About</Link>
+              </motion.h1>
+            </MagneticAnimation>
+            <MagneticAnimation magneticStifness={0.5}>
+              <motion.h1
+                className="text-6xl py-3 "
+                initial="initial"
+                animate={isActive ? "active" : "notActive"}
+                variants={textSlideVariants}
+                custom={5}
               >
                 <Link href={"/contact"}>Contact</Link>
               </motion.h1>

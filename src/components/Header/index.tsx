@@ -124,6 +124,11 @@ const Header = () => {
               </Link>
             </MagneticAnimation>
             <MagneticAnimation>
+              <Link href={"/projects"}>
+                <span className="">Projects</span>
+              </Link>
+            </MagneticAnimation>
+            <MagneticAnimation>
               <Link href={"/about"}>
                 <span className="">About</span>
               </Link>

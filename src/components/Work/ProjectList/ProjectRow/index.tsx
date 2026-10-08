@@ -14,7 +14,7 @@ const ProjectRow: FC<ProjectRowProps> = ({ onMouseEnterHandler, project }) => {
     <div
       className=" py-10 flex  items-center text-slate-800  "
       onMouseEnter={onMouseEnterHandler}
-      onClick={() => router.push(`/work/${project.project_name}`)}
+      onClick={() => router.push(`/projects/${project.project_name}`)}
     >
       <h1 className="w-[70%] text-4xl lg:text-5xl  xl:text-6xl ">
         {project.project_name}

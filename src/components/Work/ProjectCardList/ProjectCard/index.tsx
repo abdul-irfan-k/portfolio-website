@@ -21,7 +21,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
       className="w-full flex flex-col"
       onMouseEnter={onMouseEnterHandler}
       onMouseLeave={onMouseLeaveHandler}
-      onClick={() => router.push(`/work/${project.project_name}`)}
+      onClick={() => router.push(`/projects/${project.project_name}`)}
     >
       <div className="relative w-full aspect-square ">
         <Image

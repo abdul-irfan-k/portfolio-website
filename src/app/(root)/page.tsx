@@ -2,11 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 
 import About from "@/components/Description";
+import Experience from "@/components/Experience";
 import Hero from "@/components/Hero/Hero";
 import Project from "@/components/Project";
 import ProjectHorizontalScroll from "@/components/ProjectHorizontalScroll";
 import DesktopBreakPoint from "@/components/ResponsiveUtilities/DesktopBreakPoint";
 import MobileBreakPoint from "@/components/ResponsiveUtilities/MobileBreakPoint";
+import SectionLabel from "@/components/shared/SectionLabel";
 import { Project as IProject } from "@/types/Project";
 import { fetchProjects } from "@/utils/fetchProjects";
 
@@ -18,6 +20,10 @@ const HomePage = async () => {
     <div>
       <Hero />
       <About />
+      <Experience />
+      <div className="mt-32 px-5 sm:px-10 md:mt-40 md:px-20 xl:px-40">
+        <SectionLabel title="Projects" index="02" />
+      </div>
       <DesktopBreakPoint>
         <Project projects={projectWithBanner.slice(0, 6)} />
       </DesktopBreakPoint>
@@ -29,7 +35,7 @@ const HomePage = async () => {
                 <Link
                   key={index}
                   className="mt-20 flex-[0_0_100%]    sm:flex-[0_0_45%] "
-                  href={`/work/${project.id}`}
+                  href={`/projects/${project.project_name}`}
                 >
                   <div className="relative w-full aspect-square ">
                     <Image

@@ -22,6 +22,15 @@ const nextConfig: NextConfig = {
   experimental: {
     turbopackRustReactCompiler: true,
   },
+  async redirects() {
+    return [
+      {
+        source: "/work/:project_name",
+        destination: "/projects/:project_name",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
