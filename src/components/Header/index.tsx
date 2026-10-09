@@ -111,7 +111,7 @@ const Header = () => {
           </div>
         </div>
 
-        <div className="relative px-5 py-10  w-full flex text-xl z-[130] sm:px-5 md:px-10 xl:px-16">
+        <div className="relative px-5 py-6 w-full flex text-lg z-[130] sm:px-5 md:py-10 md:px-10 md:text-xl xl:px-16">
           <MagneticAnimation>
             <Link href={"/"}>
               <span className="">Abdul Irfan</span>

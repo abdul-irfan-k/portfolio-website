@@ -50,17 +50,17 @@ const ContactForm = () => {
 
   return (
     <form
-      className="flex flex-col  text-xl md:text-2xl "
+      className="flex flex-col text-lg md:text-2xl"
       onSubmit={onSubmitHandler}
     >
-      <div className="gap-10 py-8 flex text-slate-300 border-t-[1px] border-neutral-500">
-        <span className="text-slate-300 text-base">01</span>
+      <div className="gap-5 py-6 flex text-slate-300 border-t-[1px] border-neutral-500 md:gap-10 md:py-8">
+        <span className="text-slate-300 text-sm md:text-base">01</span>
         <div className="gap-1 flex flex-col flex-1 ">
           <span className="text-slate-50 ">{"What’s your name?"}</span>
           <div className="flex-1">
             <input
               type="text"
-              className="bg-transparent  w-full text-slate-50 border-none outline-none hover:outline-none text-xl"
+              className="bg-transparent  w-full text-slate-50 border-none outline-none hover:outline-none text-lg md:text-xl"
               name="name"
               placeholder="name"
               value={formDetails.name}
@@ -71,14 +71,14 @@ const ContactForm = () => {
           </div>
         </div>
       </div>
-      <div className="gap-10 py-8 flex text-slate-300 border-t-[1px] border-neutral-500">
-        <span className="text-slate-300 text-base">02</span>
+      <div className="gap-5 py-6 flex text-slate-300 border-t-[1px] border-neutral-500 md:gap-10 md:py-8">
+        <span className="text-slate-300 text-sm md:text-base">02</span>
         <div className="gap-1 flex flex-col flex-1 ">
           <span className="text-slate-50 ">{"What’s your email?"}</span>
           <div className="flex-1">
             <input
               type="email"
-              className="bg-transparent  w-full text-slate-50 border-none outline-none hover:outline-none text-xl"
+              className="bg-transparent  w-full text-slate-50 border-none outline-none hover:outline-none text-lg md:text-xl"
               placeholder="email"
               name="email"
               value={formDetails.email}
@@ -89,15 +89,15 @@ const ContactForm = () => {
           </div>
         </div>
       </div>
-      <div className="gap-10 py-8 flex text-slate-300 border-t-[1px] border-neutral-500">
-        <span className="text-slate-300 text-base">03</span>
+      <div className="gap-5 py-6 flex text-slate-300 border-t-[1px] border-neutral-500 md:gap-10 md:py-8">
+        <span className="text-slate-300 text-sm md:text-base">03</span>
         <div className="gap-1 flex flex-col flex-1 ">
           <span className=" text-slate-50 ">
             What would you like to talk about?
           </span>
           <div className="flex-1">
             <textarea
-              className="bg-transparent  w-full h-[35vh] text-slate-50 border-none outline-none hover:outline-none text-xl"
+              className="bg-transparent  w-full h-[25vh] text-slate-50 border-none outline-none hover:outline-none text-lg md:h-[35vh] md:text-xl"
               placeholder="message"
               name="message"
               value={formDetails.message}
@@ -110,7 +110,7 @@ const ContactForm = () => {
         </div>
       </div>
 
-      <div className="h-[1px] mb-24 bg-neutral-500 w-full flex items-center justify-end ">
+      <div className="h-[1px] mb-20 bg-neutral-500 w-full flex items-center justify-end md:mb-24">
         <div className="absolute  w-[25%] aspect-square rounded-full  overflow-hidden  md:w-[12%]">
           <ButtonHoverAnimation style={undefined}>
             <button
@@ -118,9 +118,11 @@ const ContactForm = () => {
               className=" flex items-center justify-center w-[100%] aspect-square rounded-full bg-blue-600 border-none cursor-pointer disabled:cursor-default"
               disabled={status !== "idle"}
             >
-              <span className="gap-1 z-[20] text-xl text-slate-50 flex items-center">
+              <span className="gap-1 z-[20] text-sm text-slate-50 flex items-center md:text-xl">
                 {sendLabel}
-                {status === "idle" ? <ArrowRight className="w-5 h-5" /> : null}
+                {status === "idle" ? (
+                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
+                ) : null}
               </span>
             </button>
           </ButtonHoverAnimation>

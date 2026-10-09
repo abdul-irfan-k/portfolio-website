@@ -2,8 +2,7 @@
 import { motion,useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 
 import ArrowRight from "@/components/Icons/arrow-right";
 import Mail from "@/components/Icons/mail";
@@ -13,7 +12,6 @@ import ButtonHoverAnimation from "../shared/ButtonHoverAnimation";
 import FooterInfoAndLinkBox from "./FooterInfoAndLinkBox";
 
 const Footer = () => {
-  const router = useRouter();
   const footerContainerRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -43,7 +41,7 @@ const Footer = () => {
           className="relative pt-28 pb-5  px-5 translate-y-[-10%] sm:px-10  md:px-20 md:py-20 xl:px-40 md:translate-y-0   "
           ref={footerContainerRef}
         >
-          <div className="flex flex-col font-display text-5xl md:text-7xl">
+          <div className="flex flex-col font-display text-4xl md:text-7xl">
             <div className="relative  gap-5 flex items-center ">
               <div className="relative w-[25%] max-w-[100px] aspect-square block  rounded-full md:w-[15%]">
                 <Image
@@ -62,7 +60,7 @@ const Footer = () => {
 
           <div className="mt-10 h-[2px]  flex   border-[1px] border-neutral-600 md:mt-28  ">
             <motion.div style={{ marginLeft: contactButtonMarginLeft }}>
-              <div className="absolute w-[25%] min-w-[150px] aspect-square   translate-y-[-50%] translate-x-[-70%] md:translate-x-[-25%] md:w-[20%] xl:w-[15%] ">
+              <div className="absolute w-[25%] min-w-[120px] aspect-square translate-y-[-50%] translate-x-[-70%] md:min-w-[150px] md:translate-x-[-25%] md:w-[20%] xl:w-[15%]">
                 <ButtonHoverAnimation
                   style={{ height: "100%", width: "100%" }}
                   // onClickHandler={() => router.push("/contact")}
@@ -70,7 +68,7 @@ const Footer = () => {
                 >
                   <Link
                     href={"/contact"}
-                    className="h-full w-full bg-bluesecondary rounded-full flex flex-col items-center justify-center"
+                    className="h-full w-full bg-bluesecondary rounded-full flex flex-col items-center justify-center max-md:text-sm"
                   >
                     <span className="gap-1.5 text z-20 flex items-center whitespace-nowrap">
                       Get in touch
@@ -82,9 +80,9 @@ const Footer = () => {
             </motion.div>
           </div>
 
-          <div className="relative gap-5 mt-28 flex  flex-col md:flex-row md:mt-20">
+          <div className="relative gap-3 mt-24 flex flex-col md:gap-5 md:flex-row md:mt-20">
             <ButtonHoverAnimation style={undefined} magneticStifness={0.8}>
-              <div className=" relative px-10 py-4 rounded-full flex items-center justify-center text-lg font-normal border-[1px] w-full border-slate-400 md:w-auto">
+              <div className="relative px-6 py-3 rounded-full flex items-center justify-center text-sm font-normal border-[1px] w-full border-slate-400 md:px-10 md:py-4 md:text-lg md:w-auto">
                 <span className="gap-2 text z-[20] flex items-center">
                   <Mail className="w-4 h-4 shrink-0" />
                   abdulirfank2@gmail.com
@@ -92,7 +90,7 @@ const Footer = () => {
               </div>
             </ButtonHoverAnimation>
             <ButtonHoverAnimation magneticStifness={0.8}>
-              <div className="px-10 py-4 rounded-full text-lg flex items-center justify-center font-normal border-[1px] w-full border-slate-400 md:w-auto">
+              <div className="px-6 py-3 rounded-full text-sm flex items-center justify-center font-normal border-[1px] w-full border-slate-400 md:px-10 md:py-4 md:text-lg md:w-auto">
                 <span className="gap-2 text z-[20] flex items-center">
                   <Phone className="w-4 h-4 shrink-0" />
                   6363520187

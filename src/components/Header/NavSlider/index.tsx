@@ -75,15 +75,15 @@ const NavSlider: FC<NavSliderProps> = ({ isActive }) => {
           },
         }}
       >
-        <div className=" w-full z-[100] px-20 py-14 flex flex-col  h-full  ">
-          <div className=" py-7 text-slate-300 border-b-[1px] border-slate-300 ">
+        <div className="w-full z-[100] px-8 py-10 flex flex-col h-full md:px-20 md:py-14">
+          <div className="py-5 text-slate-300 border-b-[1px] border-slate-300 md:py-7">
             <span className="text-sm tracking-wider">NAVIGATION</span>
           </div>
 
-          <div className=" relative mt-10 flex flex-col">
+          <div className="relative mt-6 flex flex-col md:mt-10">
             <MagneticAnimation magneticStifness={0.5}>
               <motion.h1
-                className="relative py-3 font-display text-6xl"
+                className="relative py-2 font-display text-5xl md:py-3 md:text-6xl"
                 initial="initial"
                 animate={isActive ? "active" : "notActive"}
                 variants={textSlideVariants}
@@ -94,7 +94,7 @@ const NavSlider: FC<NavSliderProps> = ({ isActive }) => {
             </MagneticAnimation>
             <MagneticAnimation magneticStifness={0.5}>
               <motion.h1
-                className="py-3 font-display text-6xl"
+                className="py-2 font-display text-5xl md:py-3 md:text-6xl"
                 initial="initial"
                 animate={isActive ? "active" : "notActive"}
                 variants={textSlideVariants}
@@ -105,7 +105,7 @@ const NavSlider: FC<NavSliderProps> = ({ isActive }) => {
             </MagneticAnimation>
             <MagneticAnimation magneticStifness={0.5}>
               <motion.h1
-                className="py-3 font-display text-6xl"
+                className="py-2 font-display text-5xl md:py-3 md:text-6xl"
                 initial="initial"
                 animate={isActive ? "active" : "notActive"}
                 variants={textSlideVariants}
@@ -116,7 +116,7 @@ const NavSlider: FC<NavSliderProps> = ({ isActive }) => {
             </MagneticAnimation>
             <MagneticAnimation magneticStifness={0.5}>
               <motion.h1
-                className="py-3 font-display text-6xl"
+                className="py-2 font-display text-5xl md:py-3 md:text-6xl"
                 initial="initial"
                 animate={isActive ? "active" : "notActive"}
                 variants={textSlideVariants}
@@ -127,7 +127,7 @@ const NavSlider: FC<NavSliderProps> = ({ isActive }) => {
             </MagneticAnimation>
             <MagneticAnimation magneticStifness={0.5}>
               <motion.h1
-                className="py-3 font-display text-6xl"
+                className="py-2 font-display text-5xl md:py-3 md:text-6xl"
                 initial="initial"
                 animate={isActive ? "active" : "notActive"}
                 variants={textSlideVariants}

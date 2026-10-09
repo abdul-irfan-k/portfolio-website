@@ -9,14 +9,14 @@ interface ExperienceProps {
 }
 
 const Experience: FC<ExperienceProps> = ({
-  spacingClassName = "mt-32 md:mt-40",
+  spacingClassName = "mt-24 md:mt-40",
 }) => {
   return (
     <section
       className={`px-5 sm:px-10 md:px-20 xl:px-40 ${spacingClassName}`}
     >
       <SectionLabel title="Experience" index="01" />
-      <div className="mt-14 gap-24 flex flex-col md:mt-20">
+      <div className="mt-10 gap-16 flex flex-col md:mt-20 md:gap-24">
         {experiences.map((experience) => (
           <ExperienceEntry key={experience.company} experience={experience} />
         ))}

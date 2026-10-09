@@ -14,7 +14,11 @@ const MagneticAnimation: FC<MagneticAnimationProps> = ({
   const magneticRef = useRef<HTMLDivElement | HTMLSpanElement>(null);
 
   useEffect(() => {
-    if (!magneticRef.current) return;
+    if (
+      !magneticRef.current ||
+      !window.matchMedia("(hover: hover) and (pointer: fine)").matches
+    )
+      return;
 
     const scollContainerSelector = gsap.utils.selector(magneticRef.current);
     const xMove = gsap.quickTo(magneticRef.current, "x", {

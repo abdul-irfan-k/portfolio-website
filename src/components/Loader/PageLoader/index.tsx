@@ -140,7 +140,7 @@ const PageLoader = () => {
         </div>
         <div className="flex gap-4  items-center h-16 overflow-hidden">
           <motion.span
-            className="font-display text-6xl font-medium text-right uppercase tracking-normal"
+            className="font-display text-4xl font-medium text-right uppercase tracking-normal md:text-6xl"
             animate={titleControlls}
           >
             {pathname == "/"

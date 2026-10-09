@@ -13,7 +13,7 @@ interface ExperienceEntryProps {
 
 const CurrentRoleBadge = () => {
   return (
-    <span className="gap-2 px-3 py-1 flex items-center rounded-full border-[1px] border-slate-300 text-sm text-dark">
+    <span className="gap-2 px-3 py-1 flex items-center rounded-full border-[1px] border-slate-300 text-xs text-dark">
       <span className="relative w-2 h-2 flex">
         <span className="absolute w-full h-full inline-flex rounded-full bg-blueprimary opacity-75 animate-ping" />
         <span className="relative w-2 h-2 inline-flex rounded-full bg-blueprimary" />
@@ -32,9 +32,9 @@ const ExperienceEntry: FC<ExperienceEntryProps> = ({ experience }) => {
   const animationState = isInView ? "open" : "closed";
 
   return (
-    <article className="gap-12 flex flex-col lg:flex-row lg:gap-16">
+    <article className="gap-8 flex flex-col md:gap-12 lg:flex-row lg:gap-16">
       <div className="lg:w-[35%]" ref={headerRef}>
-        <h2 className="overflow-hidden font-display text-5xl uppercase tracking-normal md:text-6xl xl:text-7xl">
+        <h2 className="overflow-hidden font-display text-2xl uppercase tracking-normal md:text-4xl xl:text-5xl">
           <motion.span
             className="block"
             variants={slideUp}
@@ -46,21 +46,23 @@ const ExperienceEntry: FC<ExperienceEntryProps> = ({ experience }) => {
         </h2>
 
         <motion.div
-          className="mt-5 gap-3 flex flex-col"
+          className="mt-4 gap-2 flex flex-col md:mt-5 md:gap-3"
           variants={fadeUp}
           custom={0.2}
           initial="closed"
           animate={animationState}
         >
-          <span className="text-xl font-medium">{experience.role}</span>
-          <div className="gap-3 flex flex-wrap items-center text-base text-slate-500">
+          <span className="text-sm font-medium md:text-base">
+            {experience.role}
+          </span>
+          <div className="gap-3 flex flex-wrap items-center text-xs text-slate-500 md:text-sm">
             <span>{experience.period}</span>
             {experience.isCurrent && <CurrentRoleBadge />}
           </div>
         </motion.div>
       </div>
 
-      <ul className="gap-8 flex flex-col text-lg text-slate-800 lg:w-[65%] lg:pt-2 xl:text-xl">
+      <ul className="gap-4 flex flex-col text-xs text-slate-800 md:gap-6 md:text-sm lg:w-[65%] lg:pt-2 xl:text-base">
         {experience.highlights.map((highlight, index) => (
           <TimelineItem
             key={highlight}

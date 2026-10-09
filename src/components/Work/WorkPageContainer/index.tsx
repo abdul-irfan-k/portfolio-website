@@ -27,18 +27,18 @@ const WorkPageContainer: FC<WorkPageContainerProps> = ({ projects }) => {
 
   return (
     <div className="">
-      <div className="mt-20 px-10 md:px-20 lg:px-32 xl:px-60 ">
-        <h1 className="font-display text-6xl md:text-6xl lg:text-7xl xl:text-8xl">
+      <div className="mt-10 px-5 sm:px-10 md:mt-20 md:px-20 lg:px-32 xl:px-60">
+        <h1 className="font-display text-4xl md:text-6xl lg:text-7xl xl:text-8xl">
           Creating Next Level Digital Products
         </h1>
 
-        <div className="gap-4 mt-16 flex items-center ">
+        <div className="gap-2 mt-10 flex items-center md:gap-4 md:mt-16">
           <ButtonHoverAnimation
             onClickHandler={() => setSelectedProject("all")}
           >
             <div
               className={
-                "px-10 py-6 rounded-full flex items-center justify-center  " +
+                "px-5 py-3 rounded-full flex items-center justify-center max-md:text-sm md:px-10 md:py-6 " +
                 (selectedProject == "all"
                   ? "bg-dark text-slate-50"
                   : "text-dark border-2 border-slate-400")
@@ -52,7 +52,7 @@ const WorkPageContainer: FC<WorkPageContainerProps> = ({ projects }) => {
           >
             <div
               className={
-                "ml-2 px-10 py-6 rounded-full flex items-center  " +
+                "px-5 py-3 rounded-full flex items-center max-md:text-sm md:ml-2 md:px-10 md:py-6 " +
                 (selectedProject == "frontend"
                   ? "bg-dark text-slate-50"
                   : "text-dark border-2 border-slate-400")
@@ -66,7 +66,7 @@ const WorkPageContainer: FC<WorkPageContainerProps> = ({ projects }) => {
           >
             <div
               className={
-                "ml-2 px-10 py-6 rounded-full flex items-center  " +
+                "px-5 py-3 rounded-full flex items-center max-md:text-sm md:ml-2 md:px-10 md:py-6 " +
                 (selectedProject == "backend"
                   ? "bg-dark text-slate-50"
                   : "text-dark border-2 border-slate-400")
@@ -125,7 +125,7 @@ const WorkPageContainer: FC<WorkPageContainerProps> = ({ projects }) => {
         {!isListView && <ProjectCardList projects={projects} />}
       </DesktopBreakPoint>
       <MobileBreakPoint>
-        <ProjectCardList projects={projects} />
+        <ProjectCardList projects={projects} isHoverPreviewEnabled={false} />
       </MobileBreakPoint>
     </div>
   );

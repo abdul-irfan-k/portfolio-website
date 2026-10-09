@@ -23,6 +23,9 @@ const ButtonHoverAnimation: FC<ButtonHoverAnimationProps> = ({
   let timeout: undefined | ReturnType<typeof setTimeout> = undefined;
 
   useEffect(() => {
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches)
+      return;
+
     const timelineObj = gsap
       .timeline({ paused: true })
       .to(

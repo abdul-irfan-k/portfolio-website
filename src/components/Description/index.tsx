@@ -16,11 +16,11 @@ const About = () => {
 
   return (
     <div
-      className="mt-20 gap-5 flex flex-col justify-between px-5  md:flex-row md:gap-10 sm:px-10 md:px-20 xl:px-40 "
+      className="mt-14 gap-5 flex flex-col justify-between px-5 sm:px-10 md:mt-20 md:flex-row md:gap-10 md:px-20 xl:px-40"
       ref={description}
     >
       <p
-        className="gap-2 font-display text-xl md:text-3xl xl:text-3xl"
+        className="gap-2 font-display text-lg md:text-3xl xl:text-3xl"
         style={{ lineHeight: 1.3 }}
       >
         {aboutDescription.split(" ").map((word, index) => {
@@ -44,7 +44,7 @@ const About = () => {
 
       <div className="flex  flex-col items-end md:items-start">
         <motion.span
-          className="w-[50%] mr-auto text-lg font-normal text-pretty md:mb-10 md:w-full md:mr-0"
+          className="w-[75%] mr-auto text-base font-normal text-pretty md:mb-10 md:w-full md:mr-0 md:text-lg"
           variants={opacity}
           animate={isInView ? "open" : "closed"}
         >
@@ -53,10 +53,10 @@ const About = () => {
         </motion.span>
 
         <ButtonHoverAnimation>
-          <div className=" w-40 aspect-square rounded-full flex items-center justify-center text-white bg-blackprimary">
+          <div className="w-28 aspect-square rounded-full flex items-center justify-center text-white bg-blackprimary max-md:text-sm md:w-40">
             <span className="gap-1 text z-20 flex items-center">
               About Me
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
             </span>
           </div>
         </ButtonHoverAnimation>

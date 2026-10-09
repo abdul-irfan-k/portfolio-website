@@ -25,7 +25,7 @@ const TimelineItem: FC<TimelineItemProps> = ({ text, isLast }) => {
   return (
     <motion.li
       ref={itemRef}
-      className="relative gap-6 flex items-start"
+      className="relative gap-4 flex items-start md:gap-6"
       variants={fadeUp}
       initial="closed"
       animate={isRevealed ? "open" : "closed"}
@@ -33,7 +33,7 @@ const TimelineItem: FC<TimelineItemProps> = ({ text, isLast }) => {
       <span className="h-[1.4em] flex items-center shrink-0" aria-hidden>
         <motion.span
           ref={dotRef}
-          className="relative z-10 w-[15px] h-[15px] block rounded-full border-[1px] border-dark"
+          className="relative z-10 w-[10px] h-[10px] block rounded-full border-[1px] border-dark md:w-[15px] md:h-[15px]"
           variants={dotFill}
           initial="idle"
           animate={isReached ? "reached" : "idle"}

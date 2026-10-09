@@ -9,16 +9,16 @@ const FooterInfoAndLinkBox = () => {
       <div className="mt-5 flex justify-between md:mt-0">
         <div className="gap-2 flex flex-col">
           <span className="text-xs text-slate-300">VERSION</span>
-          <span className="text-base">2023 © Edition</span>
+          <span className="text-sm md:text-base">2023 © Edition</span>
         </div>
         <div className="ml-5 gap-2 flex flex-col">
           <span className="text-xs text-slate-300">VERSION</span>
-          <span className="text-base">2023 © Edition</span>
+          <span className="text-sm md:text-base">2023 © Edition</span>
         </div>
       </div>
       <div className="gap-2 flex flex-col md:ml-auto ">
         <span className="text-xs text-slate-300">SOCIALS</span>
-        <div className="gap-5 flex text-base items-center">
+        <div className="gap-x-4 gap-y-1 flex flex-wrap text-sm items-center md:gap-5 md:flex-nowrap md:text-base">
           <MagneticAnimation>
             <Link href={"https://github.com/abdul-irfan-k/"}>
               <span className="py-1  ">GitHub</span>

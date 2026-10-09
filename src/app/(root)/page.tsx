@@ -4,6 +4,7 @@ import Link from "next/link";
 import About from "@/components/Description";
 import Experience from "@/components/Experience";
 import Hero from "@/components/Hero/Hero";
+import ArrowRight from "@/components/Icons/arrow-right";
 import Project from "@/components/Project";
 import ProjectHorizontalScroll from "@/components/ProjectHorizontalScroll";
 import DesktopBreakPoint from "@/components/ResponsiveUtilities/DesktopBreakPoint";
@@ -21,43 +22,53 @@ const HomePage = async () => {
       <Hero />
       <About />
       <Experience />
-      <div className="mt-32 px-5 sm:px-10 md:mt-40 md:px-20 xl:px-40">
+      <div className="mt-24 px-5 sm:px-10 md:mt-40 md:px-20 xl:px-40">
         <SectionLabel title="Projects" index="02" />
       </div>
       <DesktopBreakPoint>
         <Project projects={projectWithBanner.slice(0, 6)} />
       </DesktopBreakPoint>
       <MobileBreakPoint>
-        <div className=" mt-10  px-5 sm:px-10">
-          <div className=" gap-x-3  flex w-full flex-wrap  justify-between  ">
+        <div className="mt-2 px-5 sm:px-10">
+          <div className="gap-x-3 flex w-full flex-wrap justify-between">
             {projects.slice(0, 5).map((project, index) => {
               return (
                 <Link
                   key={index}
-                  className="mt-20 flex-[0_0_100%]    sm:flex-[0_0_45%] "
+                  className="mt-10 flex-[0_0_100%] sm:flex-[0_0_47%]"
                   href={`/projects/${project.project_name}`}
                 >
-                  <div className="relative w-full aspect-square ">
+                  <div className="relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-slate-100">
                     <Image
-                      alt="image"
+                      alt={project.project_name}
                       src={
                         project.banner_url ??
                         (process.env.NEXT_PUBLIC_DEFAULT_IMAGE || "")
                       }
                       fill
-                      sizes="(min-width: 640px) 45vw, 100vw"
+                      className="object-cover"
+                      sizes="(min-width: 640px) 47vw, 100vw"
                     />
                   </div>
-                  <span className="mt-2 font-display text-4xl">
+                  <span className="mt-4 block font-display text-2xl">
                     {project.project_name}
                   </span>
-                  <div className="mt-2 flex justify-between ">
-                    <span className="text-base">Design & Development</span>
-                    <span className="text-base">2023</span>
+                  <div className="mt-1 flex justify-between text-sm text-slate-500">
+                    <span>Design & Development</span>
+                    <span>2023</span>
                   </div>
                 </Link>
               );
             })}
+          </div>
+          <div className="mt-14 flex justify-center">
+            <Link
+              href={"/projects"}
+              className="gap-2 px-6 py-3 flex items-center rounded-full border-[1px] border-dark text-sm"
+            >
+              More Projects
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </MobileBreakPoint>

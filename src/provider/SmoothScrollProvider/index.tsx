@@ -13,11 +13,19 @@ const SmothScrollScrollProvider = ({
 }) => {
   const [lenis, setLenis] = useState<Lenis | undefined>(undefined);
   useEffect(() => {
+    const isTouchDevice = !window.matchMedia(
+      "(hover: hover) and (pointer: fine)"
+    ).matches;
+
     const lenis = new Lenis({
       smoothWheel: true,
       syncTouch: true,
       // duration: 5,
       lerp: 0.02,
+      ...(isTouchDevice && {
+        syncTouchLerp: 0.05,
+        touchInertiaMultiplier: 20,
+      }),
     });
     lenis.start();
     setLenis(lenis);

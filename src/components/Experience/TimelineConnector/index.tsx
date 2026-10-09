@@ -12,7 +12,7 @@ const TimelineConnector = () => {
   return (
     <span
       ref={connectorRef}
-      className="absolute left-[7px] top-[0.7em] w-[1px] h-[calc(100%+2rem)] block bg-slate-300"
+      className="absolute left-[4.5px] top-[0.7em] w-[1px] h-[calc(100%+1rem)] block bg-slate-300 md:left-[7px] md:h-[calc(100%+1.5rem)]"
       aria-hidden
     >
       <motion.span

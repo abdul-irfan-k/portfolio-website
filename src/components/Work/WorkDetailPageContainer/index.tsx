@@ -19,7 +19,7 @@ const WorkDetailPageContainer: FC<WorkDetailPageContainerProps> = ({
         <div className="relative  ">
           <div className="relative ">
             <h1
-              className="w-[80%] font-display text-6xl md:text-7xl lg:text-8xl xl:text-9xl"
+              className="w-[80%] font-display text-5xl md:text-7xl lg:text-8xl xl:text-9xl"
               data-speed="10"
             >
               {project.project_name}
@@ -29,11 +29,11 @@ const WorkDetailPageContainer: FC<WorkDetailPageContainerProps> = ({
               <ButtonHoverAnimation style={{ marginTop: "5rem" }}>
                 <Link
                   href={project.website_url ? project.website_url : "#"}
-                  className=" w-[35vw] max-w-44 aspect-square rounded-full flex items-center justify-center fill-slate-50 text-slate-50 bg-blue-600"
+                  className="w-28 max-w-44 aspect-square rounded-full flex items-center justify-center fill-slate-50 text-slate-50 bg-blue-600 max-md:text-sm md:w-[35vw]"
                 >
                   <span className="gap-1 text w-auto  flex  items-center z-20 ">
                     Live Site
-                    <NorthArrow className="w-6 h-6" />
+                    <NorthArrow className="w-5 h-5 md:w-6 md:h-6" />
                   </span>
                 </Link>
               </ButtonHoverAnimation>

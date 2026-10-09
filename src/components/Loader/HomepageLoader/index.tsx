@@ -38,7 +38,7 @@ const HomePageLoader = () => {
             <div className="relative flex gap-0 w-fit  items-center h-16 md:gap-2 xl:gap-4">
               <div className="absolute right-[100%] w-max overflow-hidden ">
                 <motion.div
-                  className="w-max font-display text-xl font-normal text-right md:text-3xl xl:text-4xl"
+                  className="w-max font-display text-sm font-normal text-right md:text-3xl xl:text-4xl"
                   initial="initial"
                   variants={{
                     initial: { translateY: "-100%" },
@@ -53,10 +53,8 @@ const HomePageLoader = () => {
 
               <div className="relative ">
                 <svg
-                  className="fill-slate-200"
+                  className="w-14 h-14 fill-slate-200 md:w-20 md:h-20"
                   viewBox="0 0 100 100"
-                  width={"80px"}
-                  height={"80px"}
                 >
                   <circle
                     className="fill-white"
@@ -85,7 +83,7 @@ const HomePageLoader = () => {
               </div>
               <div className="absolute left-[100%] w-max overflow-hidden ">
                 <motion.div
-                  className="font-display text-xl font-normal md:text-3xl xl:text-4xl"
+                  className="font-display text-sm font-normal md:text-3xl xl:text-4xl"
                   initial="initial"
                   variants={{
                     initial: { translateY: "100%" },
